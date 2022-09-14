@@ -1,0 +1,49 @@
+/* importa da API do Google uma fonte-family específica (Roboto) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+*{
+  font-family: Roboto;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+} 
+
+#header {
+  height: 68px; 
+  background-color: #115639;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.T_logo {
+  color: white;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+#conteiner {
+  display: flex;
+  padding-top: 68px;
+  max-height: 1000px;
+}
+ 
+.b_simular {
+  padding-right: 48px;
+  padding-left: 48px;
+  margin-left: 7px;
+    
+}
+
+#div_resultado {
+  max-width: 38%;
+}
+
+.in_01 {
+  margin-left: 7px;
+  margin-bottom: 7px;
+}
