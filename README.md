@@ -14,6 +14,9 @@ REGRAS DE CONVIVÊNCIA DO GRUPO
 * Respeito mútuo;
 * Tratar o próximo da mesma forma que deseja ser tratado;
 * Evitar comportamentos nocivos (que podem ser considerados prejudiciais ao trabalho em equipe ou conclusão do projeto);
+* Respeitar o espaço pessoal de cada membro do Grupo;
+* Profissionalismo; Saber distinguir o profissional do pessoal.
+
 
 
 
