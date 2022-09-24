@@ -116,3 +116,6 @@ select numero_serie, presenca from arduino;
 
 -- Selecionar id_arduino e data/hora por ordem crescente 
 select id_arduino, dataH from arduino order by dataH asc; 
+
+select * from arduino;
+select * from usuarios;
