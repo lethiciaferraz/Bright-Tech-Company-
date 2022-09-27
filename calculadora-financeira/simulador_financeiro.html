@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,49 +9,69 @@
     <title>Simulador Financeiro</title>
 </head>
 <body>
-
-    <div id="header">
-        <h1 class="T_logo">Bright Tech</h1>
-    </div>
-
-    <div id="conteiner">
-        <div id="div_01">
-            <h3>Insira a quantidade de m² da sua empresa:</h3>
-                <input id="in_metro" type="number" class="in_01"><br>
-            
-            <h3>Insira a quantidade de horas por dia de funcionamento da sua empresa:</h3>
-                <input id="in_horas" type="number" class="in_01"><br>
-
-            <h3>Insira a quantidade de dias de funcionamento da sua empresa:</h3>
-                <input id="in_dias_func" type="number" class="in_01"><br>
-
-            <button class="b_simular" onclick="simular()">Simular</button>
-            
-            <div id="div_resultado"></div>
+    <div class="header">
+        <div class="container">
+            <div class="logo"><img src="./images/testelogo-removebg-preview.png" alt=""></div>
+            <div class="navbar">
+                <ul>
+                    <li><b>HOME</b></li>
+                    <li><b>QUEM SOMOS</b></li>
+                    <li><b>PROJETO</b></li>
+                    <li><b>SIMULADOR</b></li>
+                   <div class="login"> <li><b><a href="loginsprint.html" id="blogin">LOGIN</a></b></li></div>
+                </ul>
+            </div>
         </div>
-    </div>
+        
+          <div id="div_fechar"> 
+            
+             <div id="conteiner">
+                <div id="caixa">
+                    <h1>Simulador Financeiro</h1>
+                    <br><br>
+                    <h4>Inserir a quantidade de metros quadrados uteis da sua empresa:</h4>
+                    <input id="in_metro" placeholder="metros quadrados"><br><br>
 
+                    <h4>Insira a quantidade de horas por dia de funcionamento da sua empresa:</h4>
+                    <input id="in_horas" placeholder="Horas por dia úteis"><br><br>
+                    
+                    <h4>Insira a quantidade de dias de funcionamento em que há funcionários presentes no prédio no mês:</h4>
+                    <input id="in_dias_func" placeholder="Dias de funcionamento"><br><br>
+                    
+                    <button onclick="simular()">SIMULAR</button>                   
+                    <br><br>
+                    
+                </div>
+            </div>
+        </div>
+        
 </body>
+
 </html>
 
 <script>
-    function simular(){
+    function simular() {
         var m2 = Number(in_metro.value)
         var hr = Number(in_horas.value)
         var dias_func = Number(in_dias_func.value)
-        
-        var total_conta = (((hr * 0.39208)*(m2/16))*4)*dias_func
-        var economia_solucao = ((total_conta * 0.2)/ 2)+(total_conta / 2)
-        var arduino = 1000 * (m2/16)
-        var tempo = (arduino/(total_conta - economia_solucao))
 
-        div_resultado.innerHTML = ('Estima-se que em 8 horas você gasta 480 watts, dando um total de R$15,68 por semana, mas isso é por cada lâmpada acessa...<br>')
+        var total_conta = (((hr * 0.39208) * (m2 / 16)) * 4) * dias_func
+        var economia_solucao = ((total_conta * 0.2) / 2) + (total_conta / 2)
+        var arduino = 1000 * (m2 / 16)
+        var tempo = (arduino / (total_conta - economia_solucao))
 
-        div_resultado.innerHTML += (`<br>Considerando que a cada 16m² seriam usados um conjunto de 4 lâmpadas, <strong style="color: red;">sua empresa estaria gastando um total de R$${total_conta.toFixed(2)} por mês.</strong><br>`)
-        
-        div_resultado.innerHTML += (`<br>Utilizando nossa solução, Bright Sense, e considerando que as luzes diminuam em 20% sua intensidade por apenas metade do tempo, sua empresa gastaria um total de R$${economia_solucao.toFixed(2)} no mês, <strong style="color: green;">gerando uma economia de ${(((total_conta - economia_solucao)/total_conta)*100).toFixed(0)}%.</strong><br>`)
-        
-        div_resultado.innerHTML += (`<br>Com um investimento de R$1000,00 por dispositivo, o qual cobrirá 16m², <strong> <i> você recuperaria seu insvestimento em aproximadamente ${tempo.toFixed()} meses!</i></strong>`)
+        div_fechar.innerHTML =''
+
+        div_fechar.innerHTML = `<div class="resul"><div id="div_resul"></div></div>`
+
+        div_resul.innerHTML = '<b>RESULTADO <br><br> </b>'
+
+        div_resul.innerHTML += 'Estima-se que em 8 horas você gasta 480 watts, dando um total de R$15,68 por semana, mas isso é por cada lâmpada acessa...<br>'
+
+        div_resul.innerHTML += `<br>Considerando que a cada 16m² seriam usados um conjunto de 4 lâmpadas, <strong style="color: red;">sua empresa estaria gastando um total de R$${total_conta.toFixed(2)} por mês.</strong><br>`
+
+        div_resul.innerHTML += `<br>Utilizando nossa solução, Bright Sense, e considerando que as luzes diminuam em 20% sua intensidade por apenas metade do tempo, sua empresa gastaria um total de R$${economia_solucao.toFixed(2)} no mês, <strong style="color: green;">gerando uma economia de ${(((total_conta - economia_solucao) / total_conta) * 100).toFixed(0)}%.</strong><br>`
+
+        div_resul.innerHTML += `<br>Com um investimento de R$1000,00 por dispositivo, o qual cobrirá 16m², <strong> <i> você recuperaria seu insvestimento em aproximadamente ${tempo.toFixed()} meses!</i></strong>`
     }
-
 </script>
