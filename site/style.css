@@ -25,7 +25,7 @@
 
 ul {
     display: flex;
-    width: 700px;
+    width: 800px;
     justify-content: space-between;
     list-style: none;
     padding-left: 15px;
@@ -36,10 +36,9 @@ li {
 }
 
 .fundo {
-    background-image: url("./2.jpg") ;
+    background-image: url("./assents/2.jpg") ;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
     margin: 0px;
 }
 
@@ -59,7 +58,7 @@ li {
 
 li a{
     color: #041b49 ;
-    background-color: #6fff31;
+    background-color: #64c939;
     margin-top: 20px;
     width: 20px;
     padding: 10px 20px;
@@ -69,4 +68,5 @@ li a{
     cursor: pointer;
     text-decoration: none;
 }
+
 
