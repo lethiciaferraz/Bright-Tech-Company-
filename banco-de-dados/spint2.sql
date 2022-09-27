@@ -18,11 +18,12 @@ insert into empresa (nome,cnpj,telefone_contato,email,endereco,status_contrato,d
                                                                                                                 ('cobool','60.912.843/0001-96','13948563847','cobool@hotmail.com','vila madalena','inativo','2022-09-20',93847364.57);
 
 create table usuario(
-id_usuario int primary key auto_increment,
+id_usuario int auto_increment,
 login varchar(45),
 senha varchar(45),
 email varchar(45),
 fk_empresa int,
+primary key (id_usuario,fk_empresa),
 foreign key (fk_empresa) references empresa(id_empresa)
 )auto_increment= 27;
 
@@ -43,13 +44,14 @@ insert into heatmap (andar,setor,metros_quadrados) values (7,'administrativo',38
                                                           (1,'recepção',94857.12);
 
 create table arduino(
-id_arduino int primary key auto_increment,
+id_arduino int auto_increment,
 num_serie varchar(45),
 dado_captura int,
 dt_registro datetime,
 fk_empresa int,
 foreign key (fk_empresa) references empresa (id_empresa),
 fk_heatmap int,
+primary key(id_arduino,fk_empresa,fk_heatmap),
 foreign key (fk_heatmap) references heatmap (id_map)
 )auto_increment = 327;
 
@@ -75,4 +77,8 @@ select * from empresa as e join usuario as u on e.id_empresa = u.fk_empresa;
 
 -- selecionando os dados dos arduinos e seus respectivos mapas --
 select * from arduino as a join heatmap as h on a.fk_heatmap = h.id_map;
-						   
+
+truncate table empresa;
+truncate table usuario;
+truncate table heatmap;
+truncate table arduino;
