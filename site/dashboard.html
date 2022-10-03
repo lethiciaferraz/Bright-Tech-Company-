@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>dashboard</title>
+</head>
+
+<body>
+    <!-- style="display: flex;" -->
+    <div class="fundo">
+        <div class="container">
+            <div class="logo"><img src="./assents/1.png" alt=""></div>
+            <div class="navbar">
+                <ul>
+                    <li><b>HOME</b></li>
+                    <li><b>QUEM SOMOS</b></li>
+                    <li><b>PROJETO</b></li>
+                    <li><b>SIMULADOR</b></li>
+                    <li><b>DASHBOARD</b></li>
+                    <div class="cad">
+                        <li><a href="Cadastro.html" id="Acad">CADASTRO</a></li>
+                    </div>
+                    <div class="login">
+                        <li><b><a href="loginsprint.html" id="blogin">LOGIN</a></b></li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="container1">
+            <div class="container">
+                <div id="caixa">
+                    <div id="grafics">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <br><br><br><br>
+                    <div>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const labels2 = [
+        'janeiro',
+        'fevereiro',
+        'março',
+        'abril',
+        'maio',
+        'junho',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'temperatura',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [30, 29, 28, 25, 22, 23],
+        },
+        {
+            label: 'humidade',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [80, 82, 80, 85, 80, 83],
+        }
+        ]
+    };
+
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'temperatura',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [22, 24, 27, 23, 20, 18],
+        },
+        {
+            label: 'humidade',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [90, 89, 93, 87, 88, 82],
+        }
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
+</script>
+
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+</script>

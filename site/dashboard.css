@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.logo {
+    padding: 15px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+ul {
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 15px;
+}
+
+li {
+    color: #6fff31;
+}
+
+.fundo {
+    background-image: url("./assents/2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+}
+
+.container1 {
+    padding: 60px;
+    display: flex;
+    height: 1000px;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#caixa {
+    margin-left: 20%;
+    border: 50px;
+}
+
+#grafics {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    border-radius: 5px;
+}
+
+canvas {
+    position: relative;
+    height: 40vh;
+    width: 40vw;
+}
+
+#myChart2 {
+    background-color: white;
+}
+
