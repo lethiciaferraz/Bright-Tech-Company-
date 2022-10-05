@@ -1,0 +1,11 @@
+.fundo{
+    background-image: url(./assents/Frame\ 2\ -\ 1.0.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+
+}
+
+.caixa-formulario{
+    margin-bottom: 100px;
+}

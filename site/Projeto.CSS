@@ -1,0 +1,153 @@
+body{
+    background-image: url(./Frame\ 2\ -\ 1.0.png);
+    background-size: 2600px;
+    font-family:Arial, Helvetica, sans-serif;
+    background-repeat: no-repeat;
+}
+
+
+* {
+    padding: 0%;
+    margin: 0%;
+    color: #115639;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 50px;
+    font-family: sans-serif;
+    font-size: 25px;
+  }
+  
+  .container ul{
+    display: flex;
+    list-style: none;
+  }
+  .container ul li{
+    color:#115639;
+    margin: 0px 15px;
+  }
+  
+  .container ul li a{
+    text-decoration: none;
+    color: #115639;
+  }
+  
+  a:hover{
+    opacity: 0.9;
+  }
+  
+  #login a{
+    background-color: #115639;
+    color: #fff;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+.banner {
+    padding: 100px 0;
+}
+
+.banner .container1 {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+   justify-content: space-evenly;
+   margin-left: 200px;
+   margin-right: 200px;
+}
+
+h1 {
+    color: #115639;
+    font-size: 30px;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+}
+
+.container1 h2 {
+    padding-top: 100px;
+    color: #115639;
+    align-items:flex-start;
+    font-weight: 700;
+    font-size: 25px;
+    
+}
+
+ p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-start;
+    height: 40px;
+
+}
+
+
+.container2 h2{
+    padding-top: 100px;
+    color: #115639;
+    align-items:center;
+    font-weight: 700;
+    font-size: 25px;    
+    display: flex;
+    flex-direction: column;
+    
+}
+
+ .caixas{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.caixa{
+    width: 300px;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 15px;
+    padding: 15px;
+    display: flex;
+}
+
+h4 {
+    display: flex;
+    justify-content: center;
+    color: #115639;
+    font-size: 25px;
+}
+
+.footer{
+    height: 30px;
+    padding: 50px;
+    background-color: #115639;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+  }
+ 
+.footer ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 50px;
+  }
+
+  .footer ul li {
+    color: #fff;
+    margin: 0px 15px;
+    font-size: medium;
+  }
+
+  .footer ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  

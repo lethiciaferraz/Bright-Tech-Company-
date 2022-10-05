@@ -23,10 +23,13 @@ ul{
     gap: 30px;
     
 }
+li p{ 
+    color:#115639
+}
 
 li a{
-    color: #041b49;
-    background-color: #64c939;
+    color: #ffffff;
+    background-color: #115639;
     margin-top: 20px;
     width: 20px;
     padding: 10px 20px;
@@ -50,7 +53,7 @@ li a{
     
 }
 .caixa-formulario h1{
-    color: #000;
+    color: #115639;
     margin-bottom: 20px;
 }
 .campo{
@@ -63,11 +66,11 @@ li a{
 .campo input{
     padding: 5px;
     border-radius: 10px;
-    border: 2px solid #351111a6;
-    color: black;
+    border: 2px solid #115639;
+    color: #115639;
 }
 .campo label{
-    color: #000;
+    color: #115639;
     font-family: sans-serif;
     margin: 15px 0px;
 }
@@ -75,7 +78,7 @@ li a{
 .caixa-formulario button{
     margin-top: 20px;
     width: 100px;
-    background-color:#2a4b8dd0 ;
+    background-color:#115639 ;
     color: #ffffff;
     padding: 10px 20px;
     font-weight: bold;
@@ -85,4 +88,39 @@ li a{
 }
 .caixa-formulario button :hover{
     opacity: 0.9;
+}
+
+.footer{
+    height: 30px;
+    padding: 50px;
+    background-color: #115639;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+  }
+ 
+.footer ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 50px;
+  }
+
+  .footer ul li {
+    color: #fff;
+    margin: 0px 15px;
+    font-size: medium;
+  }
+
+  .footer ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+body{
+    margin: 0px;
+    
 }
