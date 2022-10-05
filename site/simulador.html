@@ -6,68 +6,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="simulador.css">
-    <link rel="stylesheet" href="style.css">
     <title>Simulador Financeiro</title>
 </head>
 
 <body>
-    <!--Header ----->
-    <div class="fundo">
+    <div class="header">
+        <!--Header ----->
         <div class="container">
-            <div class="logo"><img src="./assents/1.png" alt=""></div>
+            <div class="logo"><img src="./img/logoBLACK2.png" alt="Logo da empresa"></div>
             <div class="navbar">
                 <ul>
-                    <li><b>HOME</b></li>
-                    <li><b>QUEM SOMOS</b></li>
-                    <li><b>PROJETO</b></li>
-                    <li><b>SIMULADOR</b></li>
-                    <li><b>DASHBOARD</b></li>
-                    <div class="cad">
-                        <li><a href="Cadastro.html" id="acad">CADASTRO</a></li>
-                    </div>
-                    <div class="login">
-                        <li><b><a href="loginsprint.html" id="blogin">LOGIN</a></b></li>
-                    </div>
+                    <li><b><a href="">Quem Somos</a></b></li>
+                    <li><b><a href="">Projeto</a></b></li>
+                    <li><b><a href="">Simulador</a></b></li>
+                    <li><b><a href="">Dashboard</a></b></li> 
+                    <li id="login"><b><a href=""> Cadastro</a></b></li>
+                    <li id="login"><b><a href="">Login</a></b></li>
                 </ul>
             </div>
         </div>
+    </div>
+    <!--Simulador ----->
+    <div id="div_fechar">
+        <div class="conteiner">
+            <div class="caixa">
+                <h1>Simulador Financeiro</h1>
 
-        <!--Cadastro ----->
-        <div id="div_fechar">
-            <div id="conteiner">
-                <div id="caixa">
-                    <h1>Simulador Financeiro</h1>
-                    <br><br>
-                    <h4>Insira a quantidade de metros quadrados úteis da sua empresa:</h4>
+                <div class="campo">
+                    <label for="m2">Quantidade de metros quadrados úteis da sua empresa:</label>
+                    <br>
                     <input id="in_metro" placeholder="Metros quadrados"><br><br>
-
-                    <h4>Insira a quantidade de horas por dia de funcionamento da sua empresa:</h4>
-                    <input id="in_horas" placeholder="Horas por dia"><br><br>
-
-                    <h4>Insira a quantidade de dias de funcionamento em que há funcionários presentes no prédio no mês:
-                    </h4>
-                    <input id="in_dias_func" placeholder="Por mês"><br><br>
-
-                    <button onclick="simular()">SIMULAR</button>
-                    <br><br>
-
                 </div>
+
+                <div class="campo">
+                    <label for="horas por dia">Quantidade de horas por dia de funcionamento da sua
+                        empresa:</label>
+                    <br>
+                    <input id="in_horas" placeholder="Horas por dia"><br><br>
+                </div>
+
+                <div class="campo">
+                    <label for="dias de funcionamento">Quantidade de dias de funcionamento em que há
+                        funcionários presentes no prédio no mês:</label>
+                    <br>
+                    <input id="in_dias_func" placeholder="Por mês"><br><br>
+                </div>
+
+                <button onclick="simular()">SIMULAR</button>
+
             </div>
         </div>
-
+    </div>
+        <!-- Footer -->
+        <div class="footer">
+            <ul>
+                <li><b><a href="">ENDEREÇO</a></b></li>
+                <li><b><a href="">CONTATO</a></b></li>
+                <li><b><a href="">FAQ</a></b></li>
+            </ul>
+                Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech           
+        </div>
 </body>
 
 </html>
 
 <script>
-    
+
     function simular() {
         var m2 = Number(in_metro.value)
         var hr = Number(in_horas.value)
         var dias_func = Number(in_dias_func.value)
 
         var dispositivo = m2 / 16
-        var total_conta = (((hr * 0.39208) * (dispositivo)) * 4) * dias_func
+
+        var total_conta = (((hr * 0.39208) * dispositivo) * 4) * dias_func
         var economia_solucao = ((total_conta * 0.2) / 2) + (total_conta / 2)
         var arduino = 1000 * dispositivo
         var tempo = (arduino / (total_conta - economia_solucao))
@@ -76,16 +88,16 @@
 
         div_fechar.innerHTML = `<div class="resul"><div id="div_resul"></div></div>`
 
-        div_resul.innerHTML = '<b>RESULTADO <br><br> </b>'
+        div_resul.innerHTML = '<b>RESULTADO <br><br></b>'
 
         div_resul.innerHTML += 'Estima-se que em 8 horas você gasta 480 watts, dando um total de R$15,68 por semana, mas isso é por cada lâmpada acessa...<br>'
 
         div_resul.innerHTML += `<br>Considerando que a cada 16m² seriam usados um conjunto de 4 lâmpadas, <strong style="color: red;">sua empresa estaria gastando um total de R$${total_conta.toFixed(2)} por mês.</strong><br>`
 
         div_resul.innerHTML += `<br>Utilizando nossa solução, Bright Sense, e considerando que as luzes diminuam em 20% sua intensidade por apenas metade do tempo, sua empresa gastaria um total de R$${economia_solucao.toFixed(2)} no mês, <strong style="color: green;">gerando uma economia de ${(((total_conta - economia_solucao) / total_conta) * 100).toFixed(0)}%.</strong><br>`
-        
+
         div_resul.innerHTML += `<br>Com um investimento de R$1000,00 por dispositivo, o qual cobrirá 16m², seu investimento seria de R$${arduino.toFixed()}. <strong> <i> Seu investimento seria recuperado em aproximadamente ${tempo.toFixed()} meses!</i></strong>`
-    
+
         div_resul.innerHTML += `<br>Sua empresa vai precisar de ${dispositivo.toFixed()} dispositivos Bright Sense.`
     }
 </script>

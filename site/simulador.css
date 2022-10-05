@@ -1,4 +1,46 @@
-#conteiner {
+.container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 50px;
+  font-family: sans-serif;
+  /* border-bottom: 2px solid #115639; */
+}
+
+.container ul{
+  display: flex;
+  list-style: none;
+}
+.container ul li{
+  color: #fff;
+  margin: 0px 15px;
+}
+
+.container ul li a{
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover{
+  opacity: 0.9;
+}
+
+#login a{
+  background-color: #fff;
+  color: #115639;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+body {
+  background-image: url("./img/Frame\ 1\ -\ 2.0.png") ;
+  background-size: cover all;
+  margin: 0px;
+}
+
+/* SIMULADOR */
+
+.conteiner {
   text-align: center;
   font-family: sans-serif;
   background-color: #e2e9dfe3;
@@ -7,22 +49,15 @@
   border-radius: 30px;
 }
 
-body{
-  background-image: url("./assents/QUEM\ SOMOS\ -\ 1.0.png") ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0px;
-}
-
 h1{
-  color: #041b49;
+  color: #115639;
 }
 
 input {
   margin: 5px;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid #6fff31;
+  border: 2px solid #115639;
   color: black;
 }
 
@@ -30,7 +65,7 @@ button {
   padding: 5px 10px;
   border-radius: 10px;
   color: #fff;
-  background-color: #041b49;
+  background-color: #115639;
   font-weight: bold;
   cursor: pointer;
 }
@@ -50,6 +85,37 @@ button:hover{
 
 .resul {
   font-family: Arial, Helvetica, sans-serif;
-
 }
+
+/* FOOTER */
+.footer{
+  height: 30px;
+  padding: 50px;
+  background-color: #115639;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+}
+
+.footer ul {
+  display: flex;
+  list-style: none;
+  margin-bottom: 50px;
+}
+
+.footer ul li {
+  color: #fff;
+  margin: 0px 15px;
+  font-size: medium;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
 

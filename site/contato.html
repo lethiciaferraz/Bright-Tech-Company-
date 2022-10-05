@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contato.css">
+    <title>Contato</title>
+</head>
+
+<body>
+    <div class="header">
+        <!--Header ----->
+        <div class="container">
+            <div class="logo"><img src="./img/logoBLACK2.png" alt="Logo da empresa"></div>
+            <div class="navbar">
+                <ul>
+                    <li><b><a href="">Quem Somos</a></b></li>
+                    <li><b><a href="">Projeto</a></b></li>
+                    <li><b><a href="">Simulador</a></b></li>
+                    <li><b><a href="">Dashboard</a></b></li> 
+                    <li id="login"><b><a href="">Cadastro</a></b></li>
+                    <li id="login"><b><a href="">Login</a></b></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contato -->
+    <div id="conteiner">
+        <div class="caixa">
+            <img src="./img/3675555.jpg" alt="" id="img_contato" width="50%" height="50%">
+            <div id="div_contato">
+                <h2>Entre em contato</h2>
+                Preencha os campos abaixo para entrarmos em contato com a sua empresa!
+                <br><br>
+                <div class="campo">
+                    <label for="nome" placeholder="">Nome (responsável)</label><br>
+                    <input id="in_nome">
+                </div>
+                <br>
+                <div class="campo">
+                    <label for="empresa">Empresa </label><br>
+                    <input id="in_empresa">
+                </div>
+                <br>
+                <div class="campo">
+                    <label for="email">Email</label><br>
+                    <input id="in_email">
+                </div>
+                <br>
+                <div class="campo">
+                    <label for="telefone">Telefone</label><br>
+                    <input id="in_telefone">
+                </div>
+                <br>
+                <div class="campo">
+                    <label for="msg">Mensagem:</label><br>
+                    <textarea id="text_msg" rows="10"></textarea>
+                </div>
+                <br>
+                <button onclick="enviar()">ENVIAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contato feito -->
+    <div id="div_contatook" style="display:none;">
+        <div class="contatook">
+            Obrigado pelo interesse em nossos serviços!<br>
+            Entraremos em contato o mais rápido possível.<br><br>
+            <b>Nos siga nas redes sociais!</b>
+            <div class="redes">
+                <a href=""><img src="./img/linkedin.png" alt="" width="100px"></a>
+                <a href=""><img src="./img/instagram.png" alt="" width="100px"></a>
+                <a href=""><img src="./img/facebook.png" alt="" width="100px"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <ul>
+            <li><b><a href="">ENDEREÇO</a></b></li>
+            <li><b><a href="">CONTATO</a></b></li>
+            <li><b><a href="">FAQ</a></b></li>
+        </ul>
+        Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    function enviar() {
+        
+        conteiner.innerHTML = ''
+
+        div_contatook.style.display = ''
+    }
+</script>
