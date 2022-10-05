@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <!-- Contato feito -->
+    <!-- Contato feito
     <div id="div_contatook" style="display:none;">
         <div class="contatook">
             Obrigado pelo interesse em nossos serviços!<br>
@@ -77,7 +77,7 @@
                 <a href=""><img src="./img/facebook.png" alt="" width="100px"></a>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Footer -->
     <div class="footer">
@@ -96,8 +96,20 @@
 <script>
     function enviar() {
         
-        conteiner.innerHTML = ''
+        conteiner.innerHTML = `    <!-- Contato feito -->
+    <div id="div_contatook">
+        <div class="contatook">
+            Obrigado pelo interesse em nossos serviços!<br>
+            Entraremos em contato o mais rápido possível.<br><br>
+            <b>Nos siga nas redes sociais!</b>
+            <div class="redes">
+                <a href=""><img src="./img/linkedin.png" alt="" width="100px"></a>
+                <a href=""><img src="./img/instagram.png" alt="" width="100px"></a>
+                <a href=""><img src="./img/facebook.png" alt="" width="100px"></a>
+            </div>
+        </div>
+    </div>`
 
-        div_contatook.style.display = ''
+     
     }
 </script>
