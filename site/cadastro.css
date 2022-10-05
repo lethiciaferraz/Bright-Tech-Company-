@@ -1,3 +1,44 @@
+.fundo{
+    background-image: url(./assents/Frame\ 2\ -\ 1.0.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+
+}
+
+.container{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px 40px;
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 15px;
+    gap: 30px;
+    
+}
+
+li a{
+    color: #041b49;
+    background-color: #64c939;
+    margin-top: 20px;
+    width: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+
 .caixa-formulario{
     
     padding: 10px 10px;
@@ -9,7 +50,7 @@
     
 }
 .caixa-formulario h1{
-    color: #ffffff;
+    color: #000;
     margin-bottom: 20px;
 }
 .campo{
@@ -26,7 +67,7 @@
     color: black;
 }
 .campo label{
-    color: #ffffff;
+    color: #000;
     font-family: sans-serif;
     margin: 15px 0px;
 }
@@ -45,4 +86,3 @@
 .caixa-formulario button :hover{
     opacity: 0.9;
 }
-
