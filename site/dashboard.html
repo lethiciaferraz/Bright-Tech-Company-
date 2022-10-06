@@ -22,7 +22,6 @@
                     <li><b>Quem Somos</b></li>
                     <li><b>Projeto</b></li>
                     <li><b>Simulador</b></li>
-                    <li><b>Dashboard</b></li>
                     <div class="cad">
                         <li><a href="Cadastro.html" id="Acad">Cadastro</a></li>
                     </div>
@@ -36,10 +35,10 @@
             <div class="container">
                 <div id="caixa">
                     <div id="grafics">
-                        
+
                         <canvas id="myChart"></canvas>
                     </div>
-                    <br><br><br><br>
+                    <br><br><br>
                     <div>
                         <canvas id="myChart2"></canvas>
                     </div>
@@ -52,57 +51,46 @@
 </html>
 
 <script>
-    
+
     const labels = [
+        '07:00',
+        '08:00',
+        '09:00',
+        '10:00',
+        '11:00',
         '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
     ];
 
     const labels2 = [
-        'janeiro',
-        'fevereiro',
-        'março',
-        'abril',
-        'maio',
-        'junho',
+        '06:00',
+        '07:00',
+        '08:00',
+        '09:00',
+        '10:00',
+        '11:00',
+        '12:00',
+        '13:00',
+        '14:00',
     ];
 
     const data = {
         labels: labels,
         datasets: [{
-            label: 'temperatura',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [30, 29, 28, 25, 22, 23],
-        },
-        {
-            label: 'humidade',
-            backgroundColor: 'rgb(0, 0, 255)',
-            borderColor: 'rgb(0, 0, 255)',
-            data: [80, 82, 80, 85, 80, 83],
-        }
-        ]
+            label: 'fluxo por setor - hall de entrada(04/10/2022)',
+            backgroundColor: 'rgb(0, 77, 0)',
+            borderColor: 'rgb(0, 77, 0)',
+            data: [6, 19, 15, 10, 8, 11],
+        }]
     };
 
     const data2 = {
         labels: labels2,
         datasets: [{
-            label: 'temperatura',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [22, 24, 27, 23, 20, 18],
-        },
-        {
-            label: 'humidade',
-            backgroundColor: 'rgb(0, 0, 255)',
-            borderColor: 'rgb(0, 0, 255)',
-            data: [90, 89, 93, 87, 88, 82],
-        }
-        ]
+            label: 'fluxo de pessoas - empresa (horários de pico)',
+            backgroundColor: 'rgb(0, 77, 0)',
+            borderColor: 'rgb(0, 77, 0)',
+            data: [09, 27, 11, 19, 22, 19, 22, 27, 12],
+        }]
     };
 
     const config = {
@@ -112,7 +100,7 @@
     };
 
     const config2 = {
-        type: 'bar',
+        type: 'line',
         data: data2,
         options: {}
     };

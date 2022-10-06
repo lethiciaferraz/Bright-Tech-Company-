@@ -32,11 +32,11 @@ ul {
 }
 
 li {
-    color: #115639;
+    color: hsl(155, 67%, 20%);
 }
 
 .fundo {
-    background-image: url("./assents/2.jpg");
+    background-image: url(./assents/Frame\ 2\ -\ 1.0.png);
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0px;
@@ -53,11 +53,14 @@ li {
 #caixa {
     margin-left: 20%;
     border: 50px;
+    border-radius: 20px;
+    background-color: #115639;
+    padding: 40px;
 }
 
 #grafics {
     display: flex;
-    background-color: white;
+    background-color: #ffffff;
     align-items: center;
     border-radius: 5px;
 }
@@ -70,5 +73,6 @@ canvas {
 
 #myChart2 {
     background-color: white;
+    border-radius: 5px;
 }
 
