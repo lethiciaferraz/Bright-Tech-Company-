@@ -23,13 +23,7 @@
     width: 200px;
 }
 
-ul {
-    display: flex;
-    width: 800px;
-    justify-content: space-between;
-    list-style: none;
-    padding-left: 15px;
-}
+
 
 li {
     color: #115639;
@@ -56,7 +50,7 @@ li {
     font-size: 45px;
 }
 
-li a{
+.linavbar a{
     color: #ffffff ;
     background-color: #115639;
     margin-top: 20px;

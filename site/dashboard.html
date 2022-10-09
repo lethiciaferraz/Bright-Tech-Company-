@@ -12,40 +12,96 @@
 </head>
 
 <body>
-    <!-- style="display: flex;" -->
     <div class="fundo">
         <div class="container">
             <div class="logo"><img src="./assents/Logotipo.1png.png" alt=""></div>
             <div class="navbar">
-                <ul>
+                <ul class="ulnavbar">
                     <li><b>Home</b></li>
                     <li><b>Quem Somos</b></li>
                     <li><b>Projeto</b></li>
                     <li><b>Simulador</b></li>
                     <div class="cad">
-                        <li><a href="Cadastro.html" id="Acad">Cadastro</a></li>
+                        <li class="linavbar"><a href="Cadastro.html" id="Acad">Cadastro</a></li>
                     </div>
                     <div class="login">
-                        <li><b><a href="loginsprint.html" id="blogin">Login</a></b></li>
+                        <li class="linavbar"><b><a href="loginsprint.html" id="blogin">Login</a></b></li>
                     </div>
                 </ul>
             </div>
         </div>
+
         <div class="container1">
             <div class="container">
                 <div id="caixa">
+                    <div id="legenda1">DIÁRIO</div>
                     <div id="grafics">
-
                         <canvas id="myChart"></canvas>
                     </div>
-                    <br><br><br>
+                    <br>
+                    <div id="legenda2">SEMANAL</div>
                     <div>
                         <canvas id="myChart2"></canvas>
                     </div>
                 </div>
             </div>
+
+            <div class="container2"><br>
+
+                <!------------------------------------------------------------------------------------------->
+                <span class="title">FLUXO ALTO</span>
+                <div class="box">
+                    <p class="description">+ 10 </p>
+                    <span class="sub-description">capturas entre 1 hora</span>
+                </div>
+
+                <div class="box2"><br>
+                    <span class="description2">→ manter a iluminação em 100% neste perído de 1h</span>
+                </div>
+                <!------------------------------------------------------------------------------------------->
+
+                <div class="box3"><br>
+                    <span class="description3">diminuir <10> manter</span>
+                </div><br><br><br>
+
+                <!------------------------------------------------------------------------------------------->
+
+                <span class="title2">+ FLUXO</span>
+                <div class="box4"><br>
+                    <p class="sub-description">segunda-feira</p><br>
+                    <p class="sub-description">quarta-feira</p><br>
+                    <p class="sub-description">sexta-feira</p><br>
+                </div>
+
+                <div class="box5"><br>
+                    <span class="description4"> + controle com o uso do brightness control!</span>
+                </div><br><br><br>
+
+                <!------------------------------------------------------------------------------------------->
+
+                <span class="title3">- FLUXO</span>
+                <div class="box6"><br>
+                    <p class="sub-description">terça-feira</p><br>
+                    <p class="sub-description">quarta-feira</p><br>
+                </div>
+
+                <div class="box7"><br>
+                    <span class="description5"> + economia com a diminuição da luminosidade!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <ul>
+                <li><b><a href="">ENDEREÇO</a></b></li>
+                <li><b><a href="">CONTATO</a></b></li>
+                <li><b><a href="">FAQ</a></b></li>
+            </ul>
+            Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech
         </div>
     </div>
+
+
 </body>
 
 </html>
@@ -53,15 +109,6 @@
 <script>
 
     const labels = [
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-    ];
-
-    const labels2 = [
         '06:00',
         '07:00',
         '08:00',
@@ -71,6 +118,22 @@
         '12:00',
         '13:00',
         '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+        '18:00',
+        '19:00',
+        '20:00',
+        '21:00',
+        '22:00'
+    ];
+
+    const labels2 = [
+        'segunda-feira',
+        'terça-feira',
+        'quarta-feira',
+        'quinta-feira',
+        'sexta-feira'
     ];
 
     const data = {
@@ -79,7 +142,7 @@
             label: 'fluxo por setor - hall de entrada(04/10/2022)',
             backgroundColor: 'rgb(0, 77, 0)',
             borderColor: 'rgb(0, 77, 0)',
-            data: [6, 19, 15, 10, 8, 11],
+            data: [5, 2, 10, 8, 15, 12, 27, 32, 16, 14, 20, 18, 25, 22, 30, 21, 17],
         }]
     };
 
@@ -89,12 +152,12 @@
             label: 'fluxo de pessoas - empresa (horários de pico)',
             backgroundColor: 'rgb(0, 77, 0)',
             borderColor: 'rgb(0, 77, 0)',
-            data: [09, 27, 11, 19, 22, 19, 22, 27, 12],
+            data: [20, 11, 25, 14, 23],
         }]
     };
 
     const config = {
-        type: 'line',
+        type: 'bar',
         data: data,
         options: {}
     };
