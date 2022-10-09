@@ -110,7 +110,7 @@ canvas {
 .box {
     width: 200px;
     height: 85px;
-    background-color: #fa647d;
+    background-color: #c7eae4;
     margin-left: 5%;
     margin-top: -15px;
     border-radius: 5px;
@@ -131,7 +131,7 @@ canvas {
 .box2 {
     width: 300px;
     height: 85px;
-    background-color: #559bf8;
+    background-color: #a1cca5;
     margin-left: 270px;
     margin-top: -85px;
     border-radius: 5px;
@@ -152,7 +152,7 @@ canvas {
 }
 
 .box3 {
-    background-image: linear-gradient(to right, #559bf8, #fa647d);
+    background-image: linear-gradient(to right, #a1cca5, #c7eae4);
     border-radius: 5px;
     margin-top: 50px;
     margin-left: 140px;
@@ -171,7 +171,7 @@ canvas {
 .box4 {
     width: 200px;
     height: 85px;
-    background-color: #fa647d;
+    background-color: #c7eae4;
     margin-left: 5%;
     margin-top: 10px;
     border-radius: 5px;
@@ -186,7 +186,7 @@ canvas {
 .box5 {
     width: 300px;
     height: 85px;
-    background-color: #559bf8;
+    background-color: #a1cca5;
     margin-left: 270px;
     margin-top: -85px;
     border-radius: 5px;
@@ -209,7 +209,7 @@ canvas {
 .box6 {
     width: 200px;
     height: 85px;
-    background-color: #559bf8;
+    background-color: #a1cca5;
     margin-left: 5%;
     margin-top: 10px;
     border-radius: 5px;
@@ -224,7 +224,7 @@ canvas {
 .box7 {
     width: 300px;
     height: 85px;
-    background-color: #fa647d;
+    background-color: #c7eae4;
     margin-left: 270px;
     margin-top: -85px;
     border-radius: 5px;
