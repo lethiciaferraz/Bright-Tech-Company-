@@ -94,8 +94,8 @@ canvas {
 .container2 {
     background-color: #115639;
     width: 600px;
-    height: 620px;
-    margin-top: -700px;
+    height: 480px;
+    margin-top: -763px;
     margin-left: 1000px;
     border-radius: 20px;
 }
@@ -103,13 +103,13 @@ canvas {
 .title {
     color: white;
     font-size: larger;
-    margin-top: 20px;
+    /*     margin-top: 25px; */
     margin-left: 70px;
 }
 
 .box {
     width: 200px;
-    height: 85px;
+    height: 80px;
     background-color: #c7eae4;
     margin-left: 5%;
     margin-top: -15px;
@@ -124,16 +124,16 @@ canvas {
 
 .sub-description {
     color: #ffffff;
-    margin-left: 20px;
+    /*     margin-left: 20px; */
     margin-top: -10px;
 }
 
 .box2 {
     width: 300px;
-    height: 85px;
+    height: 80px;
     background-color: #a1cca5;
     margin-left: 270px;
-    margin-top: -85px;
+    margin-top: -80px;
     border-radius: 5px;
 }
 
@@ -141,7 +141,7 @@ canvas {
     color: #ffffff;
     font-size: larger;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 100px;
 }
 
 .title2 {
@@ -154,7 +154,7 @@ canvas {
 .box3 {
     background-image: linear-gradient(to right, #a1cca5, #c7eae4);
     border-radius: 5px;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 140px;
     width: 300px;
     height: 60px;
@@ -170,7 +170,7 @@ canvas {
 
 .box4 {
     width: 200px;
-    height: 85px;
+    height: 80px;
     background-color: #c7eae4;
     margin-left: 5%;
     margin-top: 10px;
@@ -185,10 +185,10 @@ canvas {
 
 .box5 {
     width: 300px;
-    height: 85px;
+    height: 70px;
     background-color: #a1cca5;
     margin-left: 270px;
-    margin-top: -85px;
+    margin-top: -75px;
     border-radius: 5px;
 }
 
@@ -208,10 +208,9 @@ canvas {
 
 .box6 {
     width: 200px;
-    height: 85px;
+    height: 80px;
     background-color: #a1cca5;
     margin-left: 5%;
-    margin-top: 10px;
     border-radius: 5px;
 }
 
@@ -223,10 +222,10 @@ canvas {
 
 .box7 {
     width: 300px;
-    height: 85px;
+    height: 70px;
     background-color: #c7eae4;
     margin-left: 270px;
-    margin-top: -85px;
+    margin-top: -75px;
     border-radius: 5px;
 }
 
@@ -237,17 +236,14 @@ canvas {
     margin-top: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.container3 {
+    background-color: #115639;
+    width: 600px;
+    height: 240px;
+    margin-top: 40px;
+    margin-left: 1000px;
+    border-radius: 20px;
+}
 
 /* FOOTER */
 .footer {
