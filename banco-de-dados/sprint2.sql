@@ -9,14 +9,16 @@ tel_contato varchar(45),
 email varchar(45),
 cep char(9),
 bairro varchar(45),
+qtd_Funcionario int, 
+metros_uteis decimal(10,2),
 status_contrato varchar(45),
-dt_contrato date,
-metros_totais decimal(10,2)
+dt_contrato date
 )auto_increment= 10;
 
-insert into empresa (nome,cnpj,tel_contato,email,cep,bairro,status_contrato,dt_contrato,metros_totais) values   ('tivit','24.824.874/0001-21','11958414286','tivit@hotmail.com','08466-003','guaianases','ativo','2025-03-12','94857364.75'),
-																												('safra','41.847.943/9485-32','11938468364','safra@hotmail.com','29384-098','serra do mar','ativo','2027-10-27',94837465.23),
-                                                                                                                ('cobool','60.912.843/0001-96','13948563847','cobool@hotmail.com','28376-092','vila madalena','inativo','2022-09-20',93847364.57);
+insert into empresa (nome,cnpj,tel_contato,email,cep,bairro,qtd_Funcionario, metros_uteis,status_contrato,dt_contrato) values 
+  ('tivit','24.824.874/0001-21','11958414286','tivit@hotmail.com','08466-003','guaianases', 1200, 94857364.75,'ativo','2025-03-12'),
+  ('safra','41.847.943/9485-32','11938468364','safra@hotmail.com','29384-098','serra do mar', 2000, 94837465.23,'ativo','2027-10-27'),
+  ('cobool','60.912.843/0001-96','13948563847','cobool@hotmail.com','28376-092','vila madalena',5000, 93847364.57, 'inativo','2022-09-20');
 
 create table usuario(
 id_usuario int auto_increment,
