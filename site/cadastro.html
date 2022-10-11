@@ -46,29 +46,29 @@
 
                     <div class="campo">
                         <label for="nome">Nome:</label>
-                        <input type="nome" id="nome" placeholder="Insira seu Nome">
+                        <input type="nome" id="in_nome" placeholder="Insira seu Nome">
                     </div>
                     <div class="campo">
                         <label for="email">E-mail:</label>
-                        <input type="email" id="email" placeholder="email@gmail.com">
+                        <input type="email" id="in_email" placeholder="email@gmail.com">
                     </div>
                     <div class="campo">
                         <label for="tel">Telefone:</label>
-                        <input type="tel" id="tel" placeholder="Insira seu telefone">
+                        <input type="tel" id="in_tel" placeholder="Insira seu telefone">
                     </div>
                     <div class="campo">
                         <label for="cnpj">CNPJ:</label>
-                        <input type="cnpj" id="cnpj" placeholder="Coloque seu Cnpj">
+                        <input type="cnpj" id="in_cnpj" placeholder="Coloque seu Cnpj">
                     </div>
                     <div class="campo">
                         <label for="password">Senha:</label>
-                        <input type="password" id="senha" placeholder="**********">
+                        <input type="password" id="in_senha" placeholder="**********">
                     </div>
                     <div class="campo">
                         <label for="password">Confirmação de Senha</label>
-                        <input type="password" id="conf" placeholder="**********">
+                        <input type="password" id="in_conf" placeholder="**********">
                     </div>
-                    <button><b>CADASTRAR</b></button>
+                    <button onclick="cadastro()"><b>CADASTRAR</b></button>
                 </div>
             </div>
         </div>
@@ -83,3 +83,22 @@
     </div>
 
 </body>
+
+<script>
+    function cadastro(){
+        var nome= in_nome.value
+        var email= in_email.value
+        var telefone = in_tel.value
+        var cnpj = in_cnpj.value
+        var senha = in_senha.value
+        var confirmacao = in_conf.value
+
+        if(nome == `aluno` && email ==`aluno@sptech.school` && telefone == `11-27514301` && cnpj == '24.824.874/0001-21' && senha == `sptech` && confirmacao == `sptech`){
+            alert(`Cadastro efetuado com sucesso!`)
+            window.location.href="login.html"
+        }else {
+            alert (`Falha no cadastro!
+             Preencha os dados novamente.`)
+        }
+    }
+</script>

@@ -33,13 +33,14 @@
 
                     <div class="campo">
                         <label for="email">E-mail:</label>
-                        <input type="email" id="email" placeholder="email@gmail.com">
+                        <input type="email" id="in_email" placeholder="email@gmail.com">
                     </div>
                     
                     <div class="campo">
                         <label for="password">Senha:</label>
-                        <input type="password" id="senha" placeholder="**********">
+                        <input type="password" id="in_senha" placeholder="**********">
                     </div>
+                    <div id="div_exibir"></div>
                     <button onclick="login()">LOGIN</button>
                 </div>
             </div>
@@ -59,6 +60,15 @@
 
     <script>
         function login() {
+            var email= in_email.value
+            var senha= in_senha.value
+
+            if(email== 'aluno@sptech.school' && senha== 'sptech'){
             window.location.href="dashboard.html";
+
+            } else{
+                alert(`Erro!`)
+                div_exibir.innerHTML= `<br> Login e/ou senha incorretos! <br> Preencha os campos novamente.` 
+            }
         }
     </script>
