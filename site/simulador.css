@@ -1,31 +1,19 @@
-*{
-  margin: 0;
-}
-
-
-.container {
-  margin: 0 auto;
-  width: 80%;
+.container{
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  padding: 5px 50px;
+  font-family: sans-serif;
+  /* border-bottom: 2px solid #115639; */
 }
 
-.logo img{
-  width: 150px;
-}
-
-ul {
+.container ul{
   display: flex;
-  width: 700px;
-  justify-content: space-between;
   list-style: none;
-  padding-left: 15px;
 }
-
-li {
-  color: #e1e1e1;
+.container ul li{
+  color: #fff;
+  margin: 0px 15px;
 }
 
 .container ul li a{
@@ -40,16 +28,13 @@ a:hover{
 #login a{
   background-color: #fff;
   color: #115639;
-  padding: 10px 20px;
-  border-radius: 20px;
-} 
-
+  padding: 10px;
+  border-radius: 12px;
+}
 
 body {
   background-image: url("./img/Frame\ 1\ -\ 2.0.png") ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+  background-size: cover all;
   margin: 0px;
 }
 
@@ -60,7 +45,7 @@ body {
   font-family: sans-serif;
   background-color: #e2e9dfe3;
   padding: 40px 50px;
-  margin: 57px 230px;
+  margin: 50px 230px;
   border-radius: 30px;
 }
 
@@ -77,9 +62,8 @@ input {
 }
 
 button {
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
   color: #fff;
   background-color: #115639;
   font-weight: bold;
@@ -106,7 +90,7 @@ button:hover{
 /* FOOTER */
 .footer{
   height: 30px;
-  padding: 50px 0px;
+  padding: 50px;
   background-color: #115639;
   color: #fff;
   display: flex;
@@ -121,16 +105,17 @@ button:hover{
   display: flex;
   list-style: none;
   margin-bottom: 50px;
-
 }
 
 .footer ul li {
   color: #fff;
+  margin: 0px 15px;
   font-size: medium;
 }
 
 .footer ul li a {
   text-decoration: none;
   color: #fff;
-  margin: 50px;
 }
+
+

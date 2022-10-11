@@ -9,11 +9,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .logo img{
-    width: 150px;
+    width: 200px;
 }
 
 ul {
@@ -22,16 +22,14 @@ ul {
     justify-content: space-between;
     list-style: none;
     padding-left: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-
 }
 
 li {
-    color: #ffffff;
+    color: #e1e1e1;
 }
 
 .fundo {
-    background-image: url("./img/Frame\ 1\ -\ 2.0.png") ;
+    background-image: url("./images/Frame\ 1\ -\ 2.0.png") ;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -60,7 +58,7 @@ li {
 
 
 .container1 a{
-    color: #ffffff;
+    color: #e1e1e1;
     background-color: #115639;
     width: 20px;
     padding: 15px 45px;
@@ -85,73 +83,68 @@ li {
     color: #e1e1e1 ;
     cursor: pointer;
     text-decoration: none;
-    background-color: #fff;
-    color: #115639;
-    padding: 10px 20px;
-    border-radius: 20px;
 }
 
 .login li a{
     color: #e1e1e1 ;
     cursor: pointer;
     text-decoration: none;
-    background-color: #fff;
-    color: #115639;
-    padding: 10px 20px;
-    border-radius: 20px;
-
 }
 
 .quems li a{
-    color: #ffffff;
+    color: #e1e1e1;
     text-decoration: none;
     cursor: pointer;
 }
 
 .simulador li a {
-    color: #ffffff;
+    color: #e1e1e1;
     text-decoration: none;
     cursor: pointer;
 }
 .dashboard li a {
-    color: #fffff;
+    color: #e1e1e1;
     text-decoration: none;
     cursor: pointer;
 }
 .projeto li a {
-    color: #ffffff;
+    color: #e1e1e1;
     text-decoration: none;
     cursor: pointer;
 }
-
-
-.footer{
-    height: 30px;
-    padding: 50px 0px;
+footer {
+    padding: 45px 0;
     background-color: #115639;
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-  }
-  
-  .footer ul {
+    display: flex;
+}
+footer {
+
+    flex-direction: column;
+}
+
+footer p{
+    color:#e1e1e1;
+    font-size: 12px;
+}
+.contato {
+    padding: 0px 0;
     display: flex;
     list-style: none;
-    margin-bottom: 50px;
-
-  }
-  
-  .footer ul li {
-    color: #fff;
-    font-size: medium;
-  }
-  
-  .footer ul li a {
+    justify-content: center;
+}
+.frase {
+    padding: 0 0px;
+    display: flex;
+    justify-content: center;
+}
+.endereco li a {
+    color: #e1e1e1;
     text-decoration: none;
-    color: #fff;
-    margin: 50px;
-  }
+    cursor: pointer;
+}
+.contato li a {
+    color: #e1e1e1;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -7,6 +7,7 @@
 
 .container0 {
     margin: 0 auto;
+    padding: 20px;
     width: 80%;
     display: flex;
     align-items: center;
@@ -15,8 +16,14 @@
 
 }
 
+.logo{
+    padding: 15px ;
+    display: flex;
+    align-items: flex-start;
+}
+
 .logo img{
-    width: 150px;
+    width: 300px;
 }
 
 ul {
@@ -28,7 +35,7 @@ ul {
 }
 
 li {
-    color: #e1e1e1;
+    color: #115639;
 }
 
 .fundo {
@@ -56,11 +63,6 @@ li {
     text-decoration: none;
     cursor: pointer;
 }
-.projeto li a {
-    color: #115639;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .cad li a{
     color: #FFFFFF ;
@@ -84,7 +86,7 @@ li {
 /*referencia para levar pra frente*/
 .container {
     margin: 0 auto;
-    padding: 46px ;
+    padding: 30px;
     width: 80%;
     display: flex;
     align-items: center;
@@ -153,33 +155,3 @@ li {
 .caixa img {
     width: 70px;
 }
-.footer{
-    height: 30px;
-    padding: 60px 0px;
-    background-color: #115639;
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-  }
-  
-  .footer ul {
-    display: flex;
-    list-style: none;
-    margin-bottom: 50px;
-
-  }
-  
-  .footer ul li {
-    color: #fff;
-    font-size: medium;
-  }
-  
-  .footer ul li a {
-    text-decoration: none;
-    color: #fff;
-    margin: 50px;
-  }
