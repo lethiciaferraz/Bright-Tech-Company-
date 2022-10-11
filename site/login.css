@@ -1,11 +1,183 @@
+*{
+    margin: 0;
+  }
 .fundo{
     background-image: url(./assents/Frame\ 2\ -\ 1.0.png);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     margin: 0px;
 
 }
 
+.container {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.logo img{
+    width: 150px;
+}
+
+ul {
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 15px;
+}
+
+li {
+    color: #e1e1e1;
+}
+
+a:hover{
+    opacity: 0.9;
+  }
+
+.container1 {
+    margin-top: 0px;
+    padding: 85px ;
+   /* height: 00px;*/
+   font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+
 .caixa-formulario{
-    margin-bottom: 100px;
+    
+    padding: 30px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.caixa-formulario h1{
+    color: #115639;
+    margin-bottom: 0px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.campo input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #115639;
+    color: #115639;
+}
+.campo label{
+    color: #115639;
+    font-family: sans-serif;
+    margin: 15px 0px;
+}
+
+.caixa-formulario button{
+    margin-top: 20px;
+    width: 100px;
+    background-color:#115639 ;
+    color: #ffffff;
+    padding: 10px;
+    font-weight: bold;
+    border:none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.caixa-formulario button :hover{
+    opacity: 0.9;
+}
+.cad li a{
+    color: #FFFFFF ;
+    background-color: #115639;
+    margin-top: 20px;
+    width: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.login li a{
+    color: #FFFFFF ;
+    background-color: #115639;
+    margin-top: 20px;
+    width: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.quems li a{
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.simulador li a {
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.projeto li a {
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+.footer{
+    height: 30px;
+    padding: 50px 0px;
+    background-color: #115639;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+  }
+  
+  .footer ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 50px;
+    justify-content: center;
+    margin-top: 20px;
+
+  }
+  
+  .footer ul li {
+    color: #fff;
+    font-size: medium;
+  }
+  
+  .footer ul li a {
+    text-decoration: none;
+    color: #fff;
+    margin: 50px;
+  }
+
+body{
+    margin: 0px;
+    
+}
+
+body{
+    margin: 0px;
+    
 }

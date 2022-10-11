@@ -6,45 +6,46 @@
 
 }
 
-.container{
+.container {
     margin: 0 auto;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0px 40px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-ul{
+.logo img{
+    width: 150px;
+}
+
+ul {
     display: flex;
+    width: 700px;
     justify-content: space-between;
     list-style: none;
     padding-left: 15px;
-    gap: 30px;
-    
-}
-li p{ 
-    color:#115639
 }
 
-li a{
-    color: #ffffff;
-    background-color: #115639;
-    margin-top: 20px;
-    width: 20px;
-    padding: 10px 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: none;
+li {
+    color: #e1e1e1;
+}
 
+a:hover{
+    opacity: 0.9;
+  }
+
+.container1 {
+    padding: 0px ;
+   /* height: 00px;*/
+   font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 20px;
 }
 
 
 .caixa-formulario{
     
-    padding: 10px 10px;
+    padding: 50px 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -54,8 +55,9 @@ li a{
 }
 .caixa-formulario h1{
     color: #115639;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
+
 .campo{
     display: flex;
     flex-direction: column;
@@ -64,7 +66,7 @@ li a{
 }
 
 .campo input{
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     border: 2px solid #115639;
     color: #115639;
@@ -77,22 +79,72 @@ li a{
 
 .caixa-formulario button{
     margin-top: 20px;
-    width: 100px;
+    width: 120px;
     background-color:#115639 ;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 10px ;
     font-weight: bold;
     border:none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
+
 }
 .caixa-formulario button :hover{
     opacity: 0.9;
 }
+.cad li a{
+    color: #FFFFFF ;
+    background-color: #115639;
+    margin-top: 20px;
+    width: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
 
+.login li a{
+    color: #FFFFFF ;
+    background-color: #115639;
+    margin-top: 20px;
+    width: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.quems li a{
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.simulador li a {
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.projeto li a {
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body{
+    margin: 0px;
+    
+}
+
+/* FOOTER */
 .footer{
     height: 30px;
-    padding: 50px;
+    padding: 50px 0px;
     background-color: #115639;
     color: #fff;
     display: flex;
@@ -102,25 +154,28 @@ li a{
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
   }
- 
-.footer ul {
+  
+  .footer ul {
     display: flex;
     list-style: none;
     margin-bottom: 50px;
-  }
+    justify-content: center;
+    margin-top: 20px;
 
+
+  }
+  
   .footer ul li {
     color: #fff;
-    margin: 0px 15px;
     font-size: medium;
   }
-
+  
   .footer ul li a {
     text-decoration: none;
     color: #fff;
+    margin: 50px;
   }
 
-body{
-    margin: 0px;
-    
-}
+  /* .footer ul li b {
+    display: flex;
+  } */

@@ -4,6 +4,13 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+.fundo{
+    background-image: url(./assents/Frame\ 2\ -\ 1.0.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+
+}
 
 .container {
     margin: 0 auto;
@@ -14,32 +21,70 @@
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.logo {
-    padding: 15px;
+.logo img{
+    width: 150px;
 }
 
-.logo img {
-    width: 200px;
-}
-
-.ulnavbar {
+ul {
     display: flex;
-    width: 800px;
+    width: 700px;
     justify-content: space-between;
     list-style: none;
     padding-left: 15px;
 }
 
 li {
-    color: hsl(155, 67%, 20%);
+    color: #e1e1e1;
 }
 
-.fundo {
-    background-image: url(./assents/Frame\ 2\ -\ 1.0.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0px;
+a:hover{
+    opacity: 0.9;
+  }
+
+  .cad li a{
+    color: #FFFFFF ;
+    background-color: #115639;
+    margin-top: 20px;
+    width: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
 }
+
+.login li a{
+    color: #FFFFFF ;
+    background-color: #115639;
+    margin-top: 20px;
+    width: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.quems li a{
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.simulador li a {
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.projeto li a {
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* DASHBOARD */
 
 .container1 {
     padding: 60px;
@@ -264,9 +309,9 @@ canvas {
 }
 
 /* FOOTER */
-.footer {
+.footer{
     height: 30px;
-    padding: 50px;
+    padding: 50px 0px;
     background-color: #115639;
     color: #fff;
     display: flex;
@@ -275,22 +320,24 @@ canvas {
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
-}
-
-.footer ul {
+  }
+  
+  .footer ul {
     display: flex;
     list-style: none;
-    margin-bottom: 30px;
     margin-top: 20px;
-}
+    margin-bottom: 50px;
+    justify-content: center;
 
-.footer ul li {
+  }
+  
+  .footer ul li {
     color: #fff;
-    margin: 0px 15px;
     font-size: medium;
-}
-
-.footer ul li a {
+  }
+  
+  .footer ul li a {
     text-decoration: none;
     color: #fff;
-}
+    margin: 50px;
+  }

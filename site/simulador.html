@@ -13,15 +13,15 @@
     <div class="header">
         <!--Header ----->
         <div class="container">
-            <div class="logo"><img src="./img/logoBLACK2.png" alt="Logo da empresa"></div>
+            <div class="logo"><a href="index.html"><img src="./assents/Logotipo.1png.png" alt="Logo da empresa"></a></div>
             <div class="navbar">
                 <ul>
-                    <li><b><a href="">Quem Somos</a></b></li>
-                    <li><b><a href="">Projeto</a></b></li>
-                    <li><b><a href="">Simulador</a></b></li>
-                    <li><b><a href="">Dashboard</a></b></li> 
-                    <li id="login"><b><a href=""> Cadastro</a></b></li>
-                    <li id="login"><b><a href="">Login</a></b></li>
+                    <li><b><a href="quemsomos.html">Quem Somos</a></b></li>
+                    <li><b><a href="Projeto.HTML">Projeto</a></b></li>
+                    <li><b><a href="simulador.html">Simulador</a></b></li>
+                    <!--<li><b><a href="">Dashboard</a></b></li>--> 
+                    <li id="login"><b><a href="cadastro.html"> Cadastro</a></b></li>
+                    <li id="login"><b><a href="login.html">Login</a></b></li>
                 </ul>
             </div>
         </div>
@@ -60,13 +60,11 @@
         <!-- Footer -->
         <div class="footer">
             <ul>
-                <li><b><a href="">ENDEREÇO</a></b></li>
-                <li><b><a href="">CONTATO</a></b></li>
-                <li><b><a href="">FAQ</a></b></li>
+                <li><b><a href="">Endereço</a></b></li>
+                <li><b><a href="contato.html">Contato</a></b></li>
             </ul>
                 Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech           
         </div>
-</body>
 
 </html>
 
@@ -81,7 +79,7 @@
 
         var total_conta = (((hr * 0.39208) * dispositivo) * 4) * dias_func
         var economia_solucao = ((total_conta * 0.2) / 2) + (total_conta / 2)
-        var arduino = 1000 * dispositivo
+        var arduino = 1000 * dispositivo.toFixed()
         var tempo = (arduino / (total_conta - economia_solucao))
 
         div_fechar.innerHTML = ''
@@ -95,9 +93,12 @@
         div_resul.innerHTML += `<br>Considerando que a cada 16m² seriam usados um conjunto de 4 lâmpadas, <strong style="color: red;">sua empresa estaria gastando um total de R$${total_conta.toFixed(2)} por mês.</strong><br>`
 
         div_resul.innerHTML += `<br>Utilizando nossa solução, Bright Sense, e considerando que as luzes diminuam em 20% sua intensidade por apenas metade do tempo, sua empresa gastaria um total de R$${economia_solucao.toFixed(2)} no mês, <strong style="color: green;">gerando uma economia de ${(((total_conta - economia_solucao) / total_conta) * 100).toFixed(0)}%.</strong><br>`
-
-        div_resul.innerHTML += `<br>Com um investimento de R$1000,00 por dispositivo, o qual cobrirá 16m², seu investimento seria de R$${arduino.toFixed()}. <strong> <i> Seu investimento seria recuperado em aproximadamente ${tempo.toFixed()} meses!</i></strong>`
-
+        
         div_resul.innerHTML += `<br>Sua empresa vai precisar de ${dispositivo.toFixed()} dispositivos Bright Sense.`
+
+        div_resul.innerHTML += `<br>Com um investimento de R$1000,00 por dispositivo, o qual cobrirá 16m², seu investimento seria de <b>R$${arduino.toFixed()}</b>. <br> <strong> <i> Seu investimento seria recuperado em aproximadamente ${tempo.toFixed()} meses!</i></strong>`
+
+
+        div_resul.innerHTML += `<div class="simulador"><br><br><br><li><b><a href="simulador.html">REFAZER SIMULAÇÃO</a></b></li></div>`
     }
 </script>
