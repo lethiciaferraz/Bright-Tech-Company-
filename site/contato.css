@@ -1,36 +1,77 @@
+.fundo{
+  background-image: url(./assents/Frame\ 2\ -\ 1.0.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px;
+
+}
+
 .container {
+  margin: 0 auto;
+  width: 80%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 5px 50px;
-  font-family: sans-serif;
-  border-bottom: 2px solid #115639;
+  justify-content: space-between;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.container ul {
+.logo img{
+  width: 150px;
+}
+
+ul {
   display: flex;
+  width: 700px;
+  justify-content: space-between;
   list-style: none;
+  padding-left: 15px;
 }
 
-.container ul li {
-  color: #115639;
-  margin: 0px 15px;
+li {
+  color: #e1e1e1;
 }
-
-.container ul li a {
-  text-decoration: none;
-  color: #115639;
-}
-
-a:hover {
-  opacity: 0.9;
-}
-
-#login a {
+.cad li a{
+  color: #FFFFFF ;
   background-color: #115639;
-  color: #fff;
-  padding: 15px;
-  border-radius: 12px;
+  margin-top: 20px;
+  width: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.login li a{
+  color: #FFFFFF ;
+  background-color: #115639;
+  margin-top: 20px;
+  width: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.quems li a{
+  color: #115639;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.simulador li a {
+  color: #115639;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.projeto li a {
+  color: #115639;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 body {
@@ -126,9 +167,9 @@ button:hover {
 }
 
 /* FOOTER */
-.footer {
+.footer{
   height: 30px;
-  padding: 50px;
+  padding: 50px 0px;
   background-color: #115639;
   color: #fff;
   display: flex;
@@ -143,15 +184,16 @@ button:hover {
   display: flex;
   list-style: none;
   margin-bottom: 50px;
+
 }
 
 .footer ul li {
   color: #fff;
-  margin: 0px 15px;
   font-size: medium;
 }
 
 .footer ul li a {
   text-decoration: none;
   color: #fff;
+  margin: 50px;
 }

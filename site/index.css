@@ -9,11 +9,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .logo img{
-    width: 200px;
+    width: 150px;
 }
 
 ul {
@@ -22,14 +22,16 @@ ul {
     justify-content: space-between;
     list-style: none;
     padding-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 li {
-    color: #e1e1e1;
+    color: #ffffff;
 }
 
 .fundo {
-    background-image: url("./images/Frame\ 1\ -\ 2.0.png") ;
+    background-image: url("./img/Frame\ 1\ -\ 2.0.png") ;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -58,7 +60,7 @@ li {
 
 
 .container1 a{
-    color: #e1e1e1;
+    color: #ffffff;
     background-color: #115639;
     width: 20px;
     padding: 15px 45px;
@@ -83,68 +85,73 @@ li {
     color: #e1e1e1 ;
     cursor: pointer;
     text-decoration: none;
+    background-color: #fff;
+    color: #115639;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
 .login li a{
     color: #e1e1e1 ;
     cursor: pointer;
     text-decoration: none;
+    background-color: #fff;
+    color: #115639;
+    padding: 10px 20px;
+    border-radius: 20px;
+
 }
 
 .quems li a{
-    color: #e1e1e1;
+    color: #ffffff;
     text-decoration: none;
     cursor: pointer;
 }
 
 .simulador li a {
-    color: #e1e1e1;
+    color: #ffffff;
     text-decoration: none;
     cursor: pointer;
 }
 .dashboard li a {
-    color: #e1e1e1;
+    color: #fffff;
     text-decoration: none;
     cursor: pointer;
 }
 .projeto li a {
-    color: #e1e1e1;
+    color: #ffffff;
     text-decoration: none;
     cursor: pointer;
 }
-footer {
-    padding: 45px 0;
+
+
+.footer{
+    height: 30px;
+    padding: 50px 0px;
     background-color: #115639;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
     display: flex;
-}
-footer {
-
+    justify-content: space-around;
+    align-items: center;
     flex-direction: column;
-}
-
-footer p{
-    color:#e1e1e1;
-    font-size: 12px;
-}
-.contato {
-    padding: 0px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+  }
+  
+  .footer ul {
     display: flex;
     list-style: none;
-    justify-content: center;
-}
-.frase {
-    padding: 0 0px;
-    display: flex;
-    justify-content: center;
-}
-.endereco li a {
-    color: #e1e1e1;
+    margin-bottom: 50px;
+
+  }
+  
+  .footer ul li {
+    color: #fff;
+    font-size: medium;
+  }
+  
+  .footer ul li a {
     text-decoration: none;
-    cursor: pointer;
-}
-.contato li a {
-    color: #e1e1e1;
-    text-decoration: none;
-    cursor: pointer;
-}
+    color: #fff;
+    margin: 50px;
+  }
