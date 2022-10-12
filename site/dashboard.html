@@ -27,19 +27,18 @@
                     <div class="simulador">
                         <li><b><a href="simulador.html">Simulador</a></b></li>
                     </div>
-                    <!--<li><b>Dashboard</b></li>-->
+                    <li><b>Dashboard</b></li>-->
         <!-- <div class="cad">
-            <li><b><a href="cadastro.html" id="acad">Cadastro</a></b></li>
-        </div>
-        <div class="login">
-            <li><b><a href="login.html" id="login">Login</a></b></li>
-        </div>
+                        <li><b><a href="cadastro.html" id="acad">Cadastro</a></b></li>
+                    </div>
+                    <div class="login">
+                        <li><b><a href="login.html" id="login">Login</a></b></li>
+                    </div>
         </ul>
     </div>
-    </div> -->
+</div> -->
 
         <div class="container1">
-            <!-- DIV MENU LATERAL -->
             <div class="menulateral">
                 <div class="usuario">
                     <img src="./img/2318271-icone-do-perfil-do-usuario-grátis-vetor.jpg" alt="Foto de perfil do usuario"
@@ -53,117 +52,106 @@
                     <li>Notificações</li>
                 </ul>
             </div>
+            <!-- DIV MENU LATERAL -->
 
             <!--DASHBOARD  -->
             <div class="dashboard">
 
-                <div class="container">
-                    <div id="caixa">
-                        <div id="legenda1">DIÁRIO</div>
-                        <div id="grafics">
-                            <canvas id="myChart"></canvas>
-                        </div>
-                        <br>
-                        <div id="legenda2">SEMANAL</div>
-                        <div>
-                            <canvas id="myChart2"></canvas>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- KPIS  -->
                 <div class="analise">
 
                     <div class="container2"><br>
 
                         <!------------------------------------------------------------------------------------------->
-                        <span class="title">FLUXO ALTO</span><br><br>
                         <div id="kpi">
+                            <span class="title">FLUXO ALTO</span>
                             <div class="caixa">
 
                                 <div class="box">
                                     <p class="description">+ 10 </p>
                                     <span class="sub-description">Capturas entre 1 hora</span>
-                                </div>
-                            </div>
-
-                            <div class="caixa">
-                                <div class="box2">
-                                    <span class="description2">→ Manter a iluminação em 100% neste perído de 1h</span>
+                                    → Manter a iluminação em 100% neste perído de 1h
                                 </div>
                             </div>
 
                         </div>
                         <!------------------------------------------------------------------------------------------->
-                        <span class="title">+ FLUXO</span><br><br>
                         <div id="kpi">
+                            <span class="title">MAIOR FLUXO</span>
                             <div class="caixa">
 
                                 <div class="box">
-                                    <p class="sub-description">Segunda-feira</p><br>
-                                    <p class="sub-description">Quarta-feira</p><br>
-                                    <p class="sub-description">Sexta-feira</p><br>
-                                </div>
-                            </div>
-
-                            <div class="caixa">
-                                <div class="box2">
-                                    <span class="description4"> + Controle com o uso do brightness control!</span>
+                                    <p class="description">Segunda-feira</p><br>
+                                    <p class="description">Quarta-feira</p><br>
+                                    <p class="description">Sexta-feira</p>
+                                    + Controle com o uso do brightness control!
                                 </div>
                             </div>
                         </div>
 
                         <!------------------------------------------------------------------------------------------->
 
-                        <span class="title">- FLUXO</span><br><br>
                         <div id="kpi">
+                            <span class="title">MENOR FLUXO</span>
 
                             <div class="caixa">
                                 <div class="box">
                                     <p class="sub-description">Terça-feira</p><br>
                                     <p class="sub-description">Quarta-feira</p><br>
-                                </div>
-                            </div>
-
-                            <div class="caixa">
-                                <div class="box2">
-                                    <span class="description5"> + Economia com a diminuição da luminosidade!</span>
+                                    + Economia com a diminuição da luminosidade!
                                 </div>
                             </div>
 
                         </div>
 
-                    </div>
 
-                    <div id="kpi">
+                        <div id="kpi">
 
-                        <div class="caixa">
+
+                            <span class="title">PARÂMETROS</span>
                             <div class="container3"><br>
-                                <span class="title">PARÂMETROS</span>
                                 <div class="box3">
-                                    <br><br>
-                                    <span class="description3">0 | 5 | 10 | 15 | 20 | 25</span>
-                                    <br><br>
+
+                                    0 | 5 | 10 | 15 | 20 | 25
+
                                 </div>
-                                    <div class="title5">* Dado as métricas acima, em caso de anormalidade acione os
-                                        planos de ação para cada situação expecífica </div>
+
+                                <div class="description">* Dado as métricas acima, em caso de anormalidade acione os
+                                    planos de ação para cada situação expecífica
+                                </div>
                             </div>
+
                         </div>
                     </div>
 
                 </div>
+                <!-- GRAFICOS -->
+
+                <div class="container">
+
+                    <div id="caixa">
+                        <div class="grafico">
+
+                            <div id="legenda">DIÁRIO</div>
+                            <div  id="grafics">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="grafico">
+
+
+                            <div id="legenda">SEMANAL</div>
+                            <div >
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
         </div>
-
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        <ul>
-            <li><b><a href="">Endereço</a></b></li>
-            <li><b><a href="contato.html">Contato</a></b></li>
-        </ul>
-        Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech
-    </div>
 </body>
 
 </html>

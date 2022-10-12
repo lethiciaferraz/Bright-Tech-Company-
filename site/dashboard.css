@@ -108,10 +108,10 @@ a:hover{
 
 /* DASHBOARD */
 .dashboard{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 20px 0px;
     display: flex;
     flex-direction: column;
+
 }
 
 .container {
@@ -132,35 +132,31 @@ a:hover{
 }
 
 .caixa{
-    margin: 10px;
+    margin: 20px;
     display: flex;
     align-items: center;
-
+    width: 175px;
 }
 
 #caixa {
-    margin-left: 2%;
-    border: 50px;
     border-radius: 20px;
     background-color: #115639;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
 }
 
-#legenda1 {
-    margin-top: -20px;
-    margin-bottom: 4px;
-    text-align: center;
-    color: white;
-
+.grafico{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
 }
 
-#legenda2 {
-    margin-top: 4px;
-    margin-bottom: 4px;
+#legenda {
+    margin: 5px;
     text-align: center;
     color: white;
+    font-weight: bold;
 
 }
 
@@ -177,37 +173,45 @@ canvas {
     width: 40vw;
 }
 
+#myChart {
+    background-color: white;
+    border-radius: 5px;
+    width: 400px;
+}
+
+
 #myChart2 {
     background-color: white;
     border-radius: 5px;
+    width: 400px;
 }
 
 /* KPIS */
  
 #kpi{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
 }
 
 .container2 {
-    background-color: #115639;
     border-radius: 20px;
-    margin-left: 40px;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
 
 }
 
 .title {
-    color: white;
+    color: #115639;
     font-size: larger;
     font-weight: bold;
-    text-align: center;
-    
+    text-align: center;    
+    margin: 0px;
 }
 
 .analise{
-    margin: 40px;
+    margin: 0px;
     display: flex;
     flex-direction: row;
 }
@@ -215,80 +219,42 @@ canvas {
 
 .box {
     width: 200px;
-    height: 80px;
-    background-color: #c7eae4;
-    border-radius: 5px;
+    height: 200px;
+    background-color: #115639;
+    border-radius: 10px;
     padding: 15px;
 }
 
 .description {
-    color: #ffffff;
+    color: #fff;
 }
 
 .sub-description {
-    color: #ffffff;
+    color: #fff;
     /*     margin-left: 20px; */
     margin-top: -10px;
 }
 
-.box2 {
-    width: 300px;
-    height: 80px;
-    background-color: #a1cca5;
-    border-radius: 5px;
-    padding: 15px;
-}
-
-.description2 {
-    color: #ffffff;
-    font-size: larger;
-    font-weight: 500;
-    margin-top: 100px;
-}
 /* FIM */
-
-
 .box3 {
-    background: rgb(255, 8, 8);
     background: linear-gradient(90deg, rgba(255, 8, 8, 1) 0%, rgba(255, 166, 0, 1) 25%, rgba(11, 180, 49, 1) 50%, rgba(255, 162, 0, 1) 75%, rgba(255, 0, 0, 1) 100%);
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 20px;
-    margin-left: 140px;
-    width: 300px;
-    height: 100px;
-}
-
-.description3 {
-    color: black;
-    font-size: larger;
-    font-weight: 500;
-
-       margin-top: 45px; 
-}
-
-
-.description4 {
-    color: #ffffff;
-    font-size: larger;
-    font-weight: 500;
-    margin-top: 10px;
-}
-
-.description5 {
-    color: #ffffff;
-    font-size: larger;
-    font-weight: 500;
-    margin-top: 10px;
+    width: 200px;
+    padding: 20px;
+    text-align: center;
 }
 
 .container3 {
     background-color: #115639;
-    width: 600px;
-    height: 240px;
+    width: 300px;
+    height: 200px;
     border-radius: 20px;
     margin: 20px;
     padding: 15px;
     text-align: center ;
+    color: #fff;
+    font-weight: bold;
 }
 
 .title5 {
@@ -299,37 +265,3 @@ canvas {
     margin: 10px;
     padding: 10px;
 } 
-
-/* FOOTER */
-.footer{
-    height: 30px;
-    padding: 50px 0px;
-    background-color: #115639;
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-  }
-  
-  .footer ul {
-    display: flex;
-    list-style: none;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    justify-content: center;
-
-  }
-  
-  .footer ul li {
-    color: #fff;
-    font-size: medium;
-  }
-  
-  .footer ul li a {
-    text-decoration: none;
-    color: #fff;
-    margin: 50px;
-  }
