@@ -39,6 +39,7 @@ a:hover{
     opacity: 0.9;
   }
 
+
 .container1 {
     margin-top: 0px;
     padding: 85px ;
@@ -74,10 +75,10 @@ a:hover{
     padding: 10px;
     border-radius: 10px;
     border: 2px solid #115639;
-    color: #115639;
+    color: black;
 }
 .campo label{
-    color: #115639;
+    color: black;
     font-family: sans-serif;
     margin: 15px 0px;
 }
@@ -111,7 +112,7 @@ a:hover{
 
 .login li a{
     color: #FFFFFF ;
-    background-color: #115639;
+    background-color: #5eb160;
     margin-top: 20px;
     width: 20px;
     padding: 10px 20px;
@@ -120,6 +121,12 @@ a:hover{
     border-radius: 20px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.home li a{
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .quems li a{
@@ -171,11 +178,6 @@ a:hover{
     color: #fff;
     margin: 50px;
   }
-
-body{
-    margin: 0px;
-    
-}
 
 body{
     margin: 0px;

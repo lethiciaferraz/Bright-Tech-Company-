@@ -34,6 +34,10 @@ a:hover{
     opacity: 0.9;
   }
 
+li:hover {
+    transform: scale(1.2);
+  }
+
 .fundo {
     background-image: url("./img/Frame\ 1\ -\ 2.0.png") ;
     background-repeat: no-repeat;
@@ -104,6 +108,12 @@ a:hover{
     padding: 10px 20px;
     border-radius: 20px;
 
+}
+
+.home li a{
+    color: #5eb160; 
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .quems li a{

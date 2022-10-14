@@ -37,9 +37,11 @@ a:hover{
 
 .container1 {
     padding: 0px ;
-   /* height: 00px;*/
-   font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+     /* background-color: #edf0ece3;
+    margin: 10px 400px;
+    border-radius: 20px;  */
 }
 
 
@@ -51,6 +53,7 @@ a:hover{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
     
 }
 .caixa-formulario h1{
@@ -69,10 +72,10 @@ a:hover{
     padding: 10px;
     border-radius: 10px;
     border: 2px solid #115639;
-    color: #115639;
+    color: black;
 }
 .campo label{
-    color: #115639;
+    color: #000000;
     font-family: sans-serif;
     margin: 15px 0px;
 }
@@ -94,7 +97,7 @@ a:hover{
 }
 .cad li a{
     color: #FFFFFF ;
-    background-color: #115639;
+    background-color: #5eb160;
     margin-top: 20px;
     width: 20px;
     padding: 10px 20px;
@@ -118,6 +121,12 @@ a:hover{
     text-decoration: none;
 }
 
+.home li a{
+    color: #115639;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .quems li a{
     color: #115639;
     text-decoration: none;
@@ -136,9 +145,13 @@ a:hover{
     cursor: pointer;
 }
 
+li:hover {
+    transform: scale(1.2);
+}
+
+
 body{
-    margin: 0px;
-    
+    margin: 0px;  
 }
 
 /* FOOTER */

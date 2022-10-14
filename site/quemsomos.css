@@ -51,10 +51,17 @@ li {
     text-decoration: none;
 }
 
-.quems li a{
+.home li a{
     color: #115639;
     text-decoration: none;
     cursor: pointer;
+}
+
+.quems li a{
+    color: #5eb160;
+    text-decoration: none;
+    cursor: pointer;
+
 }
 .projeto li a {
     color: #115639;
@@ -83,6 +90,11 @@ li {
 
 a:hover{
     opacity: 0.9;
+    
+  }
+
+  li:hover {
+    transform: scale(1.2);
   }
 
 /*referencia para levar pra frente*/

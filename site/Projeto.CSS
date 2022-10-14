@@ -34,9 +34,6 @@ li {
 }
 
 body {
-  background-image: url("./assents/Frame\ 2\ -\ 1.0.png") ;
-  background-repeat: no-repeat;
-  background-size: cover;
   /* height: 100vh; */
   margin: 0px;
 }
@@ -54,15 +51,22 @@ body {
   text-decoration: none;
 }
 
+.home li a{
+  color: #115639;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .quems li a{
   color: #115639;
   text-decoration: none;
   cursor: pointer;
 }
 .projeto li a {
-  color: #115639;
+  color: #5eb160;
   text-decoration: none;
   cursor: pointer;
+  
 }
 
 .cad li a{
@@ -88,6 +92,10 @@ a:hover{
   opacity: 0.9;
 }
 
+li:hover {
+  transform: scale(1.2);
+}
+
 .banner {
     padding: 50px 100px;
     display: flex;
@@ -96,14 +104,17 @@ a:hover{
 
 
 .banner .container1 {
-    height: 350px;
     display: flex;
     flex-direction: column;
    justify-content: space-evenly;
-   margin-left: 40px;
-   margin-right: 40px;
+   margin-left: 20px;
+   margin-right: 20px;
+   padding: 30px 60px ;
    text-align: justify;
    line-height: 1.5;
+   background-color: #edf0ece3;
+   border-radius: 20px;
+   box-shadow: 3px 3px 2px 0px #115639;
 }
 
 #img_projeto{
@@ -111,10 +122,21 @@ a:hover{
   align-items: center;
 }
 
+.caixa img {
+  border-radius: 20px;
+}
+
+.caixa :hover {
+  opacity: 0.5;
+  cursor: pointer;
+
+}
+
 h1 {
     color: #115639;
     font-size: 30px;
     height: 10px;
+    margin-bottom: 30px;
     display: flex;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
@@ -123,7 +145,7 @@ h1 {
 }
 
 .container1 h2 {
-    padding-top: 50px;
+    padding-top: 5px;
     color: #115639;
     align-items:flex-start;
     font-weight: 700;
@@ -137,18 +159,18 @@ h1 {
     font-size: 20 px;
     display: flex;
     justify-content: flex-start;
-    height: 40px;
     font-family: Arial, Helvetica, sans-serif;
 
 
 }
 
 .container2{
+  margin-top: 20px;
   margin-bottom: 60px;
+  
 }
 
 .container2 h2{
-    padding-top: 100px;
     color: #115639;
     font-weight: bold;
     align-items:center;

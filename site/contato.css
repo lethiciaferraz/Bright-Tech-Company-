@@ -30,6 +30,13 @@ ul {
 li {
   color: #e1e1e1;
 }
+
+.home li a{
+  color: #115639;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .cad li a{
   color: #FFFFFF ;
   background-color: #115639;
@@ -72,6 +79,11 @@ li {
   color: #115639;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+li:hover {
+  transform: scale(1.2);
 }
 
 body {

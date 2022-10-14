@@ -30,19 +30,65 @@ li {
 
 .container ul li a{
   text-decoration: none;
-  color: #fff;
+}
+
+.login li a{
+  color: #115639 ;
+  background-color: #FFFFFF;
+  margin-top: 20px;
+  width: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.home li a{
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.quems li a{
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+.projeto li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cad li a{
+  color: #115639 ;
+  background-color: #FFFFFF ;
+  margin-top: 20px;
+  width: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.simulador li a {
+  color: #5eb160;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover{
   opacity: 0.9;
 }
 
-#login a{
-  background-color: #fff;
-  color: #115639;
-  padding: 10px 20px;
-  border-radius: 20px;
-} 
+li:hover {
+  transform: scale(1.2);
+}
 
 
 body {
