@@ -55,6 +55,10 @@ span{
     color: #115639;    
  }
 
+body{
+    display: flex;
+    flex-direction: row;
+}
 
 /* DASHBOARD */
 .dashboard{
