@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 .fundo{
@@ -8,7 +7,7 @@
     margin-top: 20px 0px;
     display: flex;
     flex-direction: row;
-
+    
 }
 
 /* MENU LATERAL */
@@ -19,10 +18,12 @@
     width: 190px;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 .menulateral ul {
     width: 100%;
+    margin-right: 100px;
 }
 
 .menulateral ul li {
@@ -46,26 +47,24 @@ span{
 
 /* QUANDO MOUSE ESTIVER EM CIMA */
 .menulateral ul li:hover {
-   background: #fff;
-   border-radius: 10px;
-   color: #115639;    
+    background: #fff;
+    border-radius: 10px;
+    color: #115639;    
 }
 
 .menulateral ul li:hover a{
     color: #115639;    
- }
-
-body{
-    display: flex;
-    flex-direction: row;
 }
+
 
 /* DASHBOARD */
 .dashboard{
     margin-top: 20px 0px;
     display: flex;
     flex-direction: column;
-
+    height: 100vh;   
+    margin-left: 15vh;
+    
 }
 
 
@@ -90,12 +89,12 @@ body{
 
 #caixa {
     border-radius: 20px;
-    background-color: #115639;
+    background-color: #edf0edc3;   
     padding: 0px 10px;
     display: flex;
     flex-direction: row;
-    margin: 10px 10px 47px 10px;
-    
+    margin: 10px 10px 10px;
+    height: 45vh;
 }
 
 .grafico{
@@ -107,7 +106,7 @@ body{
 #legenda {
     margin: 5px;
     text-align: center;
-    color: white;
+    color: black;
     font-weight: bold;
 
 }
@@ -171,14 +170,14 @@ canvas {
 .box {
     width: 200px;
     height: 200px;
-    background-color: #115639;
+    background-color: #edf0edc3;
     border-radius: 10px;
     padding: 15px;
     
 }
 
 .description {
-    color: #ffffff;
+    color: black;
     text-align: center;
     font-weight: bold;
 }
@@ -196,14 +195,14 @@ canvas {
 }
 
 .container3 {
-    background-color: #115639;
+    background-color: #edf0edc3;
     width: 300px;
     height: 200px;
     border-radius: 20px;
     margin: 20px;
     padding: 15px;
     text-align: center ;
-    color: #fff;
+    color:black;
     font-weight: bold;
 }
 
