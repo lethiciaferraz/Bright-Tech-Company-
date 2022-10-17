@@ -95,6 +95,7 @@ span{
     flex-direction: row;
     margin: 10px 10px 10px;
     height: 45vh;
+    box-shadow: 0 7px 10px #005252;
 }
 
 .grafico{
@@ -204,6 +205,7 @@ canvas {
     text-align: center ;
     color:black;
     font-weight: bold;
+    box-shadow: 0 7px 10px #005252;
 }
 
 .title5 {
