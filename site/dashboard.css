@@ -24,6 +24,7 @@
 .menulateral ul {
     width: 100%;
     margin-right: 100px;
+    margin-left: 0px;
 }
 
 .menulateral ul li {
@@ -32,13 +33,15 @@
     margin: 5px;
     color: #fff;
     width: 100%;
+
 }
 
 .menulateral ul li a {
     text-decoration: none;
     color: #fff;
-    width: 100%;
+    width: 50px;
     display: flex;
+    margin-left: 0px;
 }
 
 span{
@@ -82,7 +85,7 @@ span{
     margin: 20px;
     display: flex;
     align-items: center;
-    width: 175px;
+    width: 200px;
     box-shadow: 0 7px 10px #005252;
     border-radius: 10px;
 }
@@ -216,3 +219,7 @@ canvas {
     margin: 10px;
     padding: 10px;
 } 
+
+.menulateral ul {
+padding-inline-start: 0% ;
+}
