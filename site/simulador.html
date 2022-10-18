@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -91,7 +91,7 @@
 
         var dispositivo = m2 / 16
 
-        var total_conta = (((hr * 0.39208) * dispositivo) * 4) * dias_func
+        var total_conta = ((hr * 0.39208) * 4) * dias_func
         var economia_solucao = ((total_conta * 0.2) / 2) + (total_conta / 2)
         var arduino = 1000 * dispositivo.toFixed()
         var tempo = (arduino / (total_conta - economia_solucao))
