@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
 }
 
@@ -12,7 +12,7 @@
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.logo img{
+.logo img {
   width: 150px;
 }
 
@@ -28,12 +28,12 @@ li {
   color: #e1e1e1;
 }
 
-.container ul li a{
+.container ul li a {
   text-decoration: none;
 }
 
-.login li a{
-  color: #115639 ;
+.login li a {
+  color: #115639;
   background-color: #FFFFFF;
   margin-top: 20px;
   width: 20px;
@@ -45,27 +45,28 @@ li {
   text-decoration: none;
 }
 
-.home li a{
+.home li a {
   color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
 }
 
-.quems li a{
+.quems li a {
   color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
 
 }
+
 .projeto li a {
   color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
 }
 
-.cad li a{
-  color: #115639 ;
-  background-color: #FFFFFF ;
+.cad li a {
+  color: #115639;
+  background-color: #FFFFFF;
   margin-top: 20px;
   width: 20px;
   padding: 10px 20px;
@@ -82,7 +83,7 @@ li {
   cursor: pointer;
 }
 
-a:hover{
+a:hover {
   opacity: 0.9;
 }
 
@@ -92,7 +93,7 @@ li:hover {
 
 
 body {
-  background-image: url("./img/Frame\ 1\ -\ 2.0.png") ;
+  background-image: url("./img/Frame\ 1\ -\ 2.0.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -108,9 +109,11 @@ body {
   padding: 40px 50px;
   margin: 57px 230px;
   border-radius: 30px;
+  box-shadow: 0 7px 10px #115639;
+
 }
 
-h1{
+h1 {
   color: #115639;
   margin-bottom: 25px;
 }
@@ -133,7 +136,7 @@ button {
   cursor: pointer;
 }
 
-button:hover{
+button:hover {
   opacity: 0.9;
 }
 
@@ -151,9 +154,9 @@ button:hover{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#div_resul a{
+#div_resul a {
   text-decoration: none;
-  font-size:small;
+  font-size: small;
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 20px;
@@ -164,7 +167,7 @@ button:hover{
 }
 
 /* FOOTER */
-.footer{
+.footer {
   height: 30px;
   padding: 60px 0px;
   background-color: #115639;

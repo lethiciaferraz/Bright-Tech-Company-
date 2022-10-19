@@ -18,6 +18,9 @@
     width: 190px;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     
 }
 
@@ -61,7 +64,11 @@ span{
 
 div #img_logo{
     display: flex;
-    align-items: flex-end;
+    justify-items: flex-end;
+
+
+
+    
 }
 
 /* DASHBOARD */
@@ -214,7 +221,7 @@ canvas {
     text-align: center ;
     color:black;
     font-weight: bold;
-    box-shadow: 0 7px 10px #005252;
+    box-shadow: 0 7px 10px #115639;
 }
 
 .title5 {
@@ -228,10 +235,14 @@ canvas {
 
 .menulateral ul {
 padding-inline-start: 0% ;
+<<<<<<< HEAD
+
+=======
 }
 
 #p_legenda{
     max-width: 480px;
     text-align: center;
     font-weight: bold;
+>>>>>>> f9fa41e8a9463030406425a23c83e573a8575726
 }

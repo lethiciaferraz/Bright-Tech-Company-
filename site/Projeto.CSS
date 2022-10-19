@@ -114,8 +114,8 @@ li:hover {
    line-height: 1.5;
    background-color: #edf0ece3;
    border-radius: 20px;
-   box-shadow: 3px 3px 2px 0px #115639;
-}
+   box-shadow: 0 7px 10px #115639;
+  }
 
 #img_projeto{
   display: flex;
