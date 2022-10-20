@@ -235,14 +235,10 @@ canvas {
 
 .menulateral ul {
 padding-inline-start: 0% ;
-<<<<<<< HEAD
-
-=======
 }
 
 #p_legenda{
     max-width: 480px;
     text-align: center;
     font-weight: bold;
->>>>>>> f9fa41e8a9463030406425a23c83e573a8575726
 }
