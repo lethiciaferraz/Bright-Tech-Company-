@@ -187,15 +187,55 @@ body {
 
 .footer ul li {
     color: #fff;
+
     font-size: medium;
 }
 
 .footer ul li a {
     text-decoration: none;
+
     color: #fff;
+
     margin: 50px;
 }
 
 /* .footer ul li b {
     display: flex;
   } */
+
+  .senhaForte1{
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+  }
+  .senhaForte2{
+    display:flex;
+
+    justify-content: flex-start;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+
+
+  }
+
+  .senhaForte3{
+    display: flex;
+
+    justify-content: flex-start;
+
+    align-items: center;
+  }
+
+  .senhaForte3 p{
+    font-size: 13px;
+  }
+
+  .senhaForte3 img{
+    margin-right: 5px;
+  }
