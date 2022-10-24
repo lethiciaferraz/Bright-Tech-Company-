@@ -72,41 +72,6 @@
                         <label for="password">Confirmação de Senha:</label>
                         <input type="password" id="in_conf" placeholder="**********">
                     </div>
-                    <div class="senhaForte1">
-                        <div class="senhaForte2">
-                            <div class="senhaForte3">
-                                <img src="./assents/traco.png" alt="" width="15px" id="img_traco1">
-
-                                <p> Pelo menos 6 Caracteres
-
-                                </p>
-
-                            </div>
-                            <div class="senhaForte3">
-                                <img src="./assents/traco.png" alt="" width="15px" id="img_traco2">
-
-                                <p> Conter Caracter Especial
-
-                                </p>
-                            </div>
-                        </div>
-                        <div class="senhaForte2">
-                            <div class="senhaForte3">
-                                <img src="./assents/traco.png" alt="" width="15px" id="img_traco3">
-
-                                <p> Conter Número
-                                
-                                </p>
-                            </div>
-                            <div class="senhaForte3">
-                                <img src="./assents/traco.png" alt="" width="15px" id="img_traco4">
-
-                                <p> Conter Letra MAISCÚLA
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                     <button onclick="cadastro()"><b>CADASTRAR</b></button>
                 </div>
             </div>
@@ -131,7 +96,6 @@
         var cnpj = in_cnpj.value
         var senha = in_senha.value
         var confirmacao = in_conf.value
-       // var senhaForte = senha.match(/[0-9]/) && senha.match(/[A-Z]/) && senha.match(/[!\@\#\$\%\&\*]/) && senha.length >= 6
 
         if(nome == `empresa` && email ==`empresa@gmail.com` && senha == `sptech` && confirmacao == `sptech`){
             alert(`Cadastro efetuado com sucesso!`)
@@ -140,40 +104,5 @@
             alert (`Falha no cadastro!
              Preencha os dados novamente.`)
         }
-    }
-
-    function senhaForte(){
-        var senha = document.getElementById('in_senha');
-        var tamanho = document.getElementById('img_traco1');
-        var esp = document.getElementById('img_traco2'); 
-        var num = document.getElementById('img_traco3');
-        var letra = document.getElementById('img_traco4');
-
-        if(senha.value.match(/[0-9]/)){
-            num.src = "./assents/Green_check.png"
-        }else{
-            num.src="./assents/traco.png"
-        }
-
-        if(senha.value.match(/[A-Z]/)){
-            letra.src = "./assents/Green_check.png"
-        }else{
-            letra.src = "./assents/traco.png"
-        }
-
-        if(senha.value.match(/[!\@\#\$\%\&\*]/)){
-            esp.src = "./assents/Green_check.png"
-        } else{
-            esp.src = "./assents/traco.png"
-        }
-
-        if(senha.value.length < 6){
-            tamanho.src = "./assents/traco.png"
-        } else{
-            tamanho.src = "./assents/Green_check.png"
-        }
-        
-        
-
     }
 </script>
