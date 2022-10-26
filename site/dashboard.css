@@ -36,7 +36,7 @@
     margin: 5px;
     color: #fff;
     width: 100%;
-
+    transition: all 0.8s;
 }
 
 .menulateral ul li a {
@@ -203,7 +203,7 @@ canvas {
 
 /* KPI 3 */
 .box3 {
-    background: linear-gradient(90deg, rgba(255, 8, 8, 1) 0%, rgba(255, 166, 0, 1) 25%, rgba(11, 180, 49, 1) 50%, rgba(255, 162, 0, 1) 75%, rgba(255, 0, 0, 1) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 255) 0%, rgb(0, 183, 255) 25%, rgba(11, 180, 49, 1) 50%, rgba(255, 162, 0, 1) 75%, rgba(255, 0, 0, 1) 100%);
     border-radius: 10px;
     margin: 20px;
     width: 200px;

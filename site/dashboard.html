@@ -1,253 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dashboard.css" />
     <title>dashboard</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- DIV MENU LATERAL -->
     <div class="fundo">
-        <div class="menulateral">
-            <ul>
+      <div class="menulateral">
+        <ul>
+          <li style="background-color: white; border-radius: 10px">
+            <a href="" style="color: #115639">
+              <span class="icon">
+                <ion-icon name="stats-chart-outline"></ion-icon>
+              </span>
+              <span class="menu">Gráficos</span>
+            </a>
+          </li>
 
-                <li style=" background-color: white; border-radius: 10px;"><a href="" style="color: #115639">
-                    <span class="icon">
-                        <ion-icon name="stats-chart-outline"></ion-icon>
-                    </span>
-                    <span class="menu">Gráficos</span>
-                </a>
-            </li>
+          <li>
+            <a href="">
+              <span class="icon">
+                <ion-icon name="person-outline"></ion-icon>
+              </span>
+              <span class="menu">Perfil</span>
+            </a>
+          </li>
 
-                <li><a href="">
-                        <span class="icon">
-                            <ion-icon name="person-outline"></ion-icon>
-                        </span>
-                        <span class="menu">Perfil</span>
-                    </a>
-                </li>
+          <li>
+            <a href="">
+              <span class="icon">
+                <ion-icon name="notifications-outline"></ion-icon>
+              </span>
+              <span class="menu">Notificações</span>
+            </a>
+          </li>
 
-                <li><a href="">
-                        <span class="icon">
-                            <ion-icon name="notifications-outline"></ion-icon>
-                        </span>
-                        <span class="menu">Notificações</span>
-                    </a>
-                </li>
+          <li>
+            <a href="">
+              <span class="icon">
+                <ion-icon name="chatbubbles-outline"></ion-icon>
+              </span>
+              <span class="menu">Mensagens</span>
+            </a>
+          </li>
 
-                <li><a href="">
-                        <span class="icon">
-                            <ion-icon name="chatbubbles-outline"></ion-icon>
-                        </span>
-                        <span class="menu">Mensagens</span>
-                    </a>
-                </li>
+          <li>
+            <a href="">
+              <span class="icon">
+                <ion-icon name="help-circle-outline"></ion-icon>
+              </span>
+              <span class="menu">Ajuda</span>
+            </a>
+          </li>
 
-                <li><a href="">
-                        <span class="icon">
-                            <ion-icon name="help-circle-outline"></ion-icon>
-                        </span>
-                        <span class="menu">Ajuda</span>
-                    </a>
-                </li>
+          <li>
+            <a href="login.html">
+              <span class="icon">
+                <ion-icon name="log-out-outline"></ion-icon>
+              </span>
+              <span class="menu">Sair</span>
+            </a>
+          </li>
+        </ul>
+        <div id="img_logo">
+          <img src="./assents/1 1 (1).png" alt="" width="100%" />
+        </div>
+      </div>
 
-                <li><a href="login.html">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="menu">Sair</span>
-                    </a>
-                </li>
-            
-            </ul>
-            <div id="img_logo">
-                <img src="./assents/1 1 (1).png" alt="" width="100%">
+      <!--DASHBOARD  -->
+      <div class="dashboard">
+        <!-- KPIS  -->
+        <div class="analise">
+          <div class="container2">
+            <br />
+            <!------------------------------------------------------------------------------------------->
+            <div id="kpi">
+              <span class="title">FLUXO</span>
+              <div class="caixa">
+                <div class="box">
+                  <p class="description">Diário</p>
+                  <br />
+                  <p class="description">Fluxo > 15</p>
+                  <br />
+                  <p class="sub-description">Capturado durante 30 minutos</p>
+                  <br />
+                  → É recomendado manter a iluminação em 100% neste perído de 30
+                  minutos.
+                </div>
+              </div>
             </div>
+            <!------------------------------------------------------------------------------------------->
+            <div id="kpi">
+              <span class="title">MAIOR FLUXO</span>
+              <div class="caixa">
+                <div class="box">
+                  <p class="description">Semanal</p>
+                  <br />
+                  <br />
+                  <p class="description">Segunda-feira</p>
+                  <br />
+                  <p class="description">Quarta-feira</p>
+                  <br />
+                  <p class="description">Sexta-feira</p>
+                  <br />
+                </div>
+              </div>
+            </div>
+            <!------------------------------------------------------------------------------------------->
+            <div id="kpi">
+              <span class="title">MENOR FLUXO</span>
+
+              <div class="caixa">
+                <div class="box">
+                  <p class="description">Semanal</p>
+                  <br /><br />
+                  <p class="description">Terça-feira</p>
+                  <br />
+                  <p class="description">Quinta-feira</p>
+                  <br />
+                </div>
+              </div>
+            </div>
+            <!----------------------------------------------------------------------------------------- -->
+            <div id="kpi">
+              <span class="title">PARÂMETROS</span>
+              <div class="container3">
+                <br />
+                <div class="box3">0 | 5 | 10 | 15 | 20 | 25></div>
+
+                <div>
+                  * Dado as métricas acima, em caso de anormalidade acione os
+                  planos de ação para cada situação expecífica
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-         <!--DASHBOARD  -->
-         <div class="dashboard">
-    
-            <!-- KPIS  -->
-            <div class="analise">
+        <!-- GRAFICOS -->
 
-                <div class="container2"><br>
-                    <!------------------------------------------------------------------------------------------->
-                    <div id="kpi">
-                        <span class="title">FLUXO</span>
-                        <div class="caixa">
+        <div class="container">
+          <div id="caixa">
+            <div class="grafico">
+              <div id="legenda">DIÁRIO</div>
+              <div id="grafics">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+          </div>
 
-                            <div class="box">
-                                <p class="description"> Diário </p><br>
-                                <p class="description"> Fluxo > 15 </p><br>
-                                <p class="sub-description"> Capturado durante 30 minutos</p><br>
-                                → É recomendado manter a iluminação em 100% neste perído de 30 minutos.
-                            </div>
-                        </div>
-
-                    </div>
-                    <!------------------------------------------------------------------------------------------->
-                    <div id="kpi">
-                        <span class="title">MAIOR FLUXO</span>
-                        <div class="caixa">
-
-                            <div class="box">
-                                <p class="description">Semanal</p><br> <br>
-                                <p class="description">Segunda-feira</p><br>
-                                <p class="description">Quarta-feira</p><br>
-                                <p class="description">Sexta-feira</p><br>
-                            </div>
-                        </div>
-                    </div>
-                    <!------------------------------------------------------------------------------------------->
-                    <div id="kpi">
-                        <span class="title">MENOR FLUXO</span>
-
-                        <div class="caixa">
-                            <div class="box">
-                                <p class="description">Semanal</p><br><br>
-                                <p class="description">Terça-feira</p><br>
-                                <p class="description">Quarta-feira</p><br>
-                            </div>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------- -->
-                    <div id="kpi">
-                        <span class="title">PARÂMETROS</span>
-                        <div class="container3"><br>
-                            <div class="box3">
-
-                                0 | 5 | 10 | 15 | 20 | 25>
-
-                            </div>
-
-                            <div>* Dado as métricas acima, em caso de anormalidade acione os
-                                planos de ação para cada situação expecífica
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+          <div id="caixa">
+            <div class="grafico">
+              <div id="legenda">SEMANAL</div>
+              <div>
+                <canvas id="myChart2"></canvas>
+              </div>
             </div>
 
-            <!-- GRAFICOS -->
-
-            <div class="container">
-
-                <div id="caixa">
-                    <div class="grafico">
-                        <div id="legenda">DIÁRIO</div>
-                        <div id="grafics">
-                            <canvas id="myChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="caixa">
-
-                    <div class="grafico">
-
-
-                        <div id="legenda">SEMANAL</div>
-                        <div>
-                            <canvas id="myChart2"></canvas>
-                        </div>
-                    </div>
-
-                   <div id="p_legenda"> * Fluxo baixo devido aos 2 dias de home office (terça-feira e
-                    quinta-feira)  informado pela empresa ao efetuar o contrato
-                    </div>
-                </div>
+            <div id="p_legenda">
+              * Fluxo baixo devido aos 2 dias de home office (terça-feira e
+              quinta-feira) informado pela empresa ao efetuar o contrato
             </div>
-
+          </div>
         </div>
-
+      </div>
     </div>
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
 
 <script>
+  const labels = [
+    "06:00",
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+  ];
 
-    const labels = [
-        '06:00',
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00'
-    ];
+  const labels2 = [
+    "segunda-feira",
+    "terça-feira",
+    "quarta-feira",
+    "quinta-feira",
+    "sexta-feira",
+  ];
 
-    const labels2 = [
-        'segunda-feira',
-        'terça-feira',
-        'quarta-feira',
-        'quinta-feira',
-        'sexta-feira'
-    ];
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "fluxo por setor - hall de entrada(04/10/2022)",
+        backgroundColor: "rgb(0, 77, 0)",
+        borderColor: "rgb(0, 77, 0)",
+        data: [5, 2, 10, 8, 15, 12, 27, 32, 16, 14, 20, 18, 25, 22, 30, 21, 17],
+      },
+    ],
+  };
 
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'fluxo por setor - hall de entrada(04/10/2022)',
-            backgroundColor: 'rgb(0, 77, 0)',
-            borderColor: 'rgb(0, 77, 0)',
-            data: [5, 2, 10, 8, 15, 12, 27, 32, 16, 14, 20, 18, 25, 22, 30, 21, 17],
-        }]
-    };
+  const data2 = {
+    labels: labels2,
+    datasets: [
+      {
+        label: "fluxo de pessoas - empresa (horários de pico)",
+        backgroundColor: "rgb(0, 77, 0)",
+        borderColor: "rgb(0, 77, 0)",
+        data: [20, 13, 25, 14, 23],
+      },
+    ],
+  };
 
-    const data2 = {
-        labels: labels2,
-        datasets: [{
-            label: 'fluxo de pessoas - empresa (horários de pico)',
-            backgroundColor: 'rgb(0, 77, 0)',
-            borderColor: 'rgb(0, 77, 0)',
-            data: [20, 13, 25, 14, 23],
-        }]
-    };
+  const config = {
+    type: "bar",
+    data: data,
+    options: {},
+  };
 
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {}
-    };
-
-    const config2 = {
-        type: 'line',
-        data: data2,
-        options: {}
-    };
+  const config2 = {
+    type: "line",
+    data: data2,
+    options: {},
+  };
 </script>
 
 <script>
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
+  const myChart = new Chart(document.getElementById("myChart"), config);
 
-    const myChart2 = new Chart(
-        document.getElementById('myChart2'),
-        config2
-    );
+  const myChart2 = new Chart(document.getElementById("myChart2"), config2);
 </script>
