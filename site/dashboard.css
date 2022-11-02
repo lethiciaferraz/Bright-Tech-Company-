@@ -2,17 +2,18 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
-.fundo{
+
+.fundo {
     background-color: #ffffff;
     margin-top: 20px 0px;
     display: flex;
     flex-direction: row;
-    
+
 }
 
 /* MENU LATERAL */
 
-.menulateral{
+.menulateral {
     background-color: #115639;
     padding: 10px;
     width: 190px;
@@ -21,7 +22,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
 
 .menulateral ul {
@@ -47,7 +48,7 @@
     margin-left: 0px;
 }
 
-span{
+span {
     margin: 10px;
 }
 
@@ -55,32 +56,27 @@ span{
 .menulateral ul li:hover {
     background: #fff;
     border-radius: 10px;
-    color: #115639;    
+    color: #115639;
 }
 
-.menulateral ul li:hover a{
-    color: #115639;    
+.menulateral ul li:hover a {
+    color: #115639;
 }
 
-div #img_logo{
+div #img_logo {
     display: flex;
     justify-items: flex-end;
 
-
-
-    
 }
 
 /* DASHBOARD */
-.dashboard{
+.dashboard {
     margin-top: 20px 0px;
     display: flex;
     flex-direction: column;
-    height: 100vh;   
+    height: 100vh;
     margin-left: 15vh;
-    
 }
-
 
 /* GRAFICOS */
 .container {
@@ -91,8 +87,7 @@ div #img_logo{
     flex-direction: row;
 }
 
-
-.caixa{
+.caixa {
     margin: 20px;
     display: flex;
     align-items: center;
@@ -103,7 +98,7 @@ div #img_logo{
 
 #caixa {
     border-radius: 20px;
-    background-color: #edf0edc3;   
+    background-color: #edf0edc3;
     padding: 0px 10px;
     display: flex;
     flex-direction: column;
@@ -112,20 +107,23 @@ div #img_logo{
     box-shadow: 0 7px 10px #005252;
 }
 
-.grafico{
+.grafico {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+.grafico #slc_id {
+    text-align: center;
 }
 
 #legenda {
-    margin: 10px;
+    margin: 25px;
     margin-top: -7px;
     text-align: center;
     color: black;
     font-weight: bold;
-
 }
 
 #grafics {
@@ -147,7 +145,6 @@ canvas {
     width: 400px;
 }
 
-
 #myChart2 {
     background-color: white;
     border-radius: 5px;
@@ -155,11 +152,10 @@ canvas {
 }
 
 /* KPIS */
- 
-#kpi{
+
+#kpi {
     display: flex;
     flex-direction: column;
-
 }
 
 .container2 {
@@ -167,18 +163,17 @@ canvas {
     padding: 20px;
     display: flex;
     flex-direction: row;
-
 }
 
 .title {
     color: #115639;
     font-size: larger;
     font-weight: bold;
-    text-align: center;    
+    text-align: center;
     margin: 0px;
 }
 
-.analise{
+.analise {
     margin: 0px;
     display: flex;
     flex-direction: row;
@@ -190,7 +185,7 @@ canvas {
     background-color: #edf0edc3;
     border-radius: 10px;
     padding: 15px;
-    
+
 }
 
 .description {
@@ -198,8 +193,6 @@ canvas {
     text-align: center;
     font-weight: bold;
 }
-
-
 
 /* KPI 3 */
 .box3 {
@@ -218,8 +211,8 @@ canvas {
     border-radius: 20px;
     margin: 20px;
     padding: 15px;
-    text-align: center ;
-    color:black;
+    text-align: center;
+    color: black;
     font-weight: bold;
     box-shadow: 0 7px 10px #115639;
 }
@@ -231,13 +224,13 @@ canvas {
     width: 550px;
     margin: 10px;
     padding: 10px;
-} 
-
-.menulateral ul {
-padding-inline-start: 0% ;
 }
 
-#p_legenda{
+.menulateral ul {
+    padding-inline-start: 0%;
+}
+
+#p_legenda {
     max-width: 480px;
     text-align: center;
     font-weight: bold;

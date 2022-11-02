@@ -1,186 +1,190 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="dashboard.css" />
-    <title>dashboard</title>
-  </head>
 
-  <body>
-    <!-- DIV MENU LATERAL -->
-    <div class="fundo">
-      <div class="menulateral">
-        <ul>
-          <li style="background-color: white; border-radius: 10px">
-            <a href="" style="color: #115639">
-              <span class="icon">
-                <ion-icon name="stats-chart-outline"></ion-icon>
-              </span>
-              <span class="menu">Gráficos</span>
-            </a>
-          </li>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="dashboard.css" />
+  <title>dashboard</title>
+</head>
 
-          <li>
-            <a href="">
-              <span class="icon">
-                <ion-icon name="person-outline"></ion-icon>
-              </span>
-              <span class="menu">Perfil</span>
-            </a>
-          </li>
+<body>
+  <!-- DIV MENU LATERAL -->
+  <div class="fundo">
+    <div class="menulateral">
+      <ul>
+        <li style="background-color: white; border-radius: 10px">
+          <a href="" style="color: #115639">
+            <span class="icon">
+              <ion-icon name="stats-chart-outline"></ion-icon>
+            </span>
+            <span class="menu">Gráficos</span>
+          </a>
+        </li>
 
-          <li>
-            <a href="">
-              <span class="icon">
-                <ion-icon name="notifications-outline"></ion-icon>
-              </span>
-              <span class="menu">Notificações</span>
-            </a>
-          </li>
+        <li>
+          <a href="">
+            <span class="icon">
+              <ion-icon name="person-outline"></ion-icon>
+            </span>
+            <span class="menu">Perfil</span>
+          </a>
+        </li>
 
-          <li>
-            <a href="">
-              <span class="icon">
-                <ion-icon name="chatbubbles-outline"></ion-icon>
-              </span>
-              <span class="menu">Mensagens</span>
-            </a>
-          </li>
+        <li>
+          <a href="">
+            <span class="icon">
+              <ion-icon name="notifications-outline"></ion-icon>
+            </span>
+            <span class="menu">Notificações</span>
+          </a>
+        </li>
 
-          <li>
-            <a href="">
-              <span class="icon">
-                <ion-icon name="help-circle-outline"></ion-icon>
-              </span>
-              <span class="menu">Ajuda</span>
-            </a>
-          </li>
+        <li>
+          <a href="">
+            <span class="icon">
+              <ion-icon name="chatbubbles-outline"></ion-icon>
+            </span>
+            <span class="menu">Mensagens</span>
+          </a>
+        </li>
 
-          <li>
-            <a href="login.html">
-              <span class="icon">
-                <ion-icon name="log-out-outline"></ion-icon>
-              </span>
-              <span class="menu">Sair</span>
-            </a>
-          </li>
-        </ul>
-        <div id="img_logo">
-          <img src="./assents/1 1 (1).png" alt="" width="100%" />
+        <li>
+          <a href="">
+            <span class="icon">
+              <ion-icon name="help-circle-outline"></ion-icon>
+            </span>
+            <span class="menu">Ajuda</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="login.html">
+            <span class="icon">
+              <ion-icon name="log-out-outline"></ion-icon>
+            </span>
+            <span class="menu">Sair</span>
+          </a>
+        </li>
+      </ul>
+      <div id="img_logo">
+        <img src="./assents/1 1 (1).png" alt="" width="100%" />
+      </div>
+    </div>
+
+    <!--DASHBOARD  -->
+    <div class="dashboard">
+      <!-- KPIS  -->
+      <div class="analise">
+        <div class="container2">
+          <br />
+          <!------------------------------------------------------------------------------------------->
+          <div id="kpi">
+            <span class="title">FLUXO</span>
+            <div class="caixa">
+              <div class="box">
+                <p class="description">Diário</p>
+                <br />
+                <p class="description">Fluxo > 15</p>
+                <br />
+                <p class="sub-description">Capturado durante 30 minutos</p>
+                <br />
+                → É recomendado manter a iluminação em 100% neste perído de 30
+                minutos.
+              </div>
+            </div>
+          </div>
+          <!------------------------------------------------------------------------------------------->
+          <div id="kpi">
+            <span class="title">MAIOR FLUXO</span>
+            <div class="caixa">
+              <div class="box">
+                <p class="description">Semanal</p>
+                <br />
+                <br />
+                <p class="description">Segunda-feira</p>
+                <br />
+                <p class="description">Quarta-feira</p>
+                <br />
+                <p class="description">Sexta-feira</p>
+                <br />
+              </div>
+            </div>
+          </div>
+          <!------------------------------------------------------------------------------------------->
+          <div id="kpi">
+            <span class="title">MENOR FLUXO</span>
+
+            <div class="caixa">
+              <div class="box">
+                <p class="description">Semanal</p>
+                <br /><br />
+                <p class="description">Terça-feira</p>
+                <br />
+                <p class="description">Quinta-feira</p>
+                <br />
+              </div>
+            </div>
+          </div>
+          <!------------------------------------------------------------------------------------------->
+          <div id="kpi">
+            <span class="title">PARÂMETROS</span>
+            <div class="container3">
+              <br />
+              <div class="box3">0 | 5 | 10 | 15 | 20 | 25></div>
+
+              <div>
+                * Dado as métricas acima, em caso de anormalidade acione os
+                planos de ação para cada situação expecífica
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!--DASHBOARD  -->
-      <div class="dashboard">
-        <!-- KPIS  -->
-        <div class="analise">
-          <div class="container2">
-            <br />
-            <!------------------------------------------------------------------------------------------->
-            <div id="kpi">
-              <span class="title">FLUXO</span>
-              <div class="caixa">
-                <div class="box">
-                  <p class="description">Diário</p>
-                  <br />
-                  <p class="description">Fluxo > 15</p>
-                  <br />
-                  <p class="sub-description">Capturado durante 30 minutos</p>
-                  <br />
-                  → É recomendado manter a iluminação em 100% neste perído de 30
-                  minutos.
-                </div>
-              </div>
-            </div>
-            <!------------------------------------------------------------------------------------------->
-            <div id="kpi">
-              <span class="title">MAIOR FLUXO</span>
-              <div class="caixa">
-                <div class="box">
-                  <p class="description">Semanal</p>
-                  <br />
-                  <br />
-                  <p class="description">Segunda-feira</p>
-                  <br />
-                  <p class="description">Quarta-feira</p>
-                  <br />
-                  <p class="description">Sexta-feira</p>
-                  <br />
-                </div>
-              </div>
-            </div>
-            <!------------------------------------------------------------------------------------------->
-            <div id="kpi">
-              <span class="title">MENOR FLUXO</span>
+      <!-- GRAFICOS -->
 
-              <div class="caixa">
-                <div class="box">
-                  <p class="description">Semanal</p>
-                  <br /><br />
-                  <p class="description">Terça-feira</p>
-                  <br />
-                  <p class="description">Quinta-feira</p>
-                  <br />
-                </div>
-              </div>
+      <div class="container">
+        <div id="caixa">
+          <div class="grafico">
+            <div id="legenda">
+              <select name="dias_semanais" id="slc_id" onchange="slc_dias(this)">
+                <option value="segunda">Segunda-Feira</option>
+                <option value="terca">Terça-Feira</option>
+                <option value="quarta">Quarta-Feira</option>
+                <option value="quinta">Quinta-Feira</option>
+                <option value="sexta">Sexta-Feira</option>
+              </select>
             </div>
-            <!----------------------------------------------------------------------------------------- -->
-            <div id="kpi">
-              <span class="title">PARÂMETROS</span>
-              <div class="container3">
-                <br />
-                <div class="box3">0 | 5 | 10 | 15 | 20 | 25></div>
-
-                <div>
-                  * Dado as métricas acima, em caso de anormalidade acione os
-                  planos de ação para cada situação expecífica
-                </div>
-              </div>
+            <div id="grafics">
+              <canvas id="myChart"></canvas>
             </div>
           </div>
         </div>
 
-        <!-- GRAFICOS -->
-
-        <div class="container">
-          <div id="caixa">
-            <div class="grafico">
-              <div id="legenda">DIÁRIO</div>
-              <div id="grafics">
-                <canvas id="myChart"></canvas>
-              </div>
+        <div id="caixa">
+          <div class="grafico">
+            <div id="legenda">SEMANAL</div>
+            <div>
+              <canvas id="myChart2"></canvas>
             </div>
           </div>
 
-          <div id="caixa">
-            <div class="grafico">
-              <div id="legenda">SEMANAL</div>
-              <div>
-                <canvas id="myChart2"></canvas>
-              </div>
-            </div>
-
-            <div id="p_legenda">
-              * Fluxo baixo devido aos 2 dias de home office (terça-feira e
-              quinta-feira) informado pela empresa ao efetuar o contrato
-            </div>
+          <div id="p_legenda">
+            * Fluxo baixo devido aos 2 dias de home office (terça-feira e
+            quinta-feira) informado pela empresa ao efetuar o contrato
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
 </html>
 
 <script>
@@ -204,15 +208,7 @@
     "22:00",
   ];
 
-  const labels2 = [
-    "segunda-feira",
-    "terça-feira",
-    "quarta-feira",
-    "quinta-feira",
-    "sexta-feira",
-  ];
-
-  const data = {
+  var data = {
     labels: labels,
     datasets: [
       {
@@ -223,6 +219,22 @@
       },
     ],
   };
+
+  const config = {
+    type: "bar",
+    data: data,
+    options: {},
+  };
+
+  /* ----------------------------------------------------------------------------------------------- */
+
+  const labels2 = [
+    "segunda-feira",
+    "terça-feira",
+    "quarta-feira",
+    "quinta-feira",
+    "sexta-feira",
+  ];
 
   const data2 = {
     labels: labels2,
@@ -236,12 +248,6 @@
     ],
   };
 
-  const config = {
-    type: "bar",
-    data: data,
-    options: {},
-  };
-
   const config2 = {
     type: "line",
     data: data2,
@@ -251,6 +257,13 @@
 
 <script>
   const myChart = new Chart(document.getElementById("myChart"), config);
-
   const myChart2 = new Chart(document.getElementById("myChart2"), config2);
+
+  function slc_dias(option) {
+    var dia = slc_id.value;
+
+    if (dia == 'terca') {
+      data.datasets.data = [20, 13, 25, 14, 23]
+    }
+  }
 </script>
