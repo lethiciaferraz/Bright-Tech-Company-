@@ -150,7 +150,7 @@
         <div id="caixa">
           <div class="grafico">
             <div id="legenda">
-              <select name="dias_semanais" id="slc_id" onchange="slc_dias(this)">
+              <select name="dias_semanais" id="slc_id" onchange="slc_dias()">
                 <option value="segunda">Segunda-Feira</option>
                 <option value="terca">Terça-Feira</option>
                 <option value="quarta">Quarta-Feira</option>
@@ -220,7 +220,7 @@
     ],
   };
 
-  const config = {
+  var config = {
     type: "bar",
     data: data,
     options: {},
@@ -253,17 +253,116 @@
     data: data2,
     options: {},
   };
+
+  /* ----------------------------------------------------------------------------------------------- */
+
 </script>
 
 <script>
-  const myChart = new Chart(document.getElementById("myChart"), config);
-  const myChart2 = new Chart(document.getElementById("myChart2"), config2);
+  var myChart = new Chart(document.getElementById("myChart"), config);
+  var myChart2 = new Chart(document.getElementById("myChart2"), config2);
 
-  function slc_dias(option) {
+  function slc_dias() {
     var dia = slc_id.value;
 
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (dia == 'segunda') {
+      myChart.destroy();
+
+      var data_dia1 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 15, 12, 27, 32, 16, 14, 20, 18, 25, 22, 30, 21, 17],
+          },
+        ],
+      };
+      config.data = data_dia1;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
     if (dia == 'terca') {
-      data.datasets.data = [20, 13, 25, 14, 23]
+      myChart.destroy();
+
+      var data_dia2 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 2, 12, 27, 2, 16, 14, 20, 18, 2, 22, 2, 21, 17],
+          },
+        ],
+      };
+      config.data = data_dia2;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (dia == 'terca') {
+      myChart.destroy();
+
+      var data_dia3 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 2, 12, 27, 2, 16, 14, 20, 18, 2, 22, 2, 21, 17],
+          },
+        ],
+      };
+      config.data = data_dia3;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (dia == 'terca') {
+      myChart.destroy();
+
+      var data_dia4 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 2, 12, 27, 2, 16, 14, 20, 18, 2, 22, 2, 21, 17],
+          },
+        ],
+      };
+      config.data = data_dia4;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (dia == 'terca') {
+      myChart.destroy();
+
+      var data_dia5 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 2, 12, 27, 2, 16, 14, 20, 18, 2, 22, 2, 21, 17],
+          },
+        ],
+      };
+      config.data = data_dia5;
+      myChart = new Chart(document.getElementById("myChart"), config);
     }
   }
 </script>
