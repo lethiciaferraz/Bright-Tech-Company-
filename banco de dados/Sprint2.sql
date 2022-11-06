@@ -131,3 +131,5 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 -- truncate table sensor;
 -- truncate table setor;
 -- truncate table empresa;
+
+select * from usuario;
