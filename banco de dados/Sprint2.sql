@@ -48,9 +48,12 @@ insert into empresa (nome, cnpj, tel_contato, email, qtd_Funcionario, metros_ute
 
 create table usuario(
 idUsuario int auto_increment,
-login varchar(45),
-senha varchar(45),
+nome varchar(45),
 email varchar(45),
+telefone varchar(45),
+cnpj varchar(45),
+senha varchar(45),
+login varchar(45),
 fkEmpresa int,
 primary key (idUsuario,fkEmpresa),
 foreign key (fkEmpresa) references empresa(idEmpresa)
@@ -123,13 +126,8 @@ select * from empresa as e join usuario as u on e.idEmpresa = u.fkEmpresa;
 select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 
 -- Selecionando empresa, endereço e Endereço
--- truncate table usuario;
+ -- truncate table usuario;
 -- truncate table captura;
 -- truncate table sensor;
 -- truncate table setor;
--- truncate table empresa; 
-
-
-
-
-
+-- truncate table empresa;
