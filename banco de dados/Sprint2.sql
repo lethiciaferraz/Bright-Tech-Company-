@@ -54,7 +54,7 @@ email varchar(45),
 fkEmpresa int,
 primary key (idUsuario,fkEmpresa),
 foreign key (fkEmpresa) references empresa(idEmpresa)
-)auto_increment= 27;
+)auto_increment= 1;
 
 insert into usuario (login,senha,email,fkEmpresa) values ('@/logintivit','tivittoken21','usuario1@hotmail.com',10),
 														  ('@/safralogin','77safratoken','usuario2@hotmail.com',11),
@@ -75,12 +75,11 @@ insert into setor (nome, andar, metros_quadrados, fkEmpresa) values ('administra
 																  ('recepção',1,94857.12,12);
 
 create table sensor(
-idSensor int auto_increment,
+idSensor int primary key auto_increment,
 num_serie varchar(45),
 fkSetor int,
-primary key (idSensor,fkSetor),
 foreign key (fkSetor) references setor(idSetor)
-)auto_increment = 327;
+);
 
 insert into sensor (num_serie,fkSetor) values ('182736',1),
 												('182736',2),
@@ -88,19 +87,23 @@ insert into sensor (num_serie,fkSetor) values ('182736',1),
                                                 ('182736',1),
                                                 ('182736',3),
                                                 ('182736',2);
+                                                
 
 create table captura(
-idCaptura int,
-dado_captura int,
+idCaptura int primary key auto_increment,
+dht11_umidade int,
+dht11_temperatura int,
 dt_registro datetime,
+luminosidade int,
+lm35_temperatura int,
+chave int,
+momento datetime,
 fkSensor int,
-primary key (idCaptura,fkSensor),
 foreign key (fkSensor) references sensor(idSensor)
 );
 
-insert into captura values (1,0,'2022-10-04 08:35:43',327),
-						   (2,1,'2022-10-05 12:35:43',328),
-                           (3,0,'2022-10-04 10:34:03',327);
+insert into captura values (null, null, null, null, null, null, null, '2022-10-04 08:35:43',1);
+						   
 						
 select * from empresa;
 select * from usuario;
@@ -128,6 +131,11 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 -- truncate table sensor;
 -- truncate table setor;
 -- truncate table empresa; 
+
+
+
+
+alter table captura drop column dt_registro;
 
 
 
