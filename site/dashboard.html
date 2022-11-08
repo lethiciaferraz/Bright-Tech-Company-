@@ -150,12 +150,21 @@
         <div id="caixa">
           <div class="grafico">
             <div id="legenda">
+              <div id="legenda">DIÁRIO</div>
               <select name="dias_semanais" id="slc_id" onchange="slc_dias()">
                 <option value="segunda">Segunda-Feira</option>
                 <option value="terca">Terça-Feira</option>
                 <option value="quarta">Quarta-Feira</option>
                 <option value="quinta">Quinta-Feira</option>
                 <option value="sexta">Sexta-Feira</option>
+              </select>
+
+              <select name="dias_setores" id="slc_id2" onchange="slc_dias2()">
+                <option value="administrativo">Administrativo</option>
+                <option value="financeiro">Financeiro</option>
+                <option value="rh">Recursos Humanos</option>
+                <option value="comercial">Comercial</option>
+                <option value="ti">Tecnologia da Informação</option>
               </select>
             </div>
             <div id="grafics">
@@ -167,14 +176,22 @@
         <div id="caixa">
           <div class="grafico">
             <div id="legenda">SEMANAL</div>
-            <div>
+            <div id="legenda">
+              <select name="dias_setores" id="slc_id3" onchange="slc_dias3()">
+                <option value="administrativo">Administrativo</option>
+                <option value="financeiro">Financeiro</option>
+                <option value="rh">Recursos Humanos</option>
+                <option value="comercial">Comercial</option>
+                <option value="ti">Tecnologia da Informação</option>
+              </select>
+            </div>
+            <div id="grafics">
               <canvas id="myChart2"></canvas>
             </div>
           </div>
 
           <div id="p_legenda">
-            * Fluxo baixo devido aos 2 dias de home office (terça-feira e
-            quinta-feira) informado pela empresa ao efetuar o contrato
+
           </div>
         </div>
       </div>
@@ -212,7 +229,7 @@
     labels: labels,
     datasets: [
       {
-        label: "fluxo por setor - hall de entrada(04/10/2022)",
+        label: "fluxo por setor - administrativo (04/10/2022)",
         backgroundColor: "rgb(0, 77, 0)",
         borderColor: "rgb(0, 77, 0)",
         data: [5, 2, 10, 8, 15, 12, 27, 32, 16, 14, 20, 18, 25, 22, 30, 21, 17],
@@ -240,10 +257,10 @@
     labels: labels2,
     datasets: [
       {
-        label: "fluxo de pessoas - empresa (horários de pico)",
+        label: "fluxo de pessoas - empresa (administrativo)",
         backgroundColor: "rgb(0, 77, 0)",
         borderColor: "rgb(0, 77, 0)",
-        data: [20, 13, 25, 14, 23],
+        data: [18, 20, 18, 21, 17,7],
       },
     ],
   };
@@ -274,7 +291,7 @@
         labels: labels,
         datasets: [
           {
-            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            label: "fluxo por setor - administrativo (04/10/2022)",
             backgroundColor: "rgb(0, 77, 0)",
             borderColor: "rgb(0, 77, 0)",
             data: [5, 2, 10, 8, 15, 12, 27, 32, 16, 14, 20, 18, 25, 22, 30, 21, 17],
@@ -294,7 +311,7 @@
         labels: labels,
         datasets: [
           {
-            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            label: "fluxo por setor - administrativo (05/10/2022)",
             backgroundColor: "rgb(0, 77, 0)",
             borderColor: "rgb(0, 77, 0)",
             data: [5, 2, 10, 8, 2, 12, 22, 2, 21, 17],
@@ -314,7 +331,7 @@
         labels: labels,
         datasets: [
           {
-            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            label: "fluxo por setor - administrativo (06/10/2022)",
             backgroundColor: "rgb(0, 77, 0)",
             borderColor: "rgb(0, 77, 0)",
             data: [5, 2, 10, 8, 2, 12, 27, 2, 16, 14, 21, 17],
@@ -334,7 +351,7 @@
         labels: labels,
         datasets: [
           {
-            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            label: "fluxo por setor - administrativo (07/10/2022)",
             backgroundColor: "rgb(0, 77, 0)",
             borderColor: "rgb(0, 77, 0)",
             data: [5, 2, 10, 8, 2, 12, 27, 2, 16, 122, 2, 21, 17],
@@ -354,7 +371,7 @@
         labels: labels,
         datasets: [
           {
-            label: "fluxo por setor - hall de entrada(04/10/2022)",
+            label: "fluxo por setor - administrativo (08/10/2022)",
             backgroundColor: "rgb(0, 77, 0)",
             borderColor: "rgb(0, 77, 0)",
             data: [5, 2, 10, 8, 2, 12, 27, 2, 156, 2, 21, 17],
@@ -363,6 +380,221 @@
       };
       config.data = data_dia5;
       myChart = new Chart(document.getElementById("myChart"), config);
+    }
+  }
+
+  /* ----------------------------------------------------------------------------------------------- */
+
+  function slc_dias2() {
+    var setor = slc_id2.value;
+
+    if (setor == 'administrativo') {
+      myChart.destroy();
+
+      var data_setor1 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - administrativo (04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 18, 25, 22, 30, 21, 17],
+          },
+        ],
+      };
+      config.data = data_setor1;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (setor == 'financeiro') {
+      myChart.destroy();
+
+      var data_setor2 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - financeiro (04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 18, 25, 224, 484, 484, 9, 12, 30, 21, 17],
+          },
+        ],
+      };
+      config.data = data_setor2;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (setor == 'rh') {
+      myChart.destroy();
+
+      var data_setor3 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - recursos humanos (04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 18, 25, 224, 484, 484, 9, 12, 30, 21, 17],
+          },
+        ],
+      };
+      config.data = data_setor3;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (setor == 'comercial') {
+      myChart.destroy();
+
+      var data_setor4 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - comercial (04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 18, 25, 224, 484, 484, 9, 12, 30, 21, 17],
+          },
+        ],
+      };
+      config.data = data_setor4;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (setor == 'ti') {
+      myChart.destroy();
+
+      var data_setor5 = {
+        labels: labels,
+        datasets: [
+          {
+            label: "fluxo por setor - tecnologia da informação (04/10/2022)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [5, 2, 10, 8, 18, 25, 224, 484, 484, 9, 12, 30, 21, 17],
+          },
+        ],
+      };
+      config.data = data_setor5;
+      myChart = new Chart(document.getElementById("myChart"), config);
+    }
+  }
+
+  /* ----------------------------------------------------------------------------------------------- */
+
+  function slc_dias3() {
+    var setor = slc_id3.value;
+
+    if (setor == 'administrativo') {
+      p_legenda.innerHTML = ''
+      myChart2.destroy();
+
+      var data_setor1 = {
+        labels: labels2,
+        datasets: [
+          {
+            label: "fluxo de pessoas - empresa (administrativo)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [18, 20, 18, 21, 17,7],
+          },
+        ],
+      };
+      config2.data = data_setor1;
+      myChart2 = new Chart(document.getElementById("myChart2"), config2);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (setor == 'financeiro') {
+      p_legenda.innerHTML = ''
+      myChart2.destroy();
+
+      var data_setor2 = {
+        labels: labels2,
+        datasets: [
+          {
+            label: "fluxo de pessoas - empresa (financeiro)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [15,8,12,9,17,10,4,12,18,20,17],
+          },
+        ],
+      };
+      config2.data = data_setor2;
+      myChart2 = new Chart(document.getElementById("myChart2"), config2);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (setor == 'rh') {
+      p_legenda.innerHTML = ''
+      myChart2.destroy();
+
+      var data_setor3 = {
+        labels: labels2,
+        datasets: [
+          {
+            label: "fluxo de pessoas - empresa (recursos humanos)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [14, 12, 14, 12, 18, 10,4, 27, 9, 7, 16, 7],
+          },
+        ],
+      };
+      config2.data = data_setor3;
+      myChart2 = new Chart(document.getElementById("myChart2"), config2);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (setor == 'comercial') {
+      p_legenda.innerHTML = ''
+      myChart2.destroy();
+
+      var data_setor4 = {
+        labels: labels2,
+        datasets: [
+          {
+            label: "fluxo de pessoas - empresa (comercial)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [3,4,2,3,6,2,11,4,6,5,2,6,4,3,4,5,3,5,4,2,6,3,1,3,6,2],
+          },
+        ],
+      };
+      config2.data = data_setor4;
+      myChart2 = new Chart(document.getElementById("myChart2"), config2);
+    }
+
+    /* ----------------------------------------------------------------------------------------------- */
+
+    if (setor == 'ti') {
+      myChart2.destroy();
+
+      var data_setor5 = {
+        labels: labels2,
+        datasets: [
+          {
+            label: "fluxo de pessoas - empresa (tecnologia da informação)",
+            backgroundColor: "rgb(0, 77, 0)",
+            borderColor: "rgb(0, 77, 0)",
+            data: [20, 13, 25, 14, 23],
+          },
+        ],
+      };
+      config2.data = data_setor5;
+      myChart2 = new Chart(document.getElementById("myChart2"), config2);
+
+      p_legenda.innerHTML = `* Fluxo baixo (terça-feira e
+            quinta-feira) devido aos 2 dias de home office informado pela empresa ao efetuar o contrato`
     }
   }
 </script>

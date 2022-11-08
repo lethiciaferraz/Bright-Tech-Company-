@@ -111,16 +111,16 @@ div #img_logo {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
-.grafico #slc_id {
+.grafico #slc_id, #slc_id2, #slc_id3 {
     text-align: center;
 }
 
 #legenda {
-    margin: 25px;
-    margin-top: -7px;
+    margin: 10px;
+    margin-top: -2px;
     text-align: center;
     color: black;
     font-weight: bold;

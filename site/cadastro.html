@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/funcoes.js"></script>
     <link rel="stylesheet" href="cadastro.css">
     <title>Cadastro</title>
 </head>
@@ -65,8 +66,7 @@
                     </div>
                     <div class="campo">
                         <label for="password">Senha:</label>
-                        <input type="password" id="in_senha" placeholder="**********"
-                        onkeyup="senhaForte()">
+                        <input type="password" id="in_senha" placeholder="**********" onkeyup="senhaForte()">
                     </div>
                     <div class="campo">
                         <label for="password">Confirmação de Senha:</label>
@@ -77,32 +77,48 @@
             </div>
         </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <ul>
-            <li><b><a href="endereco.html">Endereço</a></b></li>
-            <li><b><a href="contato.html">Contato</a></b></li>
-        </ul>
-            Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech           
-    </div>
+        <!-- Footer -->
+        <div class="footer">
+            <ul>
+                <li><b><a href="endereco.html">Endereço</a></b></li>
+                <li><b><a href="contato.html">Contato</a></b></li>
+            </ul>
+            Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech
+        </div>
 
 </body>
 
 <script>
-    function cadastro(){
-        var nome= in_nome.value
-        var email= in_email.value
-        var telefone = in_tel.value
-        var cnpj = in_cnpj.value
-        var senha = in_senha.value
-        var confirmacao = in_conf.value
+    function cadastro() {
+        var nomeVar = in_nome.value
+        var emailVar = in_email.value
+        var telefoneVar = in_tel.value
+        var cnpjVar = in_cnpj.value
+        var senhaVar = in_senha.value
+        var confirmacaoVar = in_conf.value
 
-        if(nome == `empresa` && email ==`empresa@gmail.com` && senha == `sptech` && confirmacao == `sptech`){
+        if (nomeVar == `empresa` && emailVar == `empresa@gmail.com` && senhaVar == `sptech` && confirmacaoVar == `sptech`) {
             alert(`Cadastro efetuado com sucesso!`)
-            window.location.href="login.html"
-        }else {
-            alert (`Falha no cadastro!
+            window.location.href = "login.html"
+        } else {
+            alert(`Falha no cadastro!
              Preencha os dados novamente.`)
         }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                telefoneServer: telefoneVar,
+                cnpjServer: cnpjVar,
+                senhaServer: senhaVar
+            })
+        })
     }
 </script>
