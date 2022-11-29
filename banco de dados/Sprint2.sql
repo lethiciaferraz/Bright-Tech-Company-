@@ -143,6 +143,7 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 delete from usuario where idUsuario > 5;
 alter table captura drop column dt_registro;
 
+select * from usuario;
 
 
 
