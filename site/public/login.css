@@ -193,3 +193,46 @@ body{
     margin: 0px;
     
 }
+
+-- FORMULARIO --
+
+.banner #div_erros_login {
+    margin-top: 15px;
+  }
+  
+.alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    margin-left: 300px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #115639 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+.loading-div {
+    width: 50px;
+    margin: auto;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }
+
+
+

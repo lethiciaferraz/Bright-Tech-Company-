@@ -5,8 +5,7 @@ create table empresa(
 idEmpresa int primary key auto_increment,
 nome varchar(45),
 cnpj varchar(45),
-tel_contato varchar(45),
-email varchar(45),
+telefone varchar(14),
 qtd_Funcionario int, 
 metros_uteis decimal(10,2),
 status_contrato varchar(45),
@@ -27,14 +26,14 @@ fkEndereco int,
 foreign key (fkEndereco) references Endereco(idEndereco),
 numero int,
 complemento varchar(45),
-primary key (fkEmpresa, fkEndereco));
+primary key (fkEmpresa, fkEndereco)
+);
 
-
-
-insert into empresa (nome, cnpj, tel_contato, email, qtd_Funcionario, metros_uteis, status_contrato, dt_contrato) values 
-  ('tivit','24.824.874/0001-21','11958414286','tivit@hotmail.com', 1200, 94857364.75,'ativo','2025-03-12'),
-  ('safra','41.847.943/9485-32','11938468364','safra@hotmail.com', 2000, 94837465.23,'ativo','2027-10-27'),
-  ('cobool','60.912.843/0001-96','13948563847','cobool@hotmail.com', 5000, 93847364.57, 'inativo','2022-09-20');
+select*from empresa;
+insert into empresa (nome, cnpj, telefone, qtd_Funcionario, metros_uteis, dt_contrato) values 
+  ('tivit','24.824.874/0001-21','11958414286', 120, 200,'2022-11-15'),
+  ('safra','41.847.943/9485-32','11938468364', 120, 200,'2022-11-15'),
+  ('cobool','60.912.843/0001-96','13948563847',  120, 200,'2022-11-15');
   
   insert into endereco (cep, bairro, logradouro) values 
   ('08466-003','guaianases', 'Rua Haddok Lobo'),
@@ -47,19 +46,26 @@ insert into empresa (nome, cnpj, tel_contato, email, qtd_Funcionario, metros_ute
   (12, 3, 14, 'Apartamento Bloco 4C');
 
 create table usuario(
-idUsuario int auto_increment,
-login varchar(45),
-senha varchar(45),
-email varchar(45),
+idUsuario int primary key auto_increment,
+nome varchar(100),
+email varchar(50),
+telefone varchar(14),
+senha varchar(50),
 fkEmpresa int,
-primary key (idUsuario,fkEmpresa),
-foreign key (fkEmpresa) references empresa(idEmpresa)
+foreign key (fkEmpresa) references empresa (idEmpresa)
 )auto_increment= 1;
 
-insert into usuario (login,senha,email,fkEmpresa) values ('@/logintivit','tivittoken21','usuario1@hotmail.com',10),
-														  ('@/safralogin','77safratoken','usuario2@hotmail.com',11),
-                                                          ('@/coboltivit','cobolsafra/2000','usuario3@hyahoo.com',12);
+alter table empresa add constraint chktipo check (status_contrato in('Ativo', 'Inativo'));
 
+alter table empresa modify column status_contrato varchar(45) default 'Ativo';
+
+ desc usuario;
+insert into usuario (nome, email, telefone, senha) values
+ ('teste6','teste6@gmail.com', 1127514301, 123);
+ 
+ select*from usuario;
+  
+ 
 create table setor(
 idSetor int primary key auto_increment,
 nome varchar(45),
@@ -91,12 +97,12 @@ insert into sensor (num_serie,fkSetor) values ('182736',1),
 
 create table captura(
 idCaptura int primary key auto_increment,
-dht11_umidade int,
-dht11_temperatura int,
+dht11_umidade decimal,
+dht11_temperatura decimal,
 dt_registro datetime,
-luminosidade int,
-lm35_temperatura int,
-chave int,
+luminosidade decimal,
+lm35_temperatura decimal,
+chave decimal,
 momento datetime,
 fkSensor int,
 foreign key (fkSensor) references sensor(idSensor)
@@ -134,7 +140,7 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 
 
 
-
+delete from usuario where idUsuario > 5;
 alter table captura drop column dt_registro;
 
 

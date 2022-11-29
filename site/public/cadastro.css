@@ -72,6 +72,14 @@ a:hover {
     justify-content: flex-start;
 }
 
+.campo1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .campo input {
     padding: 10px;
     border-radius: 10px;
@@ -79,12 +87,26 @@ a:hover {
     color: black;
 }
 
+
+.campo1 input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #115639;
+    color: black;
+}
+
+
 .campo label {
     color: #000000;
     font-family: sans-serif;
     margin: 15px 0px;
 }
 
+.campo1 label {
+    color: #000000;
+    font-family: sans-serif;
+    margin: 15px 0px;
+}
 .caixa-formulario button {
     margin-top: 20px;
     width: 120px;
@@ -97,6 +119,8 @@ a:hover {
     cursor: pointer;
 
 }
+
+
 
 .caixa-formulario button :hover {
     opacity: 0.9;
@@ -199,43 +223,44 @@ body {
     margin: 50px;
 }
 
-/* .footer ul li b {
+-- FORMULARIO --
+
+.banner #div_erros_login {
+    margin-top: 15px;
+  }
+  
+.alerta_erro{
     display: flex;
-  } */
-
-  .senhaForte1{
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
+    justify-content: flex-end;
   }
-  .senhaForte2{
-    display:flex;
-
-    justify-content: flex-start;
-
-    align-items: flex-start;
-
-    flex-direction: column;
-
-
-
+  
+  .card_erro {
+    margin-left: 300px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #115639 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
   }
 
-  .senhaForte3{
-    display: flex;
-
-    justify-content: flex-start;
-
-    align-items: center;
+.loading-div {
+    width: 50px;
+    margin: auto;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
   }
 
-  .senhaForte3 p{
-    font-size: 13px;
-  }
 
-  .senhaForte3 img{
-    margin-right: 5px;
-  }

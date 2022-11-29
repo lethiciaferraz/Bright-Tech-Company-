@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/funcoes.js"></script>
+    <link rel="stylesheet" href="cadastro.css">
+
+    <title>Cadastro</title>
+</head>
+
+<!--Header-->
+
+<body>
+    
+    <div class="container">
+        <div class="logo"><a href="index.html"><img src="./assents/Logotipo.1png.png"
+            alt="Logo da nossa empresa"></a></div>
+            <div class="navbar">
+                <ul>
+                    <div class="home">
+                        <li><b><a href="index.html">Home</a></b></li>
+                    </div>
+                    <div class="quems">
+                        <li><b><a href="quemsomos.html">Quem Somos</a></b></li>
+                    </div>
+                    <div class="projeto">
+                        <li><b><a href="Projeto.HTML">Projeto</a></b></li>
+                    </div>
+                    <div class="simulador">
+                        <li><b><a href="simulador.html">Simulador</a></b></li>
+                    </div>
+                    <!--<li><b>Dashboard</b></li>-->
+                    <div class="cad">
+                        <li><b><a href="cadastro.html" id="acad">Cadastro</a></b></li>
+                    </div>
+                    <div class="login">
+                        <li><b><a href="login.html" id="login">Login</a></b></li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="fundo">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+
+        <!--Tela do cadastro-->
+        <div class="banner">
+            <div class="container1">
+                <div class="caixa-formulario">
+                    <h1>Cadastre-se</h1>
+
+                    <div class="campo">
+                        <label for="nome">Nome:</label>
+                        <input type="nome" id="in_nome" placeholder="Insira seu Nome">
+                    </div>
+                    <div class="campo">
+                        <label for="cnpj">CNPJ:</label>
+                        <input type="cnpj" id="in_cnpj" placeholder="Coloque seu CNPJ">
+                    </div>
+                    <div class="campo">
+                        <label for="tel">Telefone:</label>
+                        <input type="tel" id="in_tel" placeholder="Insira seu telefone">
+                    </div>
+                    <div class="campo1">
+                        <label for="qtd_Funcionario">Quantidade de funcionários:</label>
+                        <input type="number" id="in_qtd_Funcionario" placeholder="Quantidade de funcionários">
+                    </div>
+                    <div class="campo">
+                        <label for="metros_uteis">Metros úteis da empresa:</label>
+                        <input type="number" id="in_metros_uteis" placeholder="Números inteiros">
+                    </div>
+                    <div class="campo">
+                        <label for="dt_contrato">Data de inicio do contrato:</label>
+                        <input type="date" id="in_dt_contrato" placeholder="Data atual">
+                    </div>
+                    <button onclick="proximo()"><b>Próxima Página</b></button>
+
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./img/loading2.gif" id="loading-gif">
+                    </div>
+
+                    <div id="div_erros_login">
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <ul>
+                <li><b><a href="endereco.html">Endereço</a></b></li>
+                <li><b><a href="contato.html">Contato</a></b></li>
+            </ul>
+            Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech
+        </div>
+
+</body>
+
+<script>
+    function proximo() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = in_nome.value
+        var cnpjVar = in_cnpj.value
+        var telefoneVar = in_tel.value
+        var qtd_FuncionarioVar = in_qtd_Funcionario.value
+        var metros_uteisVar = in_metros_uteis.value
+        var dt_contratoVar = in_dt_contrato.value
+    
+        if (nomeVar == "" || cnpjVar == "" || telefoneVar== ""||qtd_FuncionarioVar== ""|| metros_uteisVar == "" ||dt_contratoVar == "" ) {
+            cardErro.style.display = "block" 
+            mensagem_erro.innerHTML = "Preencha todos os campos";
+            
+            finalizarAguardar();
+            return false;
+            
+        }
+        // Enviando o valor da nova input
+        fetch("/empresa/proximo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                cnpjServer: cnpjVar,
+                telefoneServer: telefoneVar,
+                qtd_FuncionarioServer: qtd_FuncionarioVar,
+                metros_uteisServer: metros_uteisVar,
+                dt_contratoServer:dt_contratoVar
+
+            })
+        }).then(function (resposta) {
+
+            //console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+                // console.log(resposta);
+
+                resposta.json()
+                    .then(function (json) {
+                        console.log(json);
+                        sessionStorage.setItem("FK_EMPRESA", json)
+                    })
+                    .catch(function (erro) {
+                        console.error(erro);
+                    })
+                setTimeout(() => {
+                    window.location = "cadastro-usuario.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem(){
+        cardErro.style.display = "none"
+    }
+</script>

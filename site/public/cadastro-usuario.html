@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+    
+    <head>
+        <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/funcoes.js"></script>
     <link rel="stylesheet" href="cadastro.css">
+
     <title>Cadastro</title>
 </head>
 
 <!--Header-->
 
 <body>
-    <div class="fundo">
-        <div class="container">
-            <div class="logo"><a href="index.html"><img src="./assents/Logotipo.1png.png"
-                        alt="Logo da nossa empresa"></a></div>
+    
+    <div class="container">
+        <div class="logo"><a href="index.html"><img src="./assents/Logotipo.1png.png"
+            alt="Logo da nossa empresa"></a></div>
             <div class="navbar">
                 <ul>
                     <div class="home">
@@ -41,6 +42,13 @@
                 </ul>
             </div>
         </div>
+        
+        <div class="fundo">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
 
         <!--Tela do cadastro-->
         <div class="banner">
@@ -48,33 +56,37 @@
                 <div class="caixa-formulario">
                     <h1>Cadastre-se</h1>
 
-                    <div class="campo">
-                        <label for="nome">Nome:</label>
-                        <input type="nome" id="in_nome" placeholder="Insira seu Nome">
+                    <div class="campo1">
+                        <label for="nome">Nome do funcionário responsável pelos dados:</label>
+                        <input type="text" id="in_nome" placeholder="Insira seu Nome">
                     </div>
                     <div class="campo">
                         <label for="email">E-mail:</label>
-                        <input type="email" id="in_email" placeholder="email@gmail.com">
+                        <input type="text" id="in_email" placeholder="email@gmail.com">
                     </div>
                     <div class="campo">
                         <label for="tel">Telefone:</label>
-                        <input type="tel" id="in_tel" placeholder="Insira seu telefone">
-                    </div>
-                    <div class="campo">
-                        <label for="cnpj">CNPJ:</label>
-                        <input type="cnpj" id="in_cnpj" placeholder="Coloque seu CNPJ">
+                        <input type="text" id="in_tel" placeholder="Insira seu telefone">
                     </div>
                     <div class="campo">
                         <label for="password">Senha:</label>
-                        <input type="password" id="in_senha" placeholder="**********" onkeyup="senhaForte()">
+                        <input type="password" id="in_senha" placeholder="**********">
                     </div>
                     <div class="campo">
                         <label for="password">Confirmação de Senha:</label>
                         <input type="password" id="in_conf" placeholder="**********">
                     </div>
-                    <button onclick="cadastro()"><b>CADASTRAR</b></button>
+                    <button onclick="cadastrar()"><b>CADASTRAR</b></button>
+
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./img/loading2.gif" id="loading-gif">
+                    </div>
+
+                    <div id="div_erros_login">
+
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- Footer -->
@@ -89,22 +101,26 @@
 </body>
 
 <script>
-    function cadastro() {
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
         var nomeVar = in_nome.value
         var emailVar = in_email.value
         var telefoneVar = in_tel.value
-        var cnpjVar = in_cnpj.value
         var senhaVar = in_senha.value
-        var confirmacaoVar = in_conf.value
+        var confirmacaoSenhaVar = in_conf.value
 
-        if (nomeVar == `empresa` && emailVar == `empresa@gmail.com` && senhaVar == `sptech` && confirmacaoVar == `sptech`) {
-            alert(`Cadastro efetuado com sucesso!`)
-            window.location.href = "login.html"
-        } else {
-            alert(`Falha no cadastro!
-             Preencha os dados novamente.`)
+        if (nomeVar == "" || emailVar == "" || telefoneVar== "" || senhaVar == "" || confirmacaoSenhaVar == " ") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            
+            finalizarAguardar();
+            return false;
         }
 
+        // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -116,9 +132,37 @@
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 telefoneServer: telefoneVar,
-                cnpjServer: cnpjVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                fkEmpresaServer: sessionStorage.getItem('FK_EMPRESA')
             })
-        })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem(){
+        cardErro.style.display = "none"
     }
 </script>
