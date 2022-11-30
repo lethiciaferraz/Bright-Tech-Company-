@@ -24,7 +24,7 @@ function listar(req, res) {
         );
 }
 
-/*function entrar(req, res) {
+function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -58,7 +58,7 @@ function listar(req, res) {
             );
     }
 
-}*/
+}
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -101,7 +101,7 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-    /*entrar,*/
+    entrar,
     cadastrar,
     listar,
     testar

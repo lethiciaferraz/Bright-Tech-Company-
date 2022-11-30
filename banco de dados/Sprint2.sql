@@ -8,9 +8,11 @@ cnpj varchar(45),
 telefone varchar(14),
 qtd_Funcionario int, 
 metros_uteis decimal(10,2),
-status_contrato varchar(45),
+status_contrato varchar(45) default 'Ativo',
+constraint chktipo check (status_contrato in('Ativo', 'Inativo')),
 dt_contrato date
 )auto_increment= 10;
+
 
 
 create table endereco(
@@ -55,15 +57,11 @@ fkEmpresa int,
 foreign key (fkEmpresa) references empresa (idEmpresa)
 )auto_increment= 1;
 
-alter table empresa add constraint chktipo check (status_contrato in('Ativo', 'Inativo'));
 
-alter table empresa modify column status_contrato varchar(45) default 'Ativo';
 
- desc usuario;
+ 
 insert into usuario (nome, email, telefone, senha) values
  ('teste6','teste6@gmail.com', 1127514301, 123);
- 
- select*from usuario;
   
  
 create table setor(
@@ -99,7 +97,6 @@ create table captura(
 idCaptura int primary key auto_increment,
 dht11_umidade decimal,
 dht11_temperatura decimal,
-dt_registro datetime,
 luminosidade decimal,
 lm35_temperatura decimal,
 chave decimal,
@@ -108,11 +105,11 @@ fkSensor int,
 foreign key (fkSensor) references sensor(idSensor)
 );
 
-insert into captura values (null, null, null, null, null, null, null, '2022-10-04 08:35:43',1);
+insert into captura values (null, null, null, null, null, null, '2022-10-04 08:35:43',1);
 						   
-						
+                
 select * from empresa;
-select * from usuario;
+select * from usuario;	
 select * from endereco;
 select * from setor;
 select * from sensor;
@@ -140,11 +137,16 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 
 
 
-delete from usuario where idUsuario > 5;
-alter table captura drop column dt_registro;
-
-select * from usuario;
-
+create table avisos(
+idAvisos int primary key auto_increment,
+data date,
+titulo varchar(45),
+descricao varchar(250),
+fkUsuario int,
+foreign key (fkUsuario) references usuario (idUsuario),
+fkEmpresa int,
+foreign key (fkEmpresa) references empresa (idEmpresa)
+);
 
 
 

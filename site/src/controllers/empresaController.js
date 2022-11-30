@@ -27,7 +27,7 @@ function listar(req, res) {
     });
 }
 
-/*function entrar(req, res) {
+function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -61,7 +61,7 @@ function listar(req, res) {
             );
     }
 
-}*/
+}
 
 function proximo(req, res) {
   // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -105,7 +105,7 @@ function proximo(req, res) {
 }
 
 module.exports = {
-  /*entrar,*/
+  entrar,
   proximo,
   listar,
   testar,
