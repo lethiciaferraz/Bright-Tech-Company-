@@ -69,6 +69,15 @@ div #img_logo {
 
 }
 
+.hello img {
+margin-top: 20px;
+}
+.hello {
+    padding: 5px;
+    text-align: center;
+}
+
+
 /* DASHBOARD */
 .dashboard {
     margin-top: 20px 0px;
