@@ -177,7 +177,7 @@
           <div class="grafico">
             <div id="legenda">SEMANAL</div>
             <div id="legenda">
-              <select name="dias_setores" id="slc_id3" onchange="obterDadosGrafico(idEmpresa)">
+              <select name="dias_setores" id="slc_id3" onchange="addData()">
                 <option value="administrativo">Administrativo</option>
                 <option value="financeiro">Financeiro</option>
                 <option value="rh">Recursos Humanos</option>
@@ -247,20 +247,19 @@
 <script>
   var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
 
-  window.onload = obterDadosGrafico(idEmpresa);
+  obterDadosGrafico(idEmpresa);
 
   var myChart = new Chart(document.getElementById("myChart"), config);
 
   function obterDadosGrafico(id) {
     var dia = slc_id3.value;
 
-    fetch(`/medidas/ultimas`, {
+    fetch(`/medidas/ultimas/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        id,
         dia
       })
     }).then(function (response) {
@@ -316,7 +315,7 @@
       data: dados,
       options: {},
     };
-    
+
     let myChart2 = new Chart(
       document.getElementById('myChart2'),
       config2
@@ -363,6 +362,18 @@
         console.error('Nenhum dado encontrado ou erro na API');
         proximaAtualizacao = setTimeout(() => atualizarGrafico(id, dados, myChart), 2000);
       }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
+
+  function addData() {
+    var setor = slc_id3.value;
+    
+    fetch(`/medidas/setores/${idEmpresa}/${setor}`).then(function (response) {
+      
+      chart.data.datasets[0].data = response;
     })
       .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);

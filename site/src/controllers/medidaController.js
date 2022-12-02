@@ -2,7 +2,7 @@ var medidaModel = require("../models/medidaModel");
 
 function buscarUltimasMedidas(req, res) {
 
-    var idEmpresa = req.body.id;
+    var idEmpresa = req.params.id;
     var setor = req.body.dia;
 
     medidaModel.buscarUltimasMedidas(idEmpresa, setor).then(function (resultado) {
@@ -19,13 +19,12 @@ function buscarUltimasMedidas(req, res) {
 }
 
 
-function buscarMedidasEmTempoReal(req, res) {
+function graficoSetor(req, res) {
 
-    var idAquario = req.params.idAquario;
+    var idEmpresa = req.params.idEmpresa;
+    var setor = req.params.setor;
 
-    console.log(`Recuperando medidas em tempo real`);
-
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    medidaModel.graficoSetor(idEmpresa, setor).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -40,5 +39,5 @@ function buscarMedidasEmTempoReal(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    graficoSetor
 }
