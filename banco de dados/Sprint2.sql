@@ -13,8 +13,6 @@ constraint chktipo check (status_contrato in('Ativo', 'Inativo')),
 dt_contrato date
 )auto_increment= 10;
 
-
-
 create table endereco(
 idEndereco int primary key auto_increment,
 bairro varchar(45),
@@ -74,9 +72,10 @@ foreign key (fkEmpresa) references empresa(idEmpresa)
 );
 
 insert into setor (nome, andar, metros_quadrados, fkEmpresa) values ('administrativo',3,38573.64,10),
-																  ('executivo',4,94856.84,11),
-																  ('recursos humanos',2,25142.96,10),
-																  ('recepção',1,94857.12,12);
+																    ('financeiro',4,94856.84,11),
+																    ('recursos humanos',2,25142.96,10),
+                                                                    ('comercial',4,94856.84,11),
+																    ('tecnologia da informação',1,94857.12,12);
 
 create table sensor(
 idSensor int primary key auto_increment,
@@ -135,8 +134,17 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 -- truncate table setor;
 -- truncate table empresa; 
 
+delete from usuario where idUsuario > 5;
+alter table captura drop column dt_registro;
 
+select * from usuario;
 
+insert into captura (chave,momento,fkSensor) values (1,'2022-10-10 10:30:00',1),
+													(1,'2022-10-20',1),
+                                                    (1,'2022-10-10 14:30:00',1),
+                                                    (1,'2022-10-12',1),
+                                                    (1,'2022-10-01',1);
+                                                    
 create table avisos(
 idAvisos int primary key auto_increment,
 data date,
@@ -148,5 +156,15 @@ fkEmpresa int,
 foreign key (fkEmpresa) references empresa (idEmpresa)
 );
 
+select * from captura;
+select * from setor;
+select * from sensor;
+select * from empresa;
+select * from usuario;
+update usuario set fkEmpresa = 10 where idUsuario = 1;
 
-
+-- EXIBINDO A CAPTURA E O MOMENTO DO SETOR ADMINISTRATIVO. ORDENADOS PELA CAPTURA EM ORDEM CRESCENRTE, LIMITADO PELOS 5 DIAS DA SEMANA
+select count(captura.chave), captura.momento from setor join sensor on setor.idsetor = sensor.fkSetor
+														left join captura on sensor.idsensor = captura.fkSensor
+                                                        where setor.nome = 'administrativo'
+                                                        group by day(captura.momento) order by captura.momento desc limit 5;

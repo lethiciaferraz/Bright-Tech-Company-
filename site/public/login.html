@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,25 +10,39 @@
     <title>Login</title>
 </head>
 
-                            <!--Header-->
+<!--Header-->
+
 <body>
     <div class="fundo">
         <div class="container">
-            <div class="logo"><a href="index.html"><img src="./assents/Logotipo.1png.png" alt="Logo da nossa empresa"></a></div>
+            <div class="logo"><a href="index.html"><img src="./assents/Logotipo.1png.png"
+                        alt="Logo da nossa empresa"></a></div>
             <div class="navbar">
-                <ul >
-                    <div class="home"><li><b><a href="index.html">Home</a></b></li></div>
-                    <div class="quems"><li><b><a href="quemsomos.html">Quem Somos</a></b></li></div>
-                    <div class="projeto"><li><b><a href="Projeto.HTML">Projeto</a></b></li></div>
-                    <div class="simulador"><li><b><a href="simulador.html">Simulador</a></b></li></div>
+                <ul>
+                    <div class="home">
+                        <li><b><a href="index.html">Home</a></b></li>
+                    </div>
+                    <div class="quems">
+                        <li><b><a href="quemsomos.html">Quem Somos</a></b></li>
+                    </div>
+                    <div class="projeto">
+                        <li><b><a href="Projeto.HTML">Projeto</a></b></li>
+                    </div>
+                    <div class="simulador">
+                        <li><b><a href="simulador.html">Simulador</a></b></li>
+                    </div>
                     <!--<li><b>Dashboard</b></li>-->
-                    <div class="cad"><li><b><a href="cadastro.html" id="acad">Cadastro</a></b></li></div>
-                   <div class="login"> <li><b><a href="login.html" id="blogin">Login</a></b></li></div>
+                    <div class="cad">
+                        <li><b><a href="cadastro.html" id="acad">Cadastro</a></b></li>
+                    </div>
+                    <div class="login">
+                        <li><b><a href="login.html" id="blogin">Login</a></b></li>
+                    </div>
                 </ul>
             </div>
         </div>
 
-                            <!--Tela do cadastro-->
+        <!--Tela do cadastro-->
         <div class="banner">
 
             <div class="alerta_erro">
@@ -39,28 +54,28 @@
             <div class="container1">
                 <div class="caixa-formulario">
                     <div class="card">
-                    <h1>Seja bem-vindo!!</h1>
+                        <h1>Seja bem-vindo!!</h1>
 
-                    <div class="campo">
-                        <label for="email">E-mail:</label>
-                        <input type="email" id="in_email" placeholder="email@gmail.com">
-                    </div>
-                    
-                    <div class="campo">
-                        <label for="password">Senha:</label>
-                        <input type="password" id="in_senha" placeholder="**********">
-                    </div>
-                    <div id="div_exibir"></div>
-                    <button onclick="entrar()">LOGIN</button>
-                </div>
-                
-                
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./img/loading2.gif" id="loading-gif">
-                </div>
+                        <div class="campo">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="in_email" placeholder="email@gmail.com">
+                        </div>
 
-                <div id="div_erros_login"> </div>
-              
+                        <div class="campo">
+                            <label for="password">Senha:</label>
+                            <input type="password" id="in_senha" placeholder="**********">
+                        </div>
+                        <div id="div_exibir"></div>
+                        <button onclick="entrar()">LOGIN</button>
+                    </div>
+
+
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./img/loading2.gif" id="loading-gif">
+                    </div>
+
+                    <div id="div_erros_login"> </div>
+
                 </div>
             </div>
         </div>
@@ -72,79 +87,81 @@
                 <li><b><a href="endereco.html">Endereço</a></b></li>
                 <li><b><a href="contato.html">Contato</a></b></li>
             </ul>
-                Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech           
+            Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech
         </div>
-    </body>
-    </html>
+</body>
 
-    <script>
-function entrar() {
-    aguardar();
+</html>
 
-    var emailVar = in_email.value;
-    var senhaVar = in_senha.value;
+<script>
 
-    if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        finalizarAguardar();
+    /* aguardar(); */
+    function entrar() {
+        aguardar();
+
+        var emailVar = in_email.value;
+        var senhaVar = in_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            /* cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar(); */
+            return false;
+        }
+        /* else {
+            setInterval(sumirMensagem, 5000)
+        } */
+        /* 
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar); */
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO login()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.login;
+                    sessionStorage.ID_EMPRESA = json.fkEmpresa;
+
+                    setTimeout(function () {
+                        window.location = "dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    /*  finalizarAguardar(texto); */
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
         return false;
     }
-    else {
-        setInterval(sumirMensagem, 5000)
-    }
 
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
-
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO login()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
-
-                setTimeout(function () {
-                    window.location = "dashboard.html";
-                }, 1000); // apenas para exibir o loading
-
-            });
-
-        } else {
-
-            console.log("Houve um erro ao tentar realizar o login!");
-
-            resposta.text().then(texto => {
-                console.error(texto);
-                finalizarAguardar(texto);
-            });
-        }
-
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-
-    return false;
-}
-
-function sumirMensagem() {
-    cardErro.style.display = "none"
-}
-
+    /* function sumirMensagem() {
+        cardErro.style.display = "none"
+    } */
 </script>
