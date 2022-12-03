@@ -27,7 +27,7 @@ function listar(req, res) {
     });
 }
 
-function entrar(req, res) {
+/*function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -61,7 +61,7 @@ function entrar(req, res) {
             );
     }
 
-}
+}*/
 
 function proximo(req, res) {
   // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -71,6 +71,8 @@ function proximo(req, res) {
   var qtd_Funcionario = req.body.qtd_FuncionarioServer;
   var metros_uteis = req.body.metros_uteisServer;
   var dt_contrato = req.body.dt_contratoServer;
+
+  console.log("REQ", req);
 
   // Faça as validações dos valores
   if (nome == undefined) {
@@ -91,10 +93,36 @@ function proximo(req, res) {
       .proximo(nome, cnpj, telefone, qtd_Funcionario, metros_uteis, dt_contrato)
       .then(function (resultado) {
         console.log("Meu RESULTADO", resultado);
-        res.json(resultado.insertId);
+        res.json(resultado);
       })
       .catch(function (erro) {
         console.log(erro);
+        console.log(
+          "Houve um erro ao realizar o cadastro! Erro: ",
+          erro.sqlMessage
+        );
+        res.status(1000).json(erro.sqlMessage);
+      });
+  }
+}
+
+function buscarPorCnpj(req, res) {
+  var cnpj = req.params.cnpj;
+
+  if (cnpj == undefined) {
+    res.status(400).send("Seu cnpj está undefined!");
+  } else {
+    empresaModel
+      .buscarPorCnpj(cnpj)
+      .then(function (resultado) {
+        // console.log("response: ", resultado);
+        if (resultado.length > 0) {
+          res.status(200).json(resultado);
+        } else {
+          res.status(204).send("Nenhum resultado encontrado!");
+        }
+      })
+      .catch(function (erro) {
         console.log(
           "Houve um erro ao realizar o cadastro! Erro: ",
           erro.sqlMessage
@@ -105,8 +133,9 @@ function proximo(req, res) {
 }
 
 module.exports = {
-  entrar,
+  //entrar,
   proximo,
   listar,
   testar,
+  buscarPorCnpj,
 };

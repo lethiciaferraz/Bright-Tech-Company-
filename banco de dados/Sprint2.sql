@@ -106,6 +106,19 @@ foreign key (fkSensor) references sensor(idSensor)
 );
 
 insert into captura values (null, null, null, null, null, null, '2022-10-04 08:35:43',1);
+
+
+create table avisos(
+idAvisos int auto_increment,
+data date,
+titulo varchar(45),
+descricao varchar(250),
+fkUsuario int,
+foreign key (fkUsuario) references usuario (idUsuario),
+fkEmpresa int,
+foreign key (fkEmpresa) references empresa (idEmpresa),
+primary key (idAviso, fkUsuario, fkEmpresa)
+);
 						   
                 
 select * from empresa;
@@ -135,18 +148,6 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 -- truncate table setor;
 -- truncate table empresa; 
 
-
-
-create table avisos(
-idAvisos int primary key auto_increment,
-data date,
-titulo varchar(45),
-descricao varchar(250),
-fkUsuario int,
-foreign key (fkUsuario) references usuario (idUsuario),
-fkEmpresa int,
-foreign key (fkEmpresa) references empresa (idEmpresa)
-);
 
 
 
