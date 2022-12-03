@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="mural.css" />
+  <script src="../js/funcoes.js"></script>
+  <title>Mural</title>
+</head>
+
+<body onload="validarSessao(), atualizarFeed()" style="background-color: white;">
+  <!-- DIV MENU LATERAL -->
+  <div class="fundo">
+    <div class="menulateral">
+      <ul>
+
+        <div class="hello">
+          <!-- <img src="../assets/luffy.jpg" > -->
+          <h3>Olá,<span id="b_usuario">usuário</span>!</h3>
+        </div><br>
+        <li style="background-color: white; border-radius: 10px">
+          <a href="" style="color: #115639">
+            <span class="icon">
+              <ion-icon name="stats-chart-outline"></ion-icon>
+            </span>
+            <span class="menu">Gráficos</span>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="">
+            <span class="icon">
+              <ion-icon name="chatbubbles-outline"></ion-icon>
+            </span>
+            <span class="menu">Mural</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="">
+            <span class="icon">
+              <ion-icon name="help-circle-outline"></ion-icon>
+            </span>
+            <span class="menu">Ajuda</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="login.html">
+            <span class="icon">
+              <ion-icon name="log-out-outline"></ion-icon>
+            </span>
+            <span class="menu">Sair</span>
+          </a>
+        </li>
+      </ul>
+      <div id="img_logo">
+        <img src="./assents/1 1 (1).png" alt="" width="100%" />
+      </div>
+    </div>
+
+    <!--MURAL  -->
+    <div class="dash-right">
+
+      <!-- <h3><span id="b_usuario"></span> </h3> -->
+
+      <div class="avisos">
+        <div class="container">
+          <h1>Publicar um aviso</h1>
+          <div class="div-form">
+            <form id="form_postagem" method="post" onsubmit="return publicar()">
+              <label>
+                Título:
+                <input name="titulo" id="titulo" maxlength="100" type="text">
+              </label>
+              <label>
+                Descrição (máximo de 250 caracteres):
+                <textarea name="texto" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+              </label>
+              <button>Enviar</button>
+            </form>
+          </div>
+
+
+
+          <h1>Mural de Avisos</h1>
+          <div class="div-results">
+            <div id="feed_container" class="feed-container">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <!-- <div id="div_modal" class="div-modal">
+            <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
+            </div>
+            <div id="modal_container" class="modal-container">
+                <button class="btn-fechar-modal" onclick="fecharModal()">X</button>
+            </div>
+        </div> -->
+
+      <!-- AGUARDAR -->
+      <div id="div_aguardar" class="div-aguardar">
+        <!-- <img src="./assets/aguarde-pink3.gif" id="img_aguarde"> -->
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+<script>
+
+  // b_usuario.innerHTML = sessionStorage.ID_USUARIO;
+
+  function limparFormulario() {
+    document.getElementById("form_postagem").reset();
+  }
+
+  function publicar() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    var corpo = {
+      titulo: form_postagem.titulo.value,
+      texto: form_postagem.texto.value,
+    }
+
+    fetch(`/avisos/publicar/${idUsuario}`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(corpo)
+    }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+        window.location = "mural.html";
+        // limparFormulario();
+        // finalizarAguardar();
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      // finalizarAguardar();
+    });
+
+    return false;
+
+  }
+
+  function editar(idmural) {
+    sessionStorage.ID_POSTAGEM_EDITANDO = idmural;
+    console.log("cliquei em editar - " + idmural);
+    window.alert("Você será redirecionado à página de edição do aviso de id número: " + idmural);
+    window.location = "/edicao-aviso.html"
+
+  }
+
+  function deletar(idmural) {
+    console.log("Criar função de apagar post escolhido - ID" + idmural);
+    fetch(`/avisos/deletar/${idmural}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+
+      if (resposta.ok) {
+        window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+        window.location = "mural.html"
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+  }
+
+  function atualizarFeed() {
+    //aguardar();
+    fetch("/avisos/listar").then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          var feed = document.getElementById("feed_container");
+          var mensagem = document.createElement("span");
+          mensagem.innerHTML = "Nenhum resultado encontrado."
+          feed.appendChild(mensagem);
+          throw "Nenhum resultado encontrado!!";
+        }
+
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+          var feed = document.getElementById("feed_container");
+          feed.innerHTML = "";
+          for (let i = 0; i < resposta.length; i++) {
+            var publicacao = resposta[i];
+
+            // criando e manipulando elementos do HTML via JavaScript
+            var divPublicacao = document.createElement("div");
+            var spanID = document.createElement("span");
+            var spanTitulo = document.createElement("span");
+            var spanNome = document.createElement("span");
+            var divDescricao = document.createElement("div");
+            var divButtons = document.createElement("div");
+            var btnEditar = document.createElement("button");
+            var btnDeletar = document.createElement("button");
+
+
+            spanID.innerHTML = "ID: <b>" + publicacao.idmural + "</b>";
+            spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+            spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+            divDescricao.innerHTML = "Descrição: <b>" + publicacao.texto + "</b>";
+            btnEditar.innerHTML = "Editar";
+            btnDeletar.innerHTML = "Deletar";
+
+            divPublicacao.className = "publicacao";
+            spanTitulo.id = "inputNumero" + publicacao.idmural;
+            spanNome.className = "publicacao-nome";
+            spanTitulo.className = "publicacao-titulo";
+            divDescricao.className = "publicacao-descricao";
+
+            divButtons.className = "div-buttons"
+
+            btnEditar.className = "publicacao-btn-editar"
+            btnEditar.id = "btnEditar" + publicacao.idmural;
+            btnEditar.setAttribute("onclick", `editar(${publicacao.idmural})`);
+
+            btnDeletar.className = "publicacao-btn-editar"
+            btnDeletar.id = "btnDeletar" + publicacao.idmural;
+            btnDeletar.setAttribute("onclick", `deletar(${publicacao.idmural})`);
+
+            divPublicacao.appendChild(spanID);
+            divPublicacao.appendChild(spanNome);
+            divPublicacao.appendChild(spanTitulo);
+            divPublicacao.appendChild(divDescricao);
+            divPublicacao.appendChild(divButtons);
+            divButtons.appendChild(btnEditar);
+            divButtons.appendChild(btnDeletar);
+            feed.appendChild(divPublicacao);
+          }
+
+          finalizarAguardar();
+        });
+      } else {
+        throw ('Houve um erro na API!');
+      }
+    }).catch(function (resposta) {
+      console.error(resposta);
+      finalizarAguardar();
+    });
+  }
+
+  function testar() {
+    // aguardar();
+
+    var formulario = new URLSearchParams(new FormData(document.getElementById("form_postagem")));
+
+    var divResultado = document.getElementById("div_feed");
+
+    divResultado.appendChild(document.createTextNode(formulario.get("texto")));
+    divResultado.innerHTML = formulario.get("descricao");
+
+    finalizarAguardar();
+
+    return false;
+  }
+
+</script>
