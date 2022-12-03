@@ -11,7 +11,7 @@ router.get("/tempo-real/:idAquario", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 });
 
-router.get("/setores/:idEmpresa/:idSetor", function (req, res) {
+router.get("/setores/:idEmpresa/:setor", function (req, res) {
     medidaController.graficoSetor(req, res);
 });
 

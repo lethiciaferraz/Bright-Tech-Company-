@@ -36,7 +36,7 @@ function graficoSetor(idEmpresa, setor) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top ${limite_linhas}
         dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
+        dht11_umidade as umidade,   
                         momento,
                         FORMAT(momento, 'HH:mm:ss') as momento_grafico
                     from medida
@@ -46,7 +46,7 @@ function graficoSetor(idEmpresa, setor) {
         instrucaoSql = `
         select count(captura.chave) as media, captura.momento as momento from setor join sensor on setor.idsetor = sensor.fkSetor
 														left join captura on sensor.idsensor = captura.fkSensor
-                                                        where idEmpresa = ${idEmpresa} and setor.nome = '${setor}'
+                                                        where fkEmpresa = ${idEmpresa} and setor.nome = '${setor}'
                                                         group by day(captura.momento) order by captura.momento desc limit 5;
         `;
     } else {

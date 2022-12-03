@@ -205,7 +205,10 @@
 </html>
 
 <script>
-  const labels = [
+
+  /* ----------------------------------------------------------------------------------------------------------------------- */
+
+  var labels = [
     "06:00",
     "07:00",
     "08:00",
@@ -242,6 +245,9 @@
     data: data,
     options: {},
   };
+
+  /* ----------------------------------------------------------------------------------------------------------------------- */
+
 </script>
 
 <script>
@@ -275,16 +281,20 @@
       .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
       });
+
   }
   function plotarGrafico(resposta, id) {
     console.log('iniciando plotagem do gráfico...');
 
-    let labels = ['5 dias', '4 dias', '3 dias', '2 dias', 'atual'];
-    const dados = {
+    /* ----------------------------------------------------------------------------------------------------------------------- */
+
+    var labels = ['5 dias', '4 dias', '3 dias', '2 dias', 'atual'];
+
+    var data2 = {
       labels: labels,
       datasets: [
         {
-          label: "fluxo de pessoas - empresa (administrativo)",
+          label: `fluxo por setor`,
           backgroundColor: "rgb(0, 77, 0)",
           borderColor: "rgb(0, 77, 0)",
           data: [],
@@ -292,13 +302,15 @@
       ],
     };
 
+    /* ----------------------------------------------------------------------------------------------------------------------- */
+
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
     console.log(resposta)
 
     for (i = 0; i < resposta.length; i++) {
       var registro = resposta[i];
-      dados.datasets[0].data.push(registro.media);
+      data2.datasets[0].data.push(registro.media);
       console.log(registro.media)
     }
 
@@ -307,74 +319,85 @@
     console.log('Labels:')
     console.log(labels)
     console.log('Dados:')
-    console.log(dados.datasets[0].data2)
+    console.log(data2.datasets[0].data2)
     console.log('----------------------------------------------')
 
-    const config2 = {
+    /* ----------------------------------------------------------------------------------------------------------------------- */
+
+    var config2 = {
       type: "line",
-      data: dados,
+      data: data2,
       options: {},
     };
 
-    let myChart2 = new Chart(
+    var myChart2 = new Chart(
       document.getElementById('myChart2'),
       config2
     );
   }
 
-  function atualizarGrafico(id, dados, myChart) {
+  /* ----------------------------------------------------------------------------------------------------------------------- */
 
-    fetch(`/medidas/tempo-real/${id}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (novoRegistro) {
-
-          console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-          console.log(`Dados atuais do gráfico:`);
-          console.log(dados);
-          document.getElementById("avisoCaptura").innerHTML = ""
-
-          if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-            console.log("---------------------------------------------------------------")
-            console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-            document.getElementById("avisoCaptura").innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-            console.log("Horário do novo dado capturado:")
-            console.log(novoRegistro[0].momento_grafico)
-            console.log("Horário do último dado capturado:")
-            console.log(dados.labels[dados.labels.length - 1])
-            console.log("---------------------------------------------------------------")
-          } else {
-
-            dados.labels.shift();
-            dados.labels.push(novoRegistro[0].momento_grafico);
-
-            dados.datasets[0].data.shift();
-            dados.datasets[0].data.push(novoRegistro[0].umidade);
-
-            dados.datasets[1].data.shift();
-            dados.datasets[1].data.push(novoRegistro[0].temperatura);
-
-            myChart.update();
-          }
-
+  /*   function atualizarGrafico(id, dados, myChart) {
+  
+      fetch(`/medidas/tempo-real/${id}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+          response.json().then(function (novoRegistro) {
+            
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados);
+            document.getElementById("avisoCaptura").innerHTML = ""
+  
+            if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+              console.log("---------------------------------------------------------------")
+              console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+              document.getElementById("avisoCaptura").innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+              console.log("Horário do novo dado capturado:")
+              console.log(novoRegistro[0].momento_grafico)
+              console.log("Horário do último dado capturado:")
+              console.log(dados.labels[dados.labels.length - 1])
+              console.log("---------------------------------------------------------------")
+            } else {
+  
+              dados.labels.shift();
+              dados.labels.push(novoRegistro[0].momento_grafico);
+  
+              dados.datasets[0].data.shift();
+              dados.datasets[0].data.push(novoRegistro[0].umidade);
+  
+              dados.datasets[1].data.shift();
+              dados.datasets[1].data.push(novoRegistro[0].temperatura);
+  
+              myChart.update();
+            }
+  
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(id, dados, myChart), 2000);
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
           proximaAtualizacao = setTimeout(() => atualizarGrafico(id, dados, myChart), 2000);
+        }
+      })
+        .catch(function (error) {
+          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
-      } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(id, dados, myChart), 2000);
-      }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
-  }
+    } */
+
+  /* ----------------------------------------------------------------------------------------------------------------------- */
 
   function addData() {
     var setor = slc_id3.value;
-    
+
     fetch(`/medidas/setores/${idEmpresa}/${setor}`).then(function (response) {
-      
-      chart.data.datasets[0].data = response;
+
+      for (var i = 0; i < response.length; i++) {
+        data2.labels.datasets.data[i].push(response.media);
+
+      }
+      myChart2.update();
     })
+
       .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
       });
