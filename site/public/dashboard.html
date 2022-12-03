@@ -177,7 +177,7 @@
           <div class="grafico">
             <div id="legenda">SEMANAL</div>
             <div id="legenda">
-              <select name="dias_setores" id="slc_id3" onchange="slc_dias3()">
+              <select name="dias_setores" id="slc_id3" onchange="addData()">
                 <option value="administrativo">Administrativo</option>
                 <option value="financeiro">Financeiro</option>
                 <option value="rh">Recursos Humanos</option>
@@ -205,7 +205,10 @@
 </html>
 
 <script>
-  const labels = [
+
+  /* ----------------------------------------------------------------------------------------------------------------------- */
+
+  var labels = [
     "06:00",
     "07:00",
     "08:00",
@@ -243,358 +246,160 @@
     options: {},
   };
 
-  /* ----------------------------------------------------------------------------------------------- */
-
-  const labels2 = [
-    "segunda-feira",
-    "terça-feira",
-    "quarta-feira",
-    "quinta-feira",
-    "sexta-feira",
-  ];
-
-  const data2 = {
-    labels: labels2,
-    datasets: [
-      {
-        label: "fluxo de pessoas - empresa (administrativo)",
-        backgroundColor: "rgb(0, 77, 0)",
-        borderColor: "rgb(0, 77, 0)",
-        data: [18, 20, 18, 21, 17,7],
-      },
-    ],
-  };
-
-  const config2 = {
-    type: "line",
-    data: data2,
-    options: {},
-  };
-
-  /* ----------------------------------------------------------------------------------------------- */
+  /* ----------------------------------------------------------------------------------------------------------------------- */
 
 </script>
 
 <script>
+  var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
+
+  obterDadosGrafico(idEmpresa);
+
   var myChart = new Chart(document.getElementById("myChart"), config);
-  var myChart2 = new Chart(document.getElementById("myChart2"), config2);
 
-  function slc_dias() {
-    var dia = slc_id.value;
+  function obterDadosGrafico(id) {
+    var dia = slc_id3.value;
 
-    /* ----------------------------------------------------------------------------------------------- */
+    fetch(`/medidas/ultimas/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        dia
+      })
+    }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(resposta)
+          plotarGrafico(resposta, id);
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
 
-    if (dia == 'segunda') {
-      myChart.destroy();
+  }
+  function plotarGrafico(resposta, id) {
+    console.log('iniciando plotagem do gráfico...');
 
-      var data_dia1 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - administrativo (04/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 15, 12, 27, 32, 16, 14, 20, 18, 25, 22, 30, 21, 17],
-          },
-        ],
-      };
-      config.data = data_dia1;
-      myChart = new Chart(document.getElementById("myChart"), config);
+    /* ----------------------------------------------------------------------------------------------------------------------- */
+
+    var labels = ['5 dias', '4 dias', '3 dias', '2 dias', 'atual'];
+
+    var data2 = {
+      labels: labels,
+      datasets: [
+        {
+          label: `fluxo por setor`,
+          backgroundColor: "rgb(0, 77, 0)",
+          borderColor: "rgb(0, 77, 0)",
+          data: [],
+        },
+      ],
+    };
+
+    /* ----------------------------------------------------------------------------------------------------------------------- */
+
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    console.log(resposta)
+
+    for (i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      data2.datasets[0].data.push(registro.media);
+      console.log(registro.media)
     }
 
-    /* ----------------------------------------------------------------------------------------------- */
+    console.log('----------------------------------------------')
+    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Labels:')
+    console.log(labels)
+    console.log('Dados:')
+    console.log(data2.datasets[0].data2)
+    console.log('----------------------------------------------')
 
-    if (dia == 'terca') {
-      myChart.destroy();
+    /* ----------------------------------------------------------------------------------------------------------------------- */
 
-      var data_dia2 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - administrativo (05/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 2, 12, 22, 2, 21, 17],
-          },
-        ],
-      };
-      config.data = data_dia2;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
+    var config2 = {
+      type: "line",
+      data: data2,
+      options: {},
+    };
 
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (dia == 'quarta') {
-      myChart.destroy();
-
-      var data_dia3 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - administrativo (06/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 2, 12, 27, 2, 16, 14, 21, 17],
-          },
-        ],
-      };
-      config.data = data_dia3;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (dia == 'quinta') {
-      myChart.destroy();
-
-      var data_dia4 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - administrativo (07/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 2, 12, 27, 2, 16, 122, 2, 21, 17],
-          },
-        ],
-      };
-      config.data = data_dia4;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (dia == 'sexta') {
-      myChart.destroy();
-
-      var data_dia5 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - administrativo (08/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 2, 12, 27, 2, 156, 2, 21, 17],
-          },
-        ],
-      };
-      config.data = data_dia5;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
+    var myChart2 = new Chart(
+      document.getElementById('myChart2'),
+      config2
+    );
   }
 
-  /* ----------------------------------------------------------------------------------------------- */
+  /* ----------------------------------------------------------------------------------------------------------------------- */
 
-  function slc_dias2() {
-    var setor = slc_id2.value;
+  /*   function atualizarGrafico(id, dados, myChart) {
+  
+      fetch(`/medidas/tempo-real/${id}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+          response.json().then(function (novoRegistro) {
+            
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados);
+            document.getElementById("avisoCaptura").innerHTML = ""
+  
+            if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+              console.log("---------------------------------------------------------------")
+              console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+              document.getElementById("avisoCaptura").innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+              console.log("Horário do novo dado capturado:")
+              console.log(novoRegistro[0].momento_grafico)
+              console.log("Horário do último dado capturado:")
+              console.log(dados.labels[dados.labels.length - 1])
+              console.log("---------------------------------------------------------------")
+            } else {
+  
+              dados.labels.shift();
+              dados.labels.push(novoRegistro[0].momento_grafico);
+  
+              dados.datasets[0].data.shift();
+              dados.datasets[0].data.push(novoRegistro[0].umidade);
+  
+              dados.datasets[1].data.shift();
+              dados.datasets[1].data.push(novoRegistro[0].temperatura);
+  
+              myChart.update();
+            }
+  
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(id, dados, myChart), 2000);
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(id, dados, myChart), 2000);
+        }
+      })
+        .catch(function (error) {
+          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    } */
 
-    if (setor == 'administrativo') {
-      myChart.destroy();
+  /* ----------------------------------------------------------------------------------------------------------------------- */
 
-      var data_setor1 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - administrativo (04/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 18, 25, 22, 30, 21, 17],
-          },
-        ],
-      };
-      config.data = data_setor1;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (setor == 'financeiro') {
-      myChart.destroy();
-
-      var data_setor2 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - financeiro (04/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 18, 25, 224, 484, 484, 9, 12, 30, 21, 17],
-          },
-        ],
-      };
-      config.data = data_setor2;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (setor == 'rh') {
-      myChart.destroy();
-
-      var data_setor3 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - recursos humanos (04/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 18, 25, 224, 484, 484, 9, 12, 30, 21, 17],
-          },
-        ],
-      };
-      config.data = data_setor3;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (setor == 'comercial') {
-      myChart.destroy();
-
-      var data_setor4 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - comercial (04/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 18, 25, 224, 484, 484, 9, 12, 30, 21, 17],
-          },
-        ],
-      };
-      config.data = data_setor4;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (setor == 'ti') {
-      myChart.destroy();
-
-      var data_setor5 = {
-        labels: labels,
-        datasets: [
-          {
-            label: "fluxo por setor - tecnologia da informação (04/10/2022)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [5, 2, 10, 8, 18, 25, 224, 484, 484, 9, 12, 30, 21, 17],
-          },
-        ],
-      };
-      config.data = data_setor5;
-      myChart = new Chart(document.getElementById("myChart"), config);
-    }
-  }
-
-  /* ----------------------------------------------------------------------------------------------- */
-
-  function slc_dias3() {
+  function addData() {
     var setor = slc_id3.value;
 
-    if (setor == 'administrativo') {
-      p_legenda.innerHTML = ''
-      myChart2.destroy();
+    fetch(`/medidas/setores/${idEmpresa}/${setor}`).then(function (response) {
 
-      var data_setor1 = {
-        labels: labels2,
-        datasets: [
-          {
-            label: "fluxo de pessoas - empresa (administrativo)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [18, 20, 18, 21, 17,7],
-          },
-        ],
-      };
-      config2.data = data_setor1;
-      myChart2 = new Chart(document.getElementById("myChart2"), config2);
-    }
+      for (var i = 0; i < response.length; i++) {
+        data2.labels.datasets.data[i].push(response.media);
 
-    /* ----------------------------------------------------------------------------------------------- */
+      }
+      myChart2.update();
+    })
 
-    if (setor == 'financeiro') {
-      p_legenda.innerHTML = ''
-      myChart2.destroy();
-
-      var data_setor2 = {
-        labels: labels2,
-        datasets: [
-          {
-            label: "fluxo de pessoas - empresa (financeiro)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [15,8,12,9,17,10,4,12,18,20,17],
-          },
-        ],
-      };
-      config2.data = data_setor2;
-      myChart2 = new Chart(document.getElementById("myChart2"), config2);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (setor == 'rh') {
-      p_legenda.innerHTML = ''
-      myChart2.destroy();
-
-      var data_setor3 = {
-        labels: labels2,
-        datasets: [
-          {
-            label: "fluxo de pessoas - empresa (recursos humanos)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [14, 12, 14, 12, 18, 10,4, 27, 9, 7, 16, 7],
-          },
-        ],
-      };
-      config2.data = data_setor3;
-      myChart2 = new Chart(document.getElementById("myChart2"), config2);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (setor == 'comercial') {
-      p_legenda.innerHTML = ''
-      myChart2.destroy();
-
-      var data_setor4 = {
-        labels: labels2,
-        datasets: [
-          {
-            label: "fluxo de pessoas - empresa (comercial)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [3,4,2,3,6,2,11,4,6,5,2,6,4,3,4,5,3,5,4,2,6,3,1,3,6,2],
-          },
-        ],
-      };
-      config2.data = data_setor4;
-      myChart2 = new Chart(document.getElementById("myChart2"), config2);
-    }
-
-    /* ----------------------------------------------------------------------------------------------- */
-
-    if (setor == 'ti') {
-      myChart2.destroy();
-
-      var data_setor5 = {
-        labels: labels2,
-        datasets: [
-          {
-            label: "fluxo de pessoas - empresa (tecnologia da informação)",
-            backgroundColor: "rgb(0, 77, 0)",
-            borderColor: "rgb(0, 77, 0)",
-            data: [20, 13, 25, 14, 23],
-          },
-        ],
-      };
-      config2.data = data_setor5;
-      myChart2 = new Chart(document.getElementById("myChart2"), config2);
-
-      p_legenda.innerHTML = `* Fluxo baixo (terça-feira e
-            quinta-feira) devido aos 2 dias de home office informado pela empresa ao efetuar o contrato`
-    }
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
   }
 </script>

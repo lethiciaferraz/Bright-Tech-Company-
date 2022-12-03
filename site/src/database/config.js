@@ -14,7 +14,7 @@ var sqlServerConfig = {
     },
     options: {
         encrypt: true, // for azure
-    }
+    } 
 }
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "bright_tec",
     user: "root",
-    password: "7537195",
+    password: "sptech",
 };
 
 function executar(instrucao) {
