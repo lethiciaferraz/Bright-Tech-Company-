@@ -3,10 +3,10 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
-    server: "server-bright-tech.database.windows.net",
-    database: "bright_tech",
-    user: "admin-bright-tech",
-    password: "#Gfgrupo9",
+    server: "SEU_SERVIDOR",
+    database: "SEU_BANCO_DE_DADOS",
+    user: "SEU_USUARIO",
+    password: "SUA_SENHA",
     pool: {
         max: 10,
         min: 0,
@@ -14,7 +14,7 @@ var sqlServerConfig = {
     },
     options: {
         encrypt: true, // for azure
-    } 
+    }
 }
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)

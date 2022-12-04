@@ -1,23 +1,48 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idEmpresa, setor) {
-
+function graficoSetor(idEmpresa) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        momento,
-                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idAquario}
-                    order by id desc`;
+        instrucaoSql = `
+        select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+                                                        left join captura on sensor.idsensor = captura.fkSensor
+                                                        where fkEmpresa = ${idEmpresa}
+                                                        group by day(captura.momento) order by captura.momento limit 9;
+        `;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
-        select count(captura.chave) as media, captura.momento as momento from setor join sensor on setor.idsetor = sensor.fkSetor
+        select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+                                                        left join captura on sensor.idsensor = captura.fkSensor
+                                                        where fkEmpresa = ${idEmpresa}
+                                                        group by day(captura.momento) order by captura.momento limit 9;
+        `;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+function graficoSetor2(idEmpresa) {
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `
+        select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+                                                        left join captura on sensor.idsensor = captura.fkSensor
+                                                        where fkEmpresa = ${idEmpresa} and (select avg(captura.chave))
+                                                        group by day(captura.momento) order by captura.momento desc limit 5;
+        `;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `
+    select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
 														left join captura on sensor.idsensor = captura.fkSensor
-                                                        where fkEmpresa = ${idEmpresa} and setor.nome = '${setor}'
+                                                        where fkEmpresa = ${idEmpresa} and (select avg(captura.chave))
                                                         group by day(captura.momento) order by captura.momento desc limit 5;
         `;
     } else {
@@ -29,25 +54,26 @@ function buscarUltimasMedidas(idEmpresa, setor) {
     return database.executar(instrucaoSql);
 }
 
-function graficoSetor(idEmpresa, setor) {
+/* --------------------------------------------------------------------------------------------------------- */
+
+function buscarMedidasEmTempoReal(idEmpresa) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,   
-                        momento,
-                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idAquario}
-                    order by id desc`;
+        instrucaoSql = `
+        select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+                                                        left join captura on sensor.idsensor = captura.fkSensor
+                                                        where fkEmpresa = ${idEmpresa}
+                                                        group by day(captura.momento) order by captura.momento limit 9;
+        `;
+
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
-        select count(captura.chave) as media, captura.momento as momento from setor join sensor on setor.idsetor = sensor.fkSetor
-														left join captura on sensor.idsensor = captura.fkSensor
-                                                        where fkEmpresa = ${idEmpresa} and setor.nome = '${setor}'
-                                                        group by day(captura.momento) order by captura.momento desc limit 5;
+        select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+                                                        left join captura on sensor.idsensor = captura.fkSensor
+                                                        where fkEmpresa = ${idEmpresa}
+                                                        group by day(captura.momento) order by captura.momento limit 9;
         `;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -58,7 +84,38 @@ function graficoSetor(idEmpresa, setor) {
     return database.executar(instrucaoSql);
 }
 
+/* --------------------------------------------------------------------------------------------------------- */
+
+function buscarMedidasEmTempoReal2(idEmpresa) {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `
+    select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+														left join captura on sensor.idsensor = captura.fkSensor
+                                                        where fkEmpresa = ${idEmpresa} and (select avg(captura.chave))
+                                                        group by day(captura.momento) order by captura.momento desc limit 5;
+        `;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `
+    select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+														left join captura on sensor.idsensor = captura.fkSensor
+                                                        where fkEmpresa = ${idEmpresa} and (select avg(captura.chave))
+                                                        group by day(captura.momento) order by captura.momento desc limit 5;
+        `;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 module.exports = {
-    buscarUltimasMedidas,
-    graficoSetor
+    graficoSetor,
+    graficoSetor2,
+    buscarMedidasEmTempoReal,
+    buscarMedidasEmTempoReal2
 }
