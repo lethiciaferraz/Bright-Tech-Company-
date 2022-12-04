@@ -114,9 +114,9 @@ fkSensor int,
 foreign key (fkSensor) references sensor(idSensor)
 );
 
-<<<<<<< HEAD
 insert into captura values (null, null, null, null, null, null, '2022-10-04 08:35:43',1);
 
+-- -----------------------------------------------------------------------------------------------------    
 
 create table avisos(
 idAvisos int auto_increment,
@@ -130,7 +130,6 @@ foreign key (fkEmpresa) references empresa (idEmpresa),
 primary key (idAviso, fkUsuario, fkEmpresa)
 );
 						   
-                
 select * from empresa;
 select * from usuario;	
 select * from endereco;
@@ -158,7 +157,7 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 -- truncate table setor;
 -- truncate table empresa; 
 
-=======
+
 insert into captura (chave, momento, fkSensor) values
 (1,'2022-10-10 10:30:00',1),
 (1,'2022-10-10 10:30:00',1),
@@ -173,12 +172,9 @@ insert into captura (chave, momento, fkSensor) values
 (1,'2022-10-11 14:22:12',3),
 (0,'2022-10-13 14:22:12',3),
 (1,'2022-10-14 14:22:12',3);
->>>>>>> 6c1453c3d6bfe5df869e87cdd42dbe957cd55ce3
 
 -- ---------------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
-=======
 create table avisos(
 idAvisos int primary key auto_increment,
 data date,
@@ -191,6 +187,7 @@ foreign key (fkEmpresa) references empresa (idEmpresa)
 );
 
 -- ---------------------------------------------------------------------------------------------------   
+
 select * from empresa;
 select * from usuario;	
 select * from endereco;
@@ -201,7 +198,6 @@ select * from captura;
 select * from avisos;
 
 -- ---------------------------------------------------------------------------------------------------   
->>>>>>> 6c1453c3d6bfe5df869e87cdd42dbe957cd55ce3
 
 -- EXIBINDO TODOS OS DADOS E SUAS RESPECTIVAS TABELAS
 select * from empresa as e join usuario as u on e.idEmpresa = u.fkEmpresa

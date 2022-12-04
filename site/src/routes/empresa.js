@@ -20,8 +20,8 @@ router.get("/buscar-por-cnpj/:cnpj", function (req, res) {
   empresaController.buscarPorCnpj(req, res);
 });
 
-/*router.post("/autenticar", function (req, res) {
+router.post("/autenticar", function (req, res) {
     empresaController.entrar(req, res);
-});*/
+});
 
 module.exports = router;
