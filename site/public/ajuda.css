@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .fundo {
+    background-color: #ffffff;
+    margin-top: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-image: url("./assents/Frame\ 2\ -\ 1.0.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 100vh; */
+    margin: 0px;
+  
+  }
+  
+  /* MENU LATERAL */
+  
+  .menulateral {
+    background-color: #115639;
+    position: fixed;
+    padding: 10px;
+    width: 190px;
+    height: 100%;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+  }
+  
+  .menulateral ul {
+    width: 100%;
+    margin-right: 100px;
+    margin-left: 0px;
+  }
+  
+  .menulateral ul li {
+    text-decoration: none;
+    list-style: none;
+    margin: 5px;
+    color: #fff;
+    width: 100%;
+    transition: all 0.8s;
+  }
+  
+  .menulateral ul li a {
+    text-decoration: none;
+    color: #fff;
+    width: 50px;
+    display: flex;
+    margin-left: 0px;
+  }
+  
+  span {
+    margin: 10px;
+  }
+  
+  
+  .hello img {
+    margin-top: 20px;
+  }
+  
+  .hello {
+    padding: 5px;
+    text-align: center;
+  }
+  
+  /* QUANDO MOUSE ESTIVER EM CIMA */
+  .menulateral ul li:hover {
+    background: #fff;
+    border-radius: 10px;
+    color: #115639;
+  }
+  
+  .menulateral ul li:hover a {
+    color: #115639;
+  }
+  
+  div #img_logo {
+    display: flex;
+    justify-items: flex-end;
+  
+  }
+  
+  .menulateral ul {
+    padding-inline-start: 0%;
+  }
+
+
+
+
+.container1 {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    justify-content: flex-end;
+    color: rgb(9, 7, 7);
+    
+    
+}
+
+.ajuda {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #115639e7;
+    border-radius: 50px;
+    box-shadow: 3px 4px;
+    position: relative;
+    border: #000;
+    left: 68vh;
+    height: 300px;
+    width: 700px;
+    
+}
+
+.ajuda h2{
+    text-align: center;
+    color: beige;
+}
+
+.ajuda p {
+    color: beige;
+    font-size: x-large;
+}
+

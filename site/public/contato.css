@@ -93,90 +93,48 @@ body {
 }
 
 /* CONTATO */
-#conteiner {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: auto;
-}
+
 
 h2 {
   color: #115639;
 }
 
-#img_contato {
-  padding-top: 60px;
-}
-
-.caixa {
-  margin: 0 auto;
-  width: 80%;
-  padding: 15px 15px;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  text-align: left;
+.conteiner {
   display: flex;
-  justify-content: space-around;
-
-}
-
-#div_contato {
-  margin-left: 30px;
-}
-
-input {
-  margin: 5px;
-  padding: 10px;
-  width: 400px;
-  border-radius: 10px;
-  border: 2px solid #115639;
-  color: black;
-}
-
-#text_msg {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 10px;
-  border: 2px solid #115639;
-  color: black;
-  width: 400px;
-
-}
-
-button {
-  width: 100px;
-  padding: 5px 10px;
-  border-radius: 10px;
-  color: #fff;
-  background-color: #115639;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-/* CONTATO OK */
-.contatook {
-  margin: 0px;
-  padding: 40px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: larger;
-  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  color: rgb(9, 7, 7);
+  
+  
 }
 
-.redes {
+.ajuda {
+  padding: 3rem 2rem;
   display: flex;
-  justify-content: center;
-  margin: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #115639e7;
+  border-radius: 50px;
+  box-shadow: 3px 4px;
+  position: relative;
+  border: #000;
+  height: 400px;
+  width: 500px;
+  
 }
 
-.redes a {
-  margin: 15px;
+.ajuda h2{
+  text-align: center;
+  color: beige;
 }
 
-.contatook b {
-  color: #115639;
+.ajuda p {
+  color: beige;
+  font-size: x-large;
 }
+
 
 /* FOOTER */
 .footer{

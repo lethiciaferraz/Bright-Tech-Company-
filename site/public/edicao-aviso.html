@@ -6,32 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="mural.css" />
+ 
+  <link rel="stylesheet" href="edicao-aviso.css" />
   <script src="../js/funcoes.js"></script>
-  <title>Mural</title>
+  <title>Edição aviso</title>
 </head>
 
-  <body>
+<body>
   <!-- DIV MENU LATERAL -->
   <div class="fundo">
     <div class="menulateral">
-      <ul>
 
-        <div class="hello">
-          <!-- <img src="../assets/luffy.jpg" > -->
-          <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-        </div>
+      <div class="hello">
+        <img src="./assents/Ellipse 1.png" width=180px alt=""> <br> <br>
+        <h2>Olá,<span id="b_usuario">usuário!</span></h2>
+        <h3>Bright Tech</h3>
+      </div>
+      <ul>
         <li style="background-color: white; border-radius: 10px">
-            
-          <a href="dashboard.html" style="color: #115639">
+          <a href="" style="color: #115639">
             <span class="icon">
               <ion-icon name="stats-chart-outline"></ion-icon>
             </span>
             <span class="menu">Gráficos</span>
           </a>
         </li>
-
-       
 
         <li>
           <a href="mural.html">
@@ -41,9 +40,8 @@
             <span class="menu">Mural</span>
           </a>
         </li>
-
         <li>
-          <a href="">
+          <a href="ajuda.html">
             <span class="icon">
               <ion-icon name="help-circle-outline"></ion-icon>
             </span>
@@ -67,66 +65,63 @@
 
     <!--MURAL  -->
     <div class="dash-right">
-
-      <!-- <h3><span id="b_usuario"></span> </h3> -->
-
       <div class="avisos">
         <div class="container">
           <h1>Editar um aviso</h1>
           <div class="div-form">
-            <label >
-                ID:
-                <br>
-                <input type="text" id="input_id" maxlength="100" style="background-color:#115639bb" disabled>
+            <label>
+              ID:
+              <br>
+              <input type="text" id="input_id" maxlength="100" style="background-color:#115639bb" disabled>
             </label>
             <label>
-                Autor:
-                <br>
-                <input type="text" id="input_id" maxlength="100"  style="background-color:#115639bb" disabled>
+              Autor:
+              <br>
+              <input type="text" id="input_id" maxlength="100" style="background-color:#115639bb" disabled>
             </label>
-              <label>
-                Título:
-                <br>
-                <input name="titulo" id="titulo" maxlength="100"  style="background-color:#115639bb" type="text" disabled>
-              </label>
+            <label>
+              Título:
               <br>
-              <label>
-                Descrição (máximo de 250 caracteres):
-                <br>
-                <textarea name="texto" id="textarea_descricao" maxlength="250" rows="5"></textarea>
-              </label>
+              <input name="titulo" id="titulo" maxlength="100" style="background-color:#115639bb" type="text" disabled>
+            </label>
+            <br>
+            <label>
+              Descrição (máximo de 250 caracteres):
               <br>
-              <button onclick="editar()">Editar</button>
+              <textarea name="texto" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+            </label>
+            <br>
+            <button onclick="editar()">Editar</button>
             </form>
           </div>
         </div>
       </div>
 
       <script>
-        function editar(){
-            var idPostagem = sessionStorage.getItem("ID_POSTAGEM_EDITANDO");
-            fetch (`/avisos/editar/:idmural` , {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    descricaoServer: textarea_descricao.value,
-                    idAvisoServer: idPostagem
-                })
+        function editar() {
+          var idPostagem = sessionStorage.getItem("ID_POSTAGEM_EDITANDO");
+          fetch(`/avisos/editar/:idmural`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              descricaoServer: textarea_descricao.value,
+              idAvisoServer: idPostagem
+            })
 
-            }).then (function (resposta){
-                if (resposta.ok){
-                    window.alert ("Post atualizado com sucessos pelo usuario de email:" + 
-                    sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                    window.location= "mural.html"
-                }else if (resposta.status==404){
-                    window.alert("Deu 404");
-                } else {
-                    throw ("Houve um erro ao tentar realizar a postagem! Código da respostas " + resposta.status);
-                }
-            }) .catch(function(resposta){
-                console.log(`#ERRO: ${resposta}`);
-            });
+          }).then(function (resposta) {
+            if (resposta.ok) {
+              window.alert("Post atualizado com sucessos pelo usuario de email:" +
+                sessionStorage.getItem("EMAIL_USUARIO") + "!");
+              window.location = "mural.html"
+            } else if (resposta.status == 404) {
+              window.alert("Deu 404");
+            } else {
+              throw ("Houve um erro ao tentar realizar a postagem! Código da respostas " + resposta.status);
+            }
+          }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+          });
         }
       </script>

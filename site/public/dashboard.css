@@ -8,6 +8,7 @@
     margin-top: 20px 0px;
     display: flex;
     flex-direction: row;
+    
 
 }
 
@@ -51,6 +52,16 @@
 span {
     margin: 10px;
 }
+
+.hello img {
+    margin-top: 20px;
+}
+
+.hello {
+    padding: 5px;
+    text-align: center;
+}
+
 
 /* QUANDO MOUSE ESTIVER EM CIMA */
 .menulateral ul li:hover {
@@ -114,7 +125,9 @@ div #img_logo {
     margin-top: 10px;
 }
 
-.grafico #slc_id, #slc_id2, #slc_id3 {
+.grafico #slc_id,
+#slc_id2,
+#slc_id3 {
     text-align: center;
 }
 

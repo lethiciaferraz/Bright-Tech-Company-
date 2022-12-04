@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.fundo {
+  background-color: #ffffff;
+  margin-top: 20px 0px;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background-image: url("./assents/Frame\ 2\ -\ 1.0.png") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* height: 100vh; */
+
+}
+
+/* MENU LATERAL */
+
+.menulateral {
+  background-color: #115639;
+  position: fixed;
+  padding: 10px;
+  width: 190px;
+  height: 100%;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.menulateral ul {
+  width: 100%;
+  margin-right: 100px;
+  margin-left: 0px;
+}
+
+.menulateral ul li {
+  text-decoration: none;
+  list-style: none;
+  margin: 5px;
+  color: #fff;
+  width: 100%;
+  transition: all 0.8s;
+}
+
+.menulateral ul li a {
+  text-decoration: none;
+  color: #fff;
+  width: 50px;
+  display: flex;
+  margin-left: 0px;
+}
+
+span {
+  margin: 10px;
+}
+
+
+.hello img {
+  margin-top: 20px;
+}
+
+.hello {
+  padding: 5px;
+  text-align: center;
+}
+
+/* QUANDO MOUSE ESTIVER EM CIMA */
+.menulateral ul li:hover {
+  background: #fff;
+  border-radius: 10px;
+  color: #115639;
+}
+
+.menulateral ul li:hover a {
+  color: #115639;
+}
+
+div #img_logo {
+  display: flex;
+  justify-items: flex-end;
+
+}
+
+.menulateral ul {
+  padding-inline-start: 0%;
+}
+
+/* MURAL */
+
+.dash-right {
+  display: flex;
+  width: 75%;
+  height: fit-content;
+  background-color: white;
+  position: relative;
+  top: 20px;
+  left: 25%;
+}
+
+.dash-right .avisos {
+  width: 100%;
+  /* border: 3px solid pink; */
+  color: rgb(216, 216, 216);
+  font-family: "Exo 2", sans-serif;
+}
+
+
+
+input {
+  margin-bottom: 10px;
+  border: 2px solid #115639;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.dash-right .avisos .div-form textarea {
+  width: 100%;
+  /* color: #E6005A; */
+  border: 3px solid #115639;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.dash-right .avisos .container .div-form {
+  width: 100%;
+}
+
+
+.dash-right .avisos .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  margin-top: 100px;
+  display: flex;
+}
+
+.div-results {
+  width: 100%;
+}
+
+.div-results .feed-container {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 80px;
+}
+
+.div-buttons {
+  display: flex;
+  justify-content: flex-end;
+
+
+}
+
+.div-buttons>* {
+  margin-left: 30px;
+}
+
+
+.dash-right .avisos .div-form input {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.dash-right .avisos .div-form button {
+  cursor: pointer;
+  font-family: "Exo 2", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #115639;
+  width: 120px;
+}
+
+h1 {
+  color: #115639;
+}
+
+label {
+  color: black;
+}
+
+.dash-right span {
+  color: white;
+}
+
+.publicacao {
+  background-color: #115639;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 20px;
+  ;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+b {
+  color: white;
+}
+
+.publicacao-descricao {
+  color: white;
+}
+
+.publicacao-btn-editar {
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 5px 8px;
+  color: #115639;
+  background-color: #fff;
+  width: 80px;
+  font-family: "Exo 2", sans-serif;
+
+
+}

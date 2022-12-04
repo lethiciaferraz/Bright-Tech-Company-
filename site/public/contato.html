@@ -39,45 +39,22 @@
             </div>
         </div>
 
-    <!-- Contato -->
-    <div id="conteiner">
-        <div class="caixa">
-            <img src="./img/3675555.jpg" alt="" id="img_contato" width="50%" height="50%">
-            <div id="div_contato">
-                <h2>Entre em contato</h2>
-                Preencha os campos abaixo para entrarmos em contato com a sua empresa!
-                <br><br>
-                <div class="campo">
-                    <label for="nome" placeholder="">Nome (responsável):</label><br>
-                    <input id="in_nome">
-                </div>
-                <br>
-                <div class="campo">
-                    <label for="empresa">Empresa:</label><br>
-                    <input id="in_empresa">
-                </div>
-                <br>
-                <div class="campo">
-                    <label for="email">Email:</label><br>
-                    <input id="in_email">
-                </div>
-                <br>
-                <div class="campo">
-                    <label for="telefone">Telefone:</label><br>
-                    <input id="in_telefone">
-                </div>
-                <br>
-                <div class="campo">
-                    <label for="msg">Mensagem:</label><br>
-                    <textarea id="text_msg" rows="10"></textarea>
-                </div>
-                <br>
-                <button onclick="enviar()">ENVIAR</button>
+        <!-- Contato -->
+        <div class="conteiner">
+            <img src="./img/3675555.jpg" alt=""  width="40%" height="40%">
+            <div class="ajuda">
+                <h2>Está com algum problema ou dúvida? <br>Entre em contato conosco através dos seguintes canais:</h2>
+            
+                <img src="./assents/telephone.png" width=50px alt="">
+                <p> Telefone: 11 91336-3303 </p>
+                <img src="./assents/email.png" width=60px alt="">
+                <p>Email: bright.tech@gmail.com</p>
+
             </div>
         </div>
-    </div>
 
-    <!-- Contato feito
+
+        <!-- Contato feito
     <div id="div_contatook" style="display:none;">
         <div class="contatook">
             Obrigado pelo interesse em nossos serviços!<br>
@@ -91,21 +68,21 @@
         </div>
     </div> -->
 
-    <!-- Footer -->
-    <div class="footer">
-        <ul>
-            <li><b><a href="endereco.html">Endereço</a></b></li>
-            <li><b><a href="contato.html">Contato</a></b></li>
-        </ul>
-            Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech    
-    </div>
+        <!-- Footer -->
+        <div class="footer">
+            <ul>
+                <li><b><a href="endereco.html">Endereço</a></b></li>
+                <li><b><a href="contato.html">Contato</a></b></li>
+            </ul>
+            Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech
+        </div>
 </body>
 
 </html>
 
 <script>
     function enviar() {
-        
+
         conteiner.innerHTML = `    <!-- Contato feito -->
     <div id="div_contatook">
         <div class="contatook">
@@ -120,6 +97,6 @@
         </div>
     </div>`
 
-     
+
     }
 </script>
