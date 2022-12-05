@@ -127,8 +127,12 @@ fkUsuario int,
 foreign key (fkUsuario) references usuario (idUsuario),
 fkEmpresa int,
 foreign key (fkEmpresa) references empresa (idEmpresa),
-primary key (idAviso, fkUsuario, fkEmpresa)
+primary key (idAvisos, fkUsuario, fkEmpresa)
 );
+
+insert into avisos values
+(1, null, 'teste', 'teste', 1, 13);
+
 						   
 select * from empresa;
 select * from usuario;	
@@ -137,6 +141,7 @@ select * from setor;
 select * from sensor;
 select * from captura;
 select * from End_Completo; 
+select*from avisos;
 
 -- selecionando todos os dados de todas as tabelas --
 select * from empresa as e join usuario as u on e.idEmpresa = u.fkEmpresa
@@ -175,16 +180,7 @@ insert into captura (chave, momento, fkSensor) values
 
 -- ---------------------------------------------------------------------------------------------------
 
-create table avisos(
-idAvisos int primary key auto_increment,
-data date,
-titulo varchar(45),
-descricao varchar(250),
-fkUsuario int,
-foreign key (fkUsuario) references usuario (idUsuario),
-fkEmpresa int,
-foreign key (fkEmpresa) references empresa (idEmpresa)
-);
+
 
 -- ---------------------------------------------------------------------------------------------------   
 
@@ -216,3 +212,4 @@ select count(captura.chave) as captura, captura.momento as dtRegistro from setor
 														left join captura on sensor.idsensor = captura.fkSensor
                                                         where setor.nome = 'administrativo'
                                                         group by day(captura.momento) order by captura.momento desc limit 5;
+										

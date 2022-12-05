@@ -21,8 +21,8 @@ CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
 	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+	fkUsuario INT,
+	FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
 );
 
 create table aquario (
@@ -61,7 +61,7 @@ CREATE TABLE aviso (
 	id INT PRIMARY KEY IDENTITY(1,1),
 	titulo VARCHAR(100),
 	descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
+	fkUsuario INT FOREIGN KEY REFERENCES usuario(id)
 );
 
 create table aquario (
