@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "bright_tec",
     user: "root",
-    password: "sptech",
+    password: "7537195",
 };
 
 function executar(instrucao) {

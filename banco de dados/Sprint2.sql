@@ -133,6 +133,7 @@ primary key (idAvisos, fkUsuario, fkEmpresa)
 insert into avisos values
 (1, null, 'teste', 'teste', 1, 13);
 
+-- ---------------------------------------------------------------------------------------------------
 						   
 select * from empresa;
 select * from usuario;	
@@ -178,9 +179,6 @@ insert into captura (chave, momento, fkSensor) values
 (0,'2022-10-13 14:22:12',3),
 (1,'2022-10-14 14:22:12',3);
 
--- ---------------------------------------------------------------------------------------------------
-
-
 
 -- ---------------------------------------------------------------------------------------------------   
 
@@ -209,15 +207,20 @@ select * from sensor as s join setor as se on s.fkSetor = se.idSetor;
 
 -- EXIBINDO A CAPTURA E O MOMENTO DE UM DETERMINADO SETOR. ORDENADO PELA CAPTURA EM ORDEM DECRESCENTE, LIMITADO PELOS 5 DIAS DA SEMANA
 select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
-<<<<<<< HEAD
 														left join captura on sensor.idsensor = captura.fkSensor
                                                         where setor.nome = 'administrativo'
                                                         group by day(captura.momento) order by captura.momento desc limit 5;
 										
-=======
-														 join captura on sensor.idsensor = captura.fkSensor
-                                                        group by day(captura.momento) order by captura.momento desc limit 1;
 
+/* Descobrir o por quê desse join captura on sensor.idsensor = captura.fkSensor
+                                                        group by day(captura.momento) order by captura.momento desc limit 1;*/
+                                                        
+                                                        
+-- EXIBINDO A CAPTURA E O MOMENTO DE UM DETERMINADO SETOR. ORDENADO PELA CAPTURA EM ORDEM DECRESCENTE, LIMITADO PELOS 5 DIAS DA SEMANA
+select count(captura.chave) as captura, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+                                                        left join captura on sensor.idsensor = captura.fkSensor
+                                                        where setor.nome = 'administrativo'
+                                                        group by day(captura.momento) order by captura.momento desc limit 5;
 insert into captura (chave, momento, fkSensor) values
 (1,'2022-10-10 10:30:00',1),
 (1,'2022-10-10 10:30:00',1),
@@ -232,4 +235,3 @@ insert into captura (chave, momento, fkSensor) values
 (1,'2022-10-11 14:22:12',1),
 (0,'2022-10-13 14:22:12',1),
 (1,'2022-10-14 14:22:12',1);
->>>>>>> 034e87b0549d19d5721a101cae9add30639d9907
