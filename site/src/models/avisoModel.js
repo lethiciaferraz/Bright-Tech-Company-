@@ -1,82 +1,52 @@
 var database = require("../database/config");
 
-function listar() {
+/*function listar() {
   console.log(
     "ACESSEI O AVISOS  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()"
   );
   var instrucao = `
-        SELECT 
-            a.idAvisos AS idAvisos,
-            a.titulo,
-            a.descricao,
-            a.fkUsuario,
-            u.idUsuario AS idUsuario,
-            u.nome,
-            u.email,
-            u.senha
+  SELECT 
+    a.idAvisos AS idAvisos,
+    a.titulo,
+    a.descricao,
+    a.fkUsuario,
+    a.fkEmpresa
         FROM avisos a
-            INNER JOIN usuario u
-                ON a.fkUsuario = u.idUsuario;
+        INNER JOIN usuario u
+        ON a.fkUsuario = u.idUsuario;
+
     `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
 }
+*/
 
-function pesquisarDescricao(descricao) {
+function listarPorEmpresa(idEmpresa) {
   console.log(
-    "ACESSEI O AVISOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pesquisarDescricao()"
+    "ACESSEI O AVISOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorEmpresa()"
   );
   var instrucao = `
-        SELECT 
-            a.idAvisos AS idAvisos,
-            a.titulo,
-            a.descricao,
-            a.fkUsuario,
-            u.idUsuario AS idUsuario,
-            u.nome,
-            u.email,
-            u.senha
-        FROM avisos a
-            INNER JOIN usuario u
-                ON a.fkUsuario = u.idUsuario
-        WHERE a.descricao LIKE '${descricao}';
+        
+    select 
+    * from 
+    avisos join 
+    empresa on fkEmpresa = idEmpresa where fkEmpresa = ${idEmpresa}; 
     `;
+
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
 }
 
-function listarPorUsuario(idUsuario) {
-  console.log(
-    "ACESSEI O AVISOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()"
-  );
-  var instrucao = `
-        SELECT 
-            a.idAvisos AS idAvisos,
-            a.titulo,
-            a.descricao,
-            a.fkUsuario,
-            u.idUsuario AS idUsuario,
-            u.nome,
-            u.email,
-            u.senha
-        FROM avisos a
-            INNER JOIN usuario u
-                ON a.fkUsuario = u.idUsuario
-        WHERE u.idUsuario = ${idUsuario};
-    `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
-}
-
-function publicar(titulo, descricao, idUsuario) {
+function publicar(titulo, descricao, idUsuario, idEmpresa) {
   console.log(
     "ACESSEI O AVISOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ",
     titulo,
     descricao,
-    idUsuario
+    idUsuario,
+    idEmpresa
   );
   var instrucao = `
-        INSERT INTO avisos (titulo, descricao, fkUsuario) VALUES ('${titulo}', '${descricao}', ${idUsuario});
+        INSERT INTO avisos (titulo, descricao, fkUsuario, fkEmpresa) VALUES ('${titulo}', '${descricao}', ${idUsuario}, '${idEmpresa}');
     `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
@@ -108,9 +78,8 @@ function deletar(idAvisos) {
 }
 
 module.exports = {
-  listar,
-  listarPorUsuario,
-  pesquisarDescricao,
+ 
+  listarPorEmpresa,
   publicar,
   editar,
   deletar,

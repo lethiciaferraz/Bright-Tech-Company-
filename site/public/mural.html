@@ -141,16 +141,25 @@
     document.getElementById("form_postagem").reset();
   }
 
-  function publicar() {
-    var idUsuario = sessionStorage.ID_USUARIO;
+  
+  var idUsuario = sessionStorage.ID_USUARIO;
+    var idEmpresa= sessionStorage.ID_EMPRESA;
 
-    console.log(idUsuario)
+  function publicar() {
+
+    const hoje = new Date()
+    const dia = hoje.getDate().toString().padStart(2,'0') 
+    const mes = String(hoje.getMonth() + 1).padStart(2,'0') 
+    const ano = hoje.getFullYear()
+    const dataAtual = `${ano}/${mes}/${dia}` 
+    
+    console.log(idUsuario / idEmpresa)
     var corpo = {
       titulo: form_postagem.titulo.value,
       descricao: form_postagem.descricao.value,
     };
 
-    fetch(`/avisos/publicar/${idUsuario}`, {
+    fetch(`/avisos/publicar/${idUsuario}/${idEmpresa}`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -226,7 +235,8 @@
 
   function atualizarFeed() {
     //aguardar();
-    fetch("/avisos/listar")
+
+    fetch(`/avisos/listar/${idEmpresa}`)
       .then(function (resposta) {
         if (resposta.ok) {
           if (resposta.status == 204) {
@@ -237,13 +247,16 @@
             throw "Nenhum resultado encontrado!!";
           }
 
+          
           resposta.json().then(function (resposta) {
             console.log("Dados recebidos: ", JSON.stringify(resposta));
-
+            
             var feed = document.getElementById("feed_container");
             feed.innerHTML = "";
             for (let i = 0; i < resposta.length; i++) {
               var publicacao = resposta[i];
+              
+              console.log(publicacao)
 
               // criando e manipulando elementos do HTML via JavaScript
               var divPublicacao = document.createElement("div");
@@ -255,7 +268,7 @@
               var btnEditar = document.createElement("button");
               var btnDeletar = document.createElement("button");
 
-              spanID.innerHTML = "ID: <b>" + publicacao.idmural + "</b>";
+              spanID.innerHTML = "ID: <b>" + publicacao.idAvisos + "</b>";
               spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
               spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
               divDescricao.innerHTML =
@@ -264,7 +277,7 @@
               btnDeletar.innerHTML = "Deletar";
 
               divPublicacao.className = "publicacao";
-              spanTitulo.id = "inputNumero" + publicacao.idmural;
+              spanTitulo.id = "inputNumero" + publicacao.idAvisos;
               spanNome.className = "publicacao-nome";
               spanTitulo.className = "publicacao-titulo";
               divDescricao.className = "publicacao-descricao";
@@ -272,7 +285,7 @@
               divButtons.className = "div-buttons";
 
               btnEditar.className = "publicacao-btn-editar";
-              btnEditar.id = "btnEditar" + publicacao.idmural;
+              btnEditar.id = "btnEditar" + publicacao.idAvisos;
               btnEditar.setAttribute(
                 "onclick",
                 `editar(${publicacao.idmural})`
