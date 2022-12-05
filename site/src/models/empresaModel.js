@@ -31,8 +31,14 @@ function proximo(nome, cnpj,  telefone, qtd_Funcionario, metros_uteis, dt_contra
     return database.executar(instrucao);
 }
 
+function buscarPorCnpj(cnpj){
+    var instrucao = `select idEmpresa from empresa where cnpj = '${cnpj}'`;
+
+    return database.executar(instrucao);
+}
 module.exports = {
     entrar,
     proximo,
     listar,
+    buscarPorCnpj
 };

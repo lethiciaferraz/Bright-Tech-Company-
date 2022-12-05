@@ -165,15 +165,15 @@
           console.log("resposta: ", resposta);
 
           if (resposta.ok) {
-            console.log(resposta);
 
             fetch(`/empresa/buscar-por-cnpj/${cnpjVar}`)
               .then(function (resposta) {
                 if (resposta.ok) {
-                  resposta.json().then(function (respostaFormatada) {
+                  resposta.json().then(function (resposta) {
                     console.log("DEU CERTTOO");
+  
+                    sessionStorage.FK_EMPRESA = resposta.idEmpresa;
 
-                    sessionStorage
                  setTimeout(() => {
                  window.location = "cadastro-usuario.html";
                  }, "2000")

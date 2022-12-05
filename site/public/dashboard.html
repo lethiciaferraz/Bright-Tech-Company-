@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="dashboard.css" />
+
+  <script src="./js/funcoes.js"></script>
+  
   <title>dashboard</title>
 </head>
 
@@ -16,7 +19,9 @@
     <div class="menulateral">
       <div class="hello">
         <img src="./assents/Ellipse 1.png" width=180px alt=""> <br> <br>
+
         <h2>Olá,<span id="b_usuario">usuário!</span></h2>
+        
         <h3>Bright Tech</h3>
       </div>
       <ul>
@@ -173,7 +178,13 @@
 
 <script>
   var idEmpresa = sessionStorage.getItem('ID_EMPRESA');
-  window.onload = obterDadosGrafico(idEmpresa), obterDadosGrafico2(idEmpresa);
+  window.onload = carregar()
+
+  function carregar() {
+    obterDadosGrafico(idEmpresa), 
+    obterDadosGrafico2(idEmpresa), 
+    validarSessao();
+  }
 
   function obterDadosGrafico(idEmpresa) {
     fetch(`/medidas/setores/${idEmpresa}`).then(function (response) {

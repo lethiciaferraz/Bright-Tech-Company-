@@ -90,7 +90,7 @@ function proximo(req, res) {
     empresaModel
       .proximo(nome, cnpj, telefone, qtd_Funcionario, metros_uteis, dt_contrato)
       .then(function (resultado) {
-        console.log("Meu RESULTADO", resultado);
+        console.log("Meu RESULTADO", resultado.insertId);
         res.json(resultado);
       })
       .catch(function (erro) {
@@ -104,9 +104,38 @@ function proximo(req, res) {
   }
 }
 
+function buscarPorCnpj(req, res){
+  var cnpj = req.params.cnpj;
+
+  if(cnpj == undefined){
+    res.status(400).send("Seu cnpj está undefiened!")
+  }else{
+    empresaModel 
+    .buscarPorCnpj(cnpj)
+    .then (function(resultado){
+
+      console.log(resultado);
+      
+      if(resultado.length ==1){
+        res.status(200).json(resultado[0]);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!")
+      }
+    })
+    .catch(function(erro){
+      console.log(
+        "Houve um erro ao realizar o cadastro! Erro: ",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+    });
+  }
+}
+
 module.exports = {
   entrar,
   proximo,
   listar,
   testar,
+  buscarPorCnpj
 };
