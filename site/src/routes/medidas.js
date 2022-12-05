@@ -3,11 +3,11 @@ var router = express.Router();
 var medidaController = require("../controllers/medidaController");
 
 /* --------------------------------------------------------------------------------------------------------- */
-
+ 
 router.get("/setores/:idEmpresa", function (req, res) {
     medidaController.graficoSetor(req, res);
 });
-
+ 
 router.get("/setores2/:idEmpresa", function (req, res) {
     medidaController.graficoSetor2(req, res);
 });

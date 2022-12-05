@@ -4,7 +4,7 @@ function graficoSetor(req, res) {
     var idEmpresa = req.params.idEmpresa;
 
     medidaModel.graficoSetor(idEmpresa).then(function (resultado) {
-        if (resultado.length > 0) {
+        if (resultado.length > 0) { 
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -12,7 +12,7 @@ function graficoSetor(req, res) {
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage); 
     });
 }
 
