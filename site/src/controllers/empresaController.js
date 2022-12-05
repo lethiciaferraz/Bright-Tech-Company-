@@ -91,7 +91,7 @@ function proximo(req, res) {
       .proximo(nome, cnpj, telefone, qtd_Funcionario, metros_uteis, dt_contrato)
       .then(function (resultado) {
         console.log("Meu RESULTADO", resultado);
-        res.json(resultado.insertId);
+        res.json(resultado);
       })
       .catch(function (erro) {
         console.log(erro);
