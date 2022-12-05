@@ -283,6 +283,7 @@
       var registro = resposta[i];
       data.datasets[0].data.push(registro.media);
       console.log(registro.media)
+      console.log('**********************************************************');
     }
 
     console.log('----------------------------------------------')
@@ -336,11 +337,13 @@
       var registro = resposta[i];
       data2.datasets[0].data.push(registro.media);
       console.log(registro.media)
+      console.log('--------------------------------------------------------------------');
+      console.log(registro);
     }
 
     console.log('----------------------------------------------')
     console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
+    console.log('Labels2:')
     console.log(labels2)
     console.log('Dados:')
     console.log(data2.datasets[0].data)
@@ -367,18 +370,18 @@
           console.log(`Dados atuais do gráfico:`);
           console.log(data);
 
-          if (novoRegistro[0].momento_grafico == data.labels[data.labels.length - 1]) {
+          if (novoRegistro[0].media == data.labels[data.labels.length - 1]) {
             console.log("---------------------------------------------------------------")
             console.log("Como não há dados novos para captura, o gráfico não atualizará.")
             console.log("Horário do novo dado capturado:")
-            console.log(novoRegistro[0].momento_grafico)
+            console.log(novoRegistro[0].media)
             console.log("Horário do último dado capturado:")
             console.log(data.labels[data.labels.length - 1])
             console.log("---------------------------------------------------------------")
           } else {
 
             data.labels.shift();
-            data.labels.push(novoRegistro[0].momento_grafico);
+            /* data.labels.push(novoRegistro[0].media); */
 
             myChart.update();
           }
@@ -407,26 +410,33 @@
           console.log(`Dados atuais do gráfico:`);
           console.log(data2);
 
-          if (novoRegistro[0].momento_grafico == data2.labels[data2.labels.length - 1]) {
+
+          if (novoRegistro[0].media == data2.labels[data2.labels.length - 1]) {
             console.log("---------------------------------------------------------------")
             console.log("Como não há dados novos para captura, o gráfico não atualizará.")
             console.log("Horário do novo dado capturado:")
-            console.log(novoRegistro[0].momento_grafico)
+            console.log(novoRegistro[0].media)
             console.log("Horário do último dado capturado:")
             console.log(data2.labels[data2.labels.length - 1])
             console.log("---------------------------------------------------------------")
           } else {
+            if (novoRegistro[0].media < 5) {
+              alert('registramos uma frequência menor do que a comumente vista neste período! Verifique a conexão com os demais dispositivos.')
+            } else if (novoRegistro[0].media > 25) {
+              alert('registramos uma frequência maior do que a comumente vista neste período! verifique se não há um anormalidade no ambiente.')
+            }
+
             data2.labels.shift();
-            data2.labels.push(novoRegistro[0].momento_grafico);
+            /* data2.labels.push(novoRegistro[0].media); */
 
             myChart2.update();
           }
 
-          proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 2000);
+          /* proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 2000); */
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
-        proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 2000);
+        /* proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 2000); */
       }
     })
       .catch(function (error) {
