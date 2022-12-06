@@ -33,7 +33,6 @@
             </a>
           </li>
 
-          <li></li>
           <li style="background-color: white; border-radius: 10px">
             <a href="mural.html" style="color: #115639">
               <span class="icon">
@@ -57,7 +56,7 @@
               <span class="icon">
                 <ion-icon name="log-out-outline"></ion-icon>
               </span>
-              <span class="menu">Sair</span>
+              <span class="menu" onclick="limparSessao()">Sair</span>
             </a>
           </li>
         </ul>
@@ -193,19 +192,20 @@
     return false;
   }
 
-  function editar(idmural) {
-    sessionStorage.ID_POSTAGEM_EDITANDO = idmural;
-    console.log("cliquei em editar - " + idmural);
+  function editar(idAvisos) {
+    sessionStorage.ID_POSTAGEM_EDITANDO = idAvisos;
+
+    console.log("cliquei em editar - " + idAvisos);
     window.alert(
       "Você será redirecionado à página de edição do aviso de id número: " +
-        idmural
+        idAvisos
     );
     window.location = "/edicao-aviso.html";
   }
 
-  function deletar(idmural) {
-    console.log("Criar função de apagar post escolhido - ID" + idmural);
-    fetch(`/avisos/deletar/${idmural}`, {
+  function deletar(idAvisos) {
+    console.log("Criar função de apagar post escolhido - ID" + idAvisos);
+    fetch(`/avisos/deletar/${idAvisos}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -271,8 +271,7 @@
               spanID.innerHTML = "ID: <b>" + publicacao.idAvisos + "</b>";
               spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
               spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-              divDescricao.innerHTML =
-                "Descrição: <b>" + publicacao.descricao + "</b>";
+              divDescricao.innerHTML = " Descrição: <b>" + publicacao.descricao + "</b>";
               btnEditar.innerHTML = "Editar";
               btnDeletar.innerHTML = "Deletar";
 
@@ -288,14 +287,14 @@
               btnEditar.id = "btnEditar" + publicacao.idAvisos;
               btnEditar.setAttribute(
                 "onclick",
-                `editar(${publicacao.idmural})`
+                `editar(${publicacao.idAvisos})`
               );
 
               btnDeletar.className = "publicacao-btn-editar";
-              btnDeletar.id = "btnDeletar" + publicacao.idmural;
+              btnDeletar.id = "btnDeletar" + publicacao.idAvisos;
               btnDeletar.setAttribute(
                 "onclick",
-                `deletar(${publicacao.idmural})`
+                `deletar(${publicacao.idAvisos})`
               );
 
               divPublicacao.appendChild(spanID);
@@ -320,22 +319,22 @@
       });
   }
 
-  function testar() {
-    // aguardar();
+  // function testar() {
+  //   // aguardar();
 
-    var formulario = new URLSearchParams(
-      new FormData(document.getElementById("form_postagem"))
-    );
+  //   var formulario = new URLSearchParams(
+  //     new FormData(document.getElementById("form_postagem"))
+  //   );
 
-    var divResultado = document.getElementById("div_feed");
+  //   var divResultado = document.getElementById("div_feed");
 
-    divResultado.appendChild(
-      document.createTextNode(formulario.get("descricao"))
-    );
-    divResultado.innerHTML = formulario.get("descricao");
+  //   divResultado.appendChild(
+  //     document.createTextNode(formulario.get("descricao"))
+  //   );
+  //   divResultado.innerHTML = formulario.get("descricao");
 
-    finalizarAguardar();
+  //   finalizarAguardar();
 
-    return false;
-  }
+  //   return false;
+  // }
 </script>

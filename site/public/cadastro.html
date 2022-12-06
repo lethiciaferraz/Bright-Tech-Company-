@@ -60,20 +60,23 @@
     <div class="banner">
       <div class="container1">
         <div class="caixa-formulario">
-          <h1>Cadastre-se</h1>
+          <h1>Cadastre sua empresa!</h1>
 
           <div class="campo">
             <label for="nome">Nome:</label>
             <input type="nome" id="in_nome" placeholder="Insira seu Nome" />
           </div>
+          
           <div class="campo">
             <label for="cnpj">CNPJ:</label>
             <input type="cnpj" id="in_cnpj" placeholder="Coloque seu CNPJ" />
           </div>
+
           <div class="campo">
             <label for="tel">Telefone:</label>
             <input type="tel" id="in_tel" placeholder="Insira seu telefone" />
           </div>
+
           <div class="campo1">
             <label for="qtd_Funcionario">Quantidade de funcionários:</label>
             <input
@@ -82,6 +85,7 @@
               placeholder="Quantidade de funcionários"
             />
           </div>
+
           <div class="campo">
             <label for="metros_uteis">Metros úteis da empresa:</label>
             <input
@@ -90,10 +94,12 @@
               placeholder="Números inteiros"
             />
           </div>
+
           <div class="campo">
             <label for="dt_contrato">Data de inicio do contrato:</label>
             <input type="date" id="in_dt_contrato" placeholder="Data atual" />
           </div>
+
           <button onclick="proximo()"><b>Próxima Página</b></button>
 
           <div id="div_aguardar" class="loading-div">
@@ -102,7 +108,9 @@
 
           <div id="div_erros_login"></div>
         </div>
+
       </div>
+    
     </div>
 
     <!-- Footer -->
@@ -141,6 +149,7 @@
         metros_uteisVar == "" ||
         dt_contratoVar == ""
       ) {
+        alert('preencha todos os campos!')
         finalizarAguardar();
         return false;
       }

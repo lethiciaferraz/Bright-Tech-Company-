@@ -1,36 +1,12 @@
 var database = require("../database/config");
 
-/*function listar() {
-  console.log(
-    "ACESSEI O AVISOS  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()"
-  );
-  var instrucao = `
-  SELECT 
-    a.idAvisos AS idAvisos,
-    a.titulo,
-    a.descricao,
-    a.fkUsuario,
-    a.fkEmpresa
-        FROM avisos a
-        INNER JOIN usuario u
-        ON a.fkUsuario = u.idUsuario;
-
-    `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
-}
-*/
-
 function listarPorEmpresa(idEmpresa) {
   console.log(
     "ACESSEI O AVISOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorEmpresa()"
   );
   var instrucao = `
-        
-    select 
-    * from 
-    avisos join 
-    empresa on fkEmpresa = idEmpresa where fkEmpresa = ${idEmpresa}; 
+  select avisos.*,usuario.nome,empresa.idEmpresa from avisos join 
+  usuario on avisos.fkUsuario = usuario.idUsuario join empresa on usuario.fkEmpresa = empresa.idEmpresa where idEmpresa = ${idEmpresa};
     `;
 
   console.log("Executando a instrução SQL: \n" + instrucao);

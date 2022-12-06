@@ -116,7 +116,7 @@
     position: relative;
     border: #000;
     left: 68vh;
-    height: 300px;
+    height: 315px;
     width: 700px;
     
 }
@@ -131,3 +131,10 @@
     font-size: x-large;
 }
 
+.ajuda a{
+  margin-top: 0.9vw;
+  background-color: #fff;
+  padding: 1vw;
+  border-radius: 1vw;
+  color: rgb(0, 0, 0);
+}

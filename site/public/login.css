@@ -44,36 +44,29 @@ a:hover{
     display: flex;
     margin-top: 0px;
     padding: 85px ;
-   /* height: 00px;*/
    font-family: Arial, Helvetica, sans-serif;
    align-items: center;
    justify-content: center;
-   
-  
 }
-
 
 .caixa-formulario{
     padding: 30px 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: center; 
     background-color: #edf0ece3;
     box-shadow: 0 7px 10px #115639;
     border-radius: 30px;
-    
-
-    
 }
+
 .caixa-formulario h1{
     color: #115639;
     margin-bottom: 0px;
-    
 }
 
 .campo{
+  margin-left: 2vw;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -86,6 +79,7 @@ a:hover{
     border: 2px solid #115639;
     color: black;
 }
+
 .campo label{
     color: black;
     font-family: sans-serif;
@@ -102,10 +96,13 @@ a:hover{
     border:none;
     border-radius: 20px;
     cursor: pointer;
+    margin: 0.9vw 5.5vw;
 }
+
 .caixa-formulario button :hover{
     opacity: 0.9;
 }
+
 .cad li a{
     color: #FFFFFF ;
     background-color: #115639;
@@ -155,6 +152,7 @@ a:hover{
     text-decoration: none;
     cursor: pointer;
 }
+
 .footer{
     height: 30px;
     padding: 50px 0px;
@@ -168,29 +166,28 @@ a:hover{
     font-size: small;
   }
   
-  .footer ul {
+.footer ul {
     display: flex;
     list-style: none;
     margin-bottom: 50px;
     justify-content: center;
     margin-top: 20px;
 
-  }
+}
   
-  .footer ul li {
+.footer ul li {
     color: #fff;
     font-size: medium;
-  }
+}
   
-  .footer ul li a {
+.footer ul li a {
     text-decoration: none;
     color: #fff;
     margin: 50px;
-  }
+}
 
 body{
     margin: 0px;
-    
 }
 
 -- FORMULARIO --

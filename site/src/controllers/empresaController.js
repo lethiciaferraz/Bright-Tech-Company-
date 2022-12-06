@@ -86,6 +86,7 @@ function proximo(req, res) {
   } else if (dt_contrato == undefined) {
     res.status(400).send("Seu dt_contrato está undefined!");
   } else {
+    
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
     empresaModel
       .proximo(nome, cnpj, telefone, qtd_Funcionario, metros_uteis, dt_contrato)

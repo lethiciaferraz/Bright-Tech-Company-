@@ -8,11 +8,13 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
  
   <link rel="stylesheet" href="edicao-aviso.css" />
+
   <script src="../js/funcoes.js"></script>
+
   <title>Edição aviso</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
   <!-- DIV MENU LATERAL -->
   <div class="fundo">
     <div class="menulateral">
@@ -23,8 +25,8 @@
         <h3>Bright Tech</h3>
       </div>
       <ul>
-        <li style="background-color: white; border-radius: 10px">
-          <a href="" style="color: #115639">
+        <li>
+          <a href="dashboard.html">
             <span class="icon">
               <ion-icon name="stats-chart-outline"></ion-icon>
             </span>
@@ -32,14 +34,15 @@
           </a>
         </li>
 
-        <li>
-          <a href="mural.html">
+        <li style="background-color: white; border-radius: 10px">
+          <a href="mural.html" style="color: #115639">
             <span class="icon">
               <ion-icon name="chatbubbles-outline"></ion-icon>
             </span>
             <span class="menu">Mural</span>
           </a>
         </li>
+
         <li>
           <a href="ajuda.html">
             <span class="icon">
@@ -54,7 +57,7 @@
             <span class="icon">
               <ion-icon name="log-out-outline"></ion-icon>
             </span>
-            <span class="menu">Sair</span>
+            <span class="menu" onclick="limparSessao()">Sair</span>
           </a>
         </li>
       </ul>
@@ -102,15 +105,15 @@
 
       <script>
         function editar() {
-          var idPostagem = sessionStorage.getItem("ID_POSTAGEM_EDITANDO");
-          fetch(`/avisos/editar/:idmural`, {
+          var idAvisos = sessionStorage.getItem("ID_POSTAGEM_EDITANDO");
+
+          fetch(`/avisos/editar/${idAvisos}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              descricaoServer: textarea_descricao.value,
-              idAvisoServer: idPostagem
+              descricao: textarea_descricao.value
             })
 
           }).then(function (resposta) {

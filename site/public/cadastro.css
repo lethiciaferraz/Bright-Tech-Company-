@@ -1,9 +1,8 @@
-.fundo {
+body {
     background-image: url(./assents/Frame\ 2\ -\ 1.0.png);
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0px;
-
 }
 
 .container {
@@ -44,9 +43,7 @@ a:hover {
     border-radius: 20px;  */
 }
 
-
 .caixa-formulario {
-
     padding: 20px 10px;
     border-radius: 10px;
     display: flex;
@@ -54,7 +51,6 @@ a:hover {
     align-items: center;
     justify-content: center;
     background-color: #edf0ece3;
-    padding: 10px 10px;
     margin: 10px 500px;
     border-radius: 30px;
     box-shadow: 0 7px 10px #115639;
@@ -63,6 +59,7 @@ a:hover {
 .caixa-formulario h1 {
     color: #115639;
     margin-bottom: 0px;
+    text-align: center;
 }
 
 .campo {

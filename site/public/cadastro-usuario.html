@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/funcoes.js"></script>
@@ -14,41 +14,41 @@
 <!--Header-->
 
 <body>
-    
+
     <div class="container">
-        <div class="logo"><a href="index.html"><img src="./assents/Logotipo.1png.png"
-            alt="Logo da nossa empresa"></a></div>
-            <div class="navbar">
-                <ul>
-                    <div class="home">
-                        <li><b><a href="index.html">Home</a></b></li>
-                    </div>
-                    <div class="quems">
-                        <li><b><a href="quemsomos.html">Quem Somos</a></b></li>
-                    </div>
-                    <div class="projeto">
-                        <li><b><a href="Projeto.HTML">Projeto</a></b></li>
-                    </div>
-                    <div class="simulador">
-                        <li><b><a href="simulador.html">Simulador</a></b></li>
-                    </div>
-                    <!--<li><b>Dashboard</b></li>-->
-                    <div class="cad">
-                        <li><b><a href="cadastro.html" id="acad">Cadastro</a></b></li>
-                    </div>
-                    <div class="login">
-                        <li><b><a href="login.html" id="login">Login</a></b></li>
-                    </div>
-                </ul>
+        <div class="logo"><a href="index.html"><img src="./assents/Logotipo.1png.png" alt="Logo da nossa empresa"></a>
+        </div>
+        <div class="navbar">
+            <ul>
+                <div class="home">
+                    <li><b><a href="index.html">Home</a></b></li>
+                </div>
+                <div class="quems">
+                    <li><b><a href="quemsomos.html">Quem Somos</a></b></li>
+                </div>
+                <div class="projeto">
+                    <li><b><a href="Projeto.HTML">Projeto</a></b></li>
+                </div>
+                <div class="simulador">
+                    <li><b><a href="simulador.html">Simulador</a></b></li>
+                </div>
+                <!--<li><b>Dashboard</b></li>-->
+                <div class="cad">
+                    <li><b><a href="cadastro.html" id="acad">Cadastro</a></b></li>
+                </div>
+                <div class="login">
+                    <li><b><a href="login.html" id="login">Login</a></b></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fundo">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
             </div>
         </div>
-        
-        <div class="fundo">
-            <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
-                    <span id="mensagem_erro"></span>
-                </div>
-            </div>
 
         <!--Tela do cadastro-->
         <div class="banner">
@@ -57,7 +57,7 @@
                     <h1>Cadastre-se</h1>
 
                     <div class="campo1">
-                        <label for="nome">Nome do funcionário responsável pelos dados:</label>
+                        <label for="nome">Nome do funcionário responsável:</label>
                         <input type="text" id="in_nome" placeholder="Insira seu Nome">
                     </div>
                     <div class="campo">
@@ -84,9 +84,9 @@
 
                     <div id="div_erros_login">
 
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <!-- Footer -->
@@ -97,6 +97,8 @@
             </ul>
             Bright Tech - copyright 2022. Todos os direitos reservados. Desenvolvido por Bright Tech
         </div>
+
+    </div>
 
 </body>
 
@@ -112,15 +114,16 @@
         var senhaVar = in_senha.value
         var confirmacaoSenhaVar = in_conf.value
 
-        if (nomeVar == "" || emailVar == "" || telefoneVar== "" || senhaVar == "" || confirmacaoSenhaVar == " ") {
+        if (nomeVar == "" || emailVar == "" || telefoneVar == "" || senhaVar == "" || confirmacaoSenhaVar == " ") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            
+
             finalizarAguardar();
             return false;
         }
 
-        var idEmpresa= sessionStorage.FK_EMPRESA
+        var idEmpresa = sessionStorage.FK_EMPRESA
+
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -134,7 +137,7 @@
                 emailServer: emailVar,
                 telefoneServer: telefoneVar,
                 senhaServer: senhaVar,
-                fkEmpresaServer: idEmpresa 
+                fkEmpresaServer: idEmpresa
             })
         }).then(function (resposta) {
 
@@ -146,12 +149,16 @@
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
+                    // LIMPEI O SESSION POIS AO FAZER LOGIN JÁ CRIAMOS O ID_EMPRESA NO SESSION(n precisamos mais da fk)
+                    sessionStorage.clear();
+
                     window.location = "login.html";
+
                 }, "2000")
-                
+
                 limparFormulario();
                 finalizarAguardar();
-            
+
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
@@ -163,7 +170,7 @@
         return false;
     }
 
-    function sumirMensagem(){
+    function sumirMensagem() {
         cardErro.style.display = "none"
     }
 </script>
