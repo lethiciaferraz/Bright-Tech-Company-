@@ -120,7 +120,7 @@ insert into captura values (null, null, null, null, null, null, '2022-10-04 08:3
 
 create table avisos(
 idAvisos int auto_increment,
-data date,
+dtAvisos date,
 titulo varchar(45),
 descricao varchar(250),
 fkUsuario int,
@@ -130,8 +130,8 @@ foreign key (fkEmpresa) references empresa (idEmpresa),
 primary key (idAvisos, fkUsuario, fkEmpresa)
 );
 
-insert into avisos values
-(1, null, 'teste', 'teste', 1, 13);
+insert into avisos (dtAvisos, titulo, descricao, fkUsuario, fkEmpresa) values
+('2022-12-04', 'teste', 'teste', 1, 12);
 
 -- ---------------------------------------------------------------------------------------------------
 						   

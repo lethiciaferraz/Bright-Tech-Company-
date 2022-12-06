@@ -21,7 +21,7 @@
         <img src="./assents/Ellipse 1.png" width=180px alt=""> <br> <br>
 
         <h2>Olá,<span id="b_usuario">usuário!</span></h2>
-        
+
         <h3>Bright Tech</h3>
       </div>
       <ul>
@@ -34,7 +34,7 @@
           </a>
         </li>
 
-      
+
 
         <li>
           <a href="mural.html">
@@ -42,6 +42,15 @@
               <ion-icon name="chatbubbles-outline"></ion-icon>
             </span>
             <span class="menu">Mural</span>
+          </a>
+        </li>
+
+        <li style="border-radius: 10px">
+          <a href="https://brighttech.auvo.com.br/Login#signin" style="color: white">
+            <span class="icon">
+              <ion-icon name="help-circle-outline"></ion-icon>
+            </span>
+            <span class="menu">Manual</span>
           </a>
         </li>
 
@@ -53,7 +62,7 @@
             <span class="menu">Ajuda</span>
           </a>
         </li>
-
+        <audio src=""></audio>
         <li>
           <a href="login.html">
             <span class="icon">
@@ -181,9 +190,9 @@
   window.onload = carregar()
 
   function carregar() {
-    obterDadosGrafico(idEmpresa), 
-    obterDadosGrafico2(idEmpresa), 
-    validarSessao();
+    obterDadosGrafico(idEmpresa),
+      obterDadosGrafico2(idEmpresa),
+      validarSessao();
   }
 
   function obterDadosGrafico(idEmpresa) {
@@ -301,7 +310,7 @@
     };
 
     var myChart = new Chart(document.getElementById("myChart"), config);
-    setTimeout(() => atualizarGrafico(data, myChart), 2000);
+    setTimeout(() => atualizarGrafico(data, myChart), 10000);
   }
 
   /* --------------------------------------------------------------------------------------------------------- */
@@ -356,7 +365,7 @@
     };
 
     var myChart2 = new Chart(document.getElementById('myChart2'), config2);
-    setTimeout(() => atualizarGrafico2(data2, myChart2), 2000);
+    setTimeout(() => atualizarGrafico2(data2, myChart2), 20000);
   }
 
   /* --------------------------------------------------------------------------------------------------------- */
@@ -386,11 +395,11 @@
             myChart.update();
           }
 
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(data, myChart), 2000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(data, myChart), 10000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(data, myChart), 2000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(data, myChart), 10000);
       }
     })
       .catch(function (error) {
@@ -421,7 +430,8 @@
             console.log("---------------------------------------------------------------")
           } else {
             if (novoRegistro[0].media < 5) {
-              alert('registramos uma frequência menor do que a comumente vista neste período! Verifique a conexão com os demais dispositivos.')
+              alert('registramos uma frequência menor do que a comumente vista neste período! Verifique a conexão com os demais dispositivos.');
+
             } else if (novoRegistro[0].media > 25) {
               alert('registramos uma frequência maior do que a comumente vista neste período! verifique se não há um anormalidade no ambiente.')
             }
@@ -432,11 +442,11 @@
             myChart2.update();
           }
 
-          /* proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 2000); */
+          proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 20000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
-        /* proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 2000); */
+        proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 20000);
       }
     })
       .catch(function (error) {
