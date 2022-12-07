@@ -5,10 +5,10 @@ function graficoSetor(idEmpresa) {
  
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `
-        select count(captura.chave) as media, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+        select top 16 count(captura.chave) as media, momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
                                                         left join captura on sensor.idsensor = captura.fkSensor
                                                         where fkEmpresa = ${idEmpresa}
-                                                        group by day(captura.momento) order by captura.momento desc limit 16;
+                                                        group by (momento) order by momento desc;
         `;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") { 
         instrucaoSql = `
@@ -33,10 +33,10 @@ function graficoSetor2(idEmpresa) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `
-        select count(captura.chave) as media, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
+        select top 5 count(captura.chave) as media, momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
                                                         left join captura on sensor.idsensor = captura.fkSensor
-                                                        where fkEmpresa = ${idEmpresa} and (select avg(captura.chave))
-                                                        group by day(captura.momento) order by captura.momento desc limit 5;
+                                                        where fkEmpresa = ${idEmpresa}
+                                                        group by (momento) order by momento desc;
         `;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
@@ -62,10 +62,8 @@ function buscarMedidasEmTempoReal(idEmpresa) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `
-        select count(captura.chave) as media, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
-                                                        left join captura on sensor.idsensor = captura.fkSensor
-                                                        where fkEmpresa = ${idEmpresa}
-                                                        group by day(captura.momento) order by captura.momento desc limit 1;
+										
+	select top 1 captura.momento as momento from captura join sensor on sensor.idSensor= captura.fkSensor join setor on setor.idSetor = sensor.fkSetor where fkEmpresa = ${idEmpresa} group by(captura.momento) order by captura.momento desc;
         `;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
@@ -92,10 +90,7 @@ function buscarMedidasEmTempoReal2(idEmpresa) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `
-    select count(captura.chave) as media, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
-														left join captura on sensor.idsensor = captura.fkSensor
-                                                        where fkEmpresa = ${idEmpresa} and (select avg(captura.chave))
-                                                        group by day(captura.momento) order by captura.momento desc limit 1;
+        select top 1 count(captura.chave) as media, captura.momento as momento from captura join sensor on sensor.idSensor= captura.fkSensor join setor on setor.idSetor = sensor.fkSetor where fkEmpresa = ${idEmpresa} group by(captura.momento) order by captura.momento desc;
         `;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
