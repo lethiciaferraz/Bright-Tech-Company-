@@ -8,14 +8,14 @@ function graficoSetor(idEmpresa) {
         select count(captura.chave) as media, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
                                                         left join captura on sensor.idsensor = captura.fkSensor
                                                         where fkEmpresa = ${idEmpresa}
-                                                        group by day(captura.momento) order by captura.momento desc limit 9;
+                                                        group by day(captura.momento) order by captura.momento desc limit 16;
         `;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") { 
         instrucaoSql = `
         select count(captura.chave) as media, captura.momento as dtRegistro from setor join sensor on setor.idsetor = sensor.fkSetor
                                                         left join captura on sensor.idsensor = captura.fkSensor
                                                         where fkEmpresa = ${idEmpresa}
-                                                        group by day(captura.momento) order by captura.momento desc limit 9;
+                                                        group by day(captura.momento) order by captura.momento desc limit 16;
         `;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

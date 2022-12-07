@@ -311,7 +311,7 @@
     };
 
     var myChart = new Chart(document.getElementById("myChart"), config);
-    setTimeout(() => atualizarGrafico(data, myChart), 10000);
+    setTimeout(() => atualizarGrafico(data, myChart), 40000);
   }
 
   /* --------------------------------------------------------------------------------------------------------- */
@@ -366,7 +366,7 @@
     };
 
     var myChart2 = new Chart(document.getElementById('myChart2'), config2);
-    setTimeout(() => atualizarGrafico2(data2, myChart2), 20000);
+    setTimeout(() => atualizarGrafico2(data2, myChart2), 40000);
   }
 
   /* --------------------------------------------------------------------------------------------------------- */
@@ -396,11 +396,11 @@
             myChart.update();
           }
 
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(data, myChart), 10000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(data, myChart), 40000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(data, myChart), 10000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(data, myChart), 40000);
       }
     })
       .catch(function (error) {
@@ -443,11 +443,11 @@
             myChart2.update();
           }
 
-          proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 20000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 40000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
-        proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 20000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico2(data2, myChart2), 40000);
       }
     })
       .catch(function (error) {
